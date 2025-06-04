@@ -12,7 +12,7 @@ import { CareerComponent } from './pages/contact/career/career.component';
 import { LegalComponent } from './pages/legal/legal.component';
 
 // Badrechner Imports
-import { PageGuard } from './pages/badrechner/badrechner.component';
+import { BathroomConfiguratorComponent } from './components/shared/bathroom-configurator/bathroom-configurator.component';
 import { PageOneComponent } from './pages/badrechner/page-one/page-one.component';
 import { PageTwoComponent } from './pages/badrechner/page-two/page-two.component';
 import { PageThreeComponent } from './pages/badrechner/page-three/page-three.component';
@@ -41,7 +41,7 @@ export const routes: Routes = [
   // Badrechner Routes - NEU
   {
     path: 'badrechner',
-    component: PageGuard,
+    component: BathroomConfiguratorComponent,
     children: [
       { path: '', redirectTo: 'page/1', pathMatch: 'full' },
       { path: 'page/1', component: PageOneComponent },

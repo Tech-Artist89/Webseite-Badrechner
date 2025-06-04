@@ -79,7 +79,7 @@ import { NavigationBadrechnerService } from '../../../services/navigation-badrec
     .hero-section {
       background: linear-gradient(135deg, 
         var(--primary-color, #1b3244) 0%, 
-        darken(var(--primary-color, #1b3244), 10%) 100%);
+        #142230 100%);
       color: var(--text-light, #ffffff);
       padding: 6rem 0 4rem;
       position: relative;
