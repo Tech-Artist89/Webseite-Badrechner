@@ -1,0 +1,97 @@
+<div class="heating-page">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">
+        <i class="fas fa-fire"></i>
+        Heizungsbau
+      </h1>
+      <p class="page-subtitle">Moderne und energieeffiziente Heizungslösungen für Ihr Zuhause</p>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="section-title text-start">Zukunftsweisende Heiztechnik</h2>
+          <p class="lead">Von der Planung bis zur Installation realisieren wir moderne Heizungsanlagen mit höchster Energieeffizienz. Unsere Experten beraten Sie individuell und finden die optimale Lösung für Ihre Bedürfnisse.</p>
+          <div class="feature-highlights">
+            <div class="highlight-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Bis zu 70% Energieeinsparung</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Staatliche Förderung möglich</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Smart Home Integration</span>
+            </div>
+          </div>
+          <a routerLink="/contact" class="btn btn-cta">Kostenlose Beratung</a>
+        </div>
+        <div class="col-lg-6">
+          <div class="visual-element">
+            <i class="fas fa-thermometer-half"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Heating Types -->
+  <section class="heating-types section">
+    <div class="container">
+      <h2 class="section-title">Unsere Heizsysteme</h2>
+      <div class="row g-4">
+        <div class="col-lg-4" *ngFor="let type of heatingTypes">
+          <div class="heating-card">
+            <div class="heating-icon">
+              <i [class]="type.icon"></i>
+            </div>
+            <h3>{{ type.title }}</h3>
+            <p>{{ type.description }}</p>
+            <ul class="feature-list">
+              <li *ngFor="let feature of type.features">
+                <i class="fas fa-check"></i>
+                {{ feature }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process-section section">
+    <div class="container">
+      <h2 class="section-title">Unser Vorgehen</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4>Beratung</h4>
+          <p>Kostenlose Vor-Ort-Beratung und Bedarfsanalyse</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4>Planung</h4>
+          <p>Individuelle Planung und Angebotserstellung</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4>Installation</h4>
+          <p>Professionelle Installation durch unser Fachteam</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h4>Service</h4>
+          <p>Regelmäßige Wartung und 24/7 Notdienst</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

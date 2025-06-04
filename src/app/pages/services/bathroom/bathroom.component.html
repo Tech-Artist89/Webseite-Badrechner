@@ -1,0 +1,124 @@
+<div class="bathroom-page">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">
+        <i class="fas fa-bath"></i>
+        Bäderbau
+      </h1>
+      <p class="page-subtitle">Traumhafte Badezimmer mit modernster Technik und zeitlosem Design</p>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="section-title text-start">Ihr Traumbad wird Realität</h2>
+          <p class="lead">Ob komplette Renovierung oder einzelne Modernisierungsmaßnahmen - wir schaffen Ihnen eine Wohlfühloase, die keine Wünsche offen lässt. Mit unserer 3D-Planung können Sie Ihr neues Bad vorab erleben.</p>
+          <div class="bathroom-stats">
+            <div class="stat">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Realisierte Bäder</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">15</div>
+              <div class="stat-label">Jahre Garantie</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Kundenzufriedenheit</div>
+            </div>
+          </div>
+          <a routerLink="/contact" class="btn btn-cta">Kostenlose 3D-Planung</a>
+        </div>
+        <div class="col-lg-6">
+          <div class="bathroom-gallery">
+            <div class="gallery-item">
+              <i class="fas fa-shower"></i>
+            </div>
+            <div class="gallery-item">
+              <i class="fas fa-bath"></i>
+            </div>
+            <div class="gallery-item">
+              <i class="fas fa-sink"></i>
+            </div>
+            <div class="gallery-item">
+              <i class="fas fa-toilet"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="bathroom-services section">
+    <div class="container">
+      <h2 class="section-title">Unsere Bäder-Services</h2>
+      <div class="row g-4">
+        <div class="col-lg-6" *ngFor="let service of bathroomServices">
+          <div class="bathroom-service-card">
+            <div class="service-icon">
+              <i [class]="service.icon"></i>
+            </div>
+            <div class="service-content">
+              <h3>{{ service.title }}</h3>
+              <p>{{ service.description }}</p>
+              <div class="service-duration">
+                <i class="fas fa-clock"></i>
+                <span>{{ service.duration }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design Process -->
+  <section class="design-process section">
+    <div class="container">
+      <h2 class="section-title">Vom Traum zur Realität</h2>
+      <div class="process-timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="timeline-content">
+            <h4>Beratungsgespräch</h4>
+            <p>Wir besprechen Ihre Wünsche und Vorstellungen</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-ruler-combined"></i>
+          </div>
+          <div class="timeline-content">
+            <h4>Aufmaß vor Ort</h4>
+            <p>Präzise Vermessung Ihres Badezimmers</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-cube"></i>
+          </div>
+          <div class="timeline-content">
+            <h4>3D-Planung</h4>
+            <p>Visualisierung Ihres neuen Bades</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <div class="timeline-content">
+            <h4>Umsetzung</h4>
+            <p>Professionelle Realisierung durch unser Team</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

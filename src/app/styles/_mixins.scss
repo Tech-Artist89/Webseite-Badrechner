@@ -1,0 +1,73 @@
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Glass effect
+@mixin glass-effect($opacity: 0.05) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Hover effects
+@mixin hover-lift {
+  transition: transform $transition-normal;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+// Button styles
+@mixin btn-base {
+  display: inline-block;
+  padding: 12px 30px;
+  border: none;
+  border-radius: $border-radius-round;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all $transition-normal;
+  font-family: $font-family-base;
+}
+
+@mixin btn-cta {
+  @include btn-base;
+  background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+  color: $text-light;
+  
+  &:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 30px rgba($cta-color, 0.4);
+    color: $text-light;
+  }
+}
+
+// Responsive breakpoints
+@mixin mobile-only {
+  @media (max-width: #{$tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}

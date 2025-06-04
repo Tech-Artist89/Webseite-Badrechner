@@ -1,0 +1,46 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba($primary-color, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  padding: 1rem 0;
+
+  &.scrolled {
+    background: $primary-color;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 0;
+  }
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  color: $text-light;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $cta-color;
+  }
+
+  i {
+    margin-right: 0.5rem;
+    color: $cta-color;
+  }
+}

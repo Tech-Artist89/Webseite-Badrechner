@@ -1,0 +1,24 @@
+<div class="service-card" [class.featured]="featured">
+  <div class="service-icon">
+    <i [class]="service.icon"></i>
+  </div>
+  
+  <div class="service-content">
+    <h3 class="service-title">{{ service.title }}</h3>
+    <p class="service-description">{{ service.description }}</p>
+    
+    <ul class="service-features" *ngIf="service.features && service.features.length > 0">
+      <li *ngFor="let feature of service.features">
+        <i class="fas fa-check"></i>
+        {{ feature }}
+      </li>
+    </ul>
+    
+    <div class="service-footer">
+      <a [routerLink]="'/services/' + service.id" class="btn btn-service">
+        Mehr erfahren
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</div>

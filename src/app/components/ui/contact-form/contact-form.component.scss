@@ -1,0 +1,154 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.contact-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-title {
+  color: $text-light;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-subtitle {
+  color: rgba($text-light, 0.8);
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: $text-light;
+  padding: 12px 20px;
+  width: 100%;
+  transition: all 0.3s ease;
+
+  &:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: $cta-color;
+    box-shadow: 0 0 0 0.2rem rgba($cta-color, 0.25);
+    color: $text-light;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  &.is-invalid {
+    border-color: #dc3545;
+  }
+}
+
+select.form-control {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  appearance: none;
+
+  option {
+    background: $primary-color;
+    color: $text-light;
+  }
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-check-input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.form-check-label {
+  color: rgba($text-light, 0.8);
+  cursor: pointer;
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.btn-cta {
+  background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  transition: all 0.3s ease;
+  width: 100%;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba($cta-color, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.success-message {
+  text-align: center;
+  background: rgba($accent-color, 0.1);
+  border: 1px solid $accent-color;
+  border-radius: 20px;
+  padding: 3rem;
+
+  i {
+    font-size: 4rem;
+    color: $accent-color;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    color: $text-light;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: rgba($text-light, 0.8);
+    margin-bottom: 2rem;
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  color: $accent-color;
+  border: 2px solid $accent-color;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $accent-color;
+    color: $primary-color;
+  }
+}

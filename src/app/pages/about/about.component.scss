@@ -1,0 +1,71 @@
+@import '../../styles/variables';
+
+.about-page {
+  .about-navigation {
+    padding: 100px 0;
+  }
+
+  .about-nav-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 3rem;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    gap: 2rem;
+
+    &:hover {
+      background: rgba($cta-color, 0.1);
+      transform: translateY(-10px);
+      border-color: $cta-color;
+      
+      .nav-arrow {
+        transform: translateX(10px);
+      }
+    }
+  }
+
+  .nav-icon {
+    font-size: 4rem;
+    color: $cta-color;
+    flex-shrink: 0;
+  }
+
+  .nav-content {
+    flex: 1;
+    color: $text-light;
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: rgba($text-light, 0.8);
+      margin: 0;
+    }
+  }
+
+  .nav-arrow {
+    color: $cta-color;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    .about-nav-card {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .nav-icon {
+      font-size: 3rem;
+    }
+  }
+}

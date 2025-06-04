@@ -1,0 +1,104 @@
+<div class="installation-page">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">
+        <i class="fas fa-wrench"></i>
+        Installation & Service
+      </h1>
+      <p class="page-subtitle">Professionelle Installation, Wartung und Reparatur aller sanitären Anlagen</p>
+    </div>
+  </section>
+
+  <!-- Emergency Section -->
+  <section class="emergency-section section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="emergency-card">
+            <div class="emergency-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h2>Notfall?</h2>
+            <p>Bei akuten Problemen sind wir 24/7 für Sie da!</p>
+            <a href="tel:+491234567890" class="btn btn-emergency">
+              <i class="fas fa-phone"></i>
+              Jetzt anrufen: 030 760 089 21
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="emergency-tips">
+            <h3>Erste Hilfe bei Wasserschäden:</h3>
+            <ol class="emergency-steps">
+              <li *ngFor="let step of emergencySteps; let i = index">
+                <span class="step-number">{{ i + 1 }}</span>
+                {{ step }}
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services-section section">
+    <div class="container">
+      <h2 class="section-title">Unsere Services</h2>
+      <div class="row g-4">
+        <div class="col-lg-6" *ngFor="let service of services">
+          <div class="service-card">
+            <div class="service-icon">
+              <i [class]="service.icon"></i>
+            </div>
+            <div class="service-content">
+              <h3>{{ service.title }}</h3>
+              <p>{{ service.description }}</p>
+              <div class="service-response">
+                <i class="fas fa-clock"></i>
+                <span>{{ service.response }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Maintenance Contract -->
+  <section class="maintenance-section section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="section-title text-start">Wartungsvertrag</h2>
+          <p class="lead">Sichern Sie sich die optimale Funktion Ihrer Anlagen mit unserem Wartungsservice.</p>
+          <div class="maintenance-benefits">
+            <div class="benefit-item">
+              <i class="fas fa-shield-alt"></i>
+              <div>
+                <h5>Verlängerte Lebensdauer</h5>
+                <p>Regelmäßige Wartung erhöht die Lebensdauer Ihrer Anlagen um bis zu 50%</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-euro-sign"></i>
+              <div>
+                <h5>Kostenersparnis</h5>
+                <p>Vermeidung teurer Reparaturen durch frühzeitige Erkennung</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-tools"></i>
+              <div>
+                <h5>Priorität im Notfall</h5>
+                <p>Bevorzugte Behandlung bei Störungen und Ausfällen</p>
+              </div>
+            </div>
+          </div>
+          <a routerLink="/contact" class="btn btn-cta">Wartungsvertrag anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,130 @@
+<div class="contact-page">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Kontakt</h1>
+      <p class="page-subtitle">Wir sind für Sie da - kontaktieren Sie uns!</p>
+    </div>
+  </section>
+
+  <!-- Emergency Banner -->
+  <section class="emergency-banner">
+    <div class="container">
+      <div class="emergency-content">
+        <div class="emergency-icon">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="emergency-text">
+          <h3>24/7 Notdienst</h3>
+          <p>Bei akuten Problemen sind wir rund um die Uhr für Sie erreichbar</p>
+        </div>
+        <div class="emergency-action">
+          <a href="tel:+491234567890" class="btn btn-emergency">
+            <i class="fas fa-phone"></i>
+            +49 (0) 30 76008921
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="contact-content section">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Contact Form -->
+        <div class="col-lg-8">
+          <app-contact-form></app-contact-form>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="col-lg-4" *ngIf="contactInfo">
+          <div class="contact-info">
+            <h3>Kontaktinformationen</h3>
+            
+            <!-- Address -->
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info-content">
+                <h5>Adresse</h5>
+                <p>
+                  {{ contactInfo.address.street }}<br>
+                  {{ contactInfo.address.zip }} {{ contactInfo.address.city }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="info-content">
+                <h5>Telefon</h5>
+                <p>{{ contactInfo.phone }}</p>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-content">
+                <h5>E-Mail</h5>
+                <p>{{ contactInfo.email }}</p>
+              </div>
+            </div>
+
+            <!-- Opening Hours -->
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="info-content">
+                <h5>Öffnungszeiten</h5>
+                <div class="opening-hours">
+                  <div class="hours-item" *ngFor="let item of getOpeningHoursArray()">
+                    <span class="day">{{ item.day }}:</span>
+                    <span class="hours">{{ item.hours }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Emergency -->
+            <div class="info-item emergency">
+              <div class="info-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <div class="info-content">
+                <h5>Notdienst</h5>
+                <p>24/7 erreichbar<br>{{ contactInfo.emergencyPhone }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <div class="container">
+      <h3 class="text-center mb-4">So finden Sie uns</h3>
+      <div class="map-placeholder">
+        <div class="map-content">
+          <i class="fas fa-map-marked-alt"></i>
+          <h4>Mitra Sanitär GmbH</h4>
+          <p *ngIf="contactInfo">
+            {{ contactInfo.address.street }}<br>
+            {{ contactInfo.address.zip }} {{ contactInfo.address.city }}
+          </p>
+          <small>Google Maps Integration würde hier erscheinen</small>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

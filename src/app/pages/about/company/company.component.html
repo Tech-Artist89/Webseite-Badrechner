@@ -1,0 +1,76 @@
+<div class="company-page">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Unser Unternehmen</h1>
+      <p class="page-subtitle">Tradition trifft Innovation</p>
+    </div>
+  </section>
+
+  <!-- Company Story -->
+  <section class="company-story section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="section-title text-start">Unsere Geschichte</h2>
+          <p class="lead">Seit 2024 steht Mitra Sanitär GmbH für höchste Qualität in der Sanitär- und Heizungstechnik. Als Inovatives Unternehmen verbinden wir bewährte Handwerkskunst mit modernster Digitaltechnik.</p>
+          <p>Unser Fokus liegt auf nachhaltigen und energieeffizienten Lösungen, die nicht nur die Umwelt schonen, sondern auch Ihre Betriebskosten senken. Mit unserem erfahrenen Team und modernster Ausstattung realisieren wir Projekte jeder Größenordnung.</p>
+          <div class="company-stats">
+            <div class="stat-item">
+              <div class="stat-number">1+</div>
+              <div class="stat-label">Jahre Erfahrung</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100+</div>
+              <div class="stat-label">Zufriedene Kunden</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Projekte pro Jahr</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="company-visual">
+            <i class="fas fa-industry"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline-section section">
+    <div class="container">
+      <h2 class="section-title">Meilensteine</h2>
+      <div class="timeline">
+        <div class="timeline-item" *ngFor="let milestone of milestones; let i = index" [class.timeline-right]="i % 2 === 1">
+          <div class="timeline-content">
+            <div class="timeline-year">{{ milestone.year }}</div>
+            <h4>{{ milestone.title }}</h4>
+            <p>{{ milestone.description }}</p>
+          </div>
+          <div class="timeline-marker"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="values-section section">
+    <div class="container">
+      <h2 class="section-title">Unsere Werte</h2>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6" *ngFor="let value of values">
+          <div class="value-card">
+            <div class="value-icon">
+              <i [class]="value.icon"></i>
+            </div>
+            <h4>{{ value.title }}</h4>
+            <p>{{ value.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

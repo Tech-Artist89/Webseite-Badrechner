@@ -1,0 +1,131 @@
+@import '../../../styles/variables';
+
+.service-card {
+  background: rgba(255, 255, 255, 0.1) !important;  // ✅ Mehr Sichtbarkeit
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;  // ✅ Sichtbarer Border
+  border-radius: 20px;
+  padding: 2.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex !important;  // ✅ Sicherstellen dass sichtbar
+  flex-direction: column;
+  opacity: 1 !important;    // ✅ Sichtbarkeit forcieren
+  visibility: visible !important;  // ✅ Sichtbarkeit forcieren
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba($cta-color, 0.1), transparent);
+    transition: left 0.5s;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: $cta-color !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &.featured {
+    border-color: $cta-color !important;
+    background: rgba($cta-color, 0.1) !important;
+  }
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: $cta-color !important;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  display: block !important;
+}
+
+.service-content {
+  flex: 1;
+  display: flex !important;
+  flex-direction: column;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: $text-light !important;
+  display: block !important;
+}
+
+.service-description {
+  color: rgba($text-light, 0.9) !important;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  display: block !important;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  display: block !important;
+
+  li {
+    display: flex !important;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    color: rgba($text-light, 0.8) !important;
+
+    i {
+      color: $accent-color !important;
+      margin-right: 0.5rem;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.service-footer {
+  margin-top: auto;
+  display: block !important;
+}
+
+.btn-service {
+  background: transparent;
+  color: $cta-color !important;
+  border: 1px solid $cta-color;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background: $cta-color !important;
+    color: white !important;
+  }
+
+  i {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover i {
+    transform: translateX(3px);
+  }
+}
+
+// Debug-Styles (temporär zum Testen)
+.service-card {
+  min-height: 400px !important;
+  border: 3px solid red !important;  // ✅ DEBUG: Roten Border hinzufügen
+}

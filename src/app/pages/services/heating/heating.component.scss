@@ -1,0 +1,166 @@
+@import '../../../styles/variables';
+
+.heating-page {
+  .page-header {
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+    
+    .page-title i {
+      color: $cta-color;
+      margin-right: 1rem;
+    }
+  }
+
+  .section-title.text-start::after {
+    left: 0;
+    transform: none;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    color: rgba($text-light, 0.9);
+    margin-bottom: 2rem;
+  }
+
+  .feature-highlights {
+    margin-bottom: 2rem;
+  }
+
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: $text-light;
+
+    i {
+      color: $accent-color;
+      margin-right: 1rem;
+    }
+  }
+
+  .visual-element {
+    text-align: center;
+    
+    i {
+      font-size: 12rem;
+      color: rgba($cta-color, 0.3);
+    }
+  }
+
+  .heating-types {
+    background: linear-gradient(135deg, darken($primary-color, 5%) 0%, $primary-color 100%);
+  }
+
+  .heating-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    height: 100%;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+      border-color: $cta-color;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .heating-icon {
+    font-size: 3rem;
+    color: $cta-color;
+    margin-bottom: 1.5rem;
+  }
+
+  .heating-card h3 {
+    color: $text-light;
+    margin-bottom: 1rem;
+  }
+
+  .heating-card p {
+    color: rgba($text-light, 0.8);
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      color: rgba($text-light, 0.8);
+
+      i {
+        color: $accent-color;
+        margin-right: 0.5rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .process-section {
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .step {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($cta-color, 0.1);
+      transform: translateY(-5px);
+    }
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 auto 1rem;
+  }
+
+  .step h4 {
+    color: $text-light;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .step p {
+    color: rgba($text-light, 0.8);
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .heating-page {
+    .visual-element i {
+      font-size: 8rem;
+    }
+
+    .process-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+}

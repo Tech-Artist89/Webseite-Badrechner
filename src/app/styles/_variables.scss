@@ -1,0 +1,37 @@
+// Colors
+$primary-color: #1b3244;
+$cta-color: #ef804e;
+$accent-color: #9fce99;
+$text-light: #ffffff;
+$text-dark: #333333;
+
+// Spacing
+$section-padding: 80px 0;
+$container-padding: 2rem;
+
+// Breakpoints
+$mobile: 576px;
+$tablet: 768px;
+$desktop: 992px;
+$large-desktop: 1200px;
+
+// Typography
+$font-family-base: 'Inter', sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+
+// Borders
+$border-radius-sm: 5px;
+$border-radius-md: 10px;
+$border-radius-lg: 20px;
+$border-radius-round: 50px;
+
+// Shadows
+$box-shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+$box-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.2);
+$box-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;

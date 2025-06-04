@@ -1,0 +1,141 @@
+<div class="contact-form-container">
+  <div class="contact-form" *ngIf="!submitSuccess">
+    <h3 class="form-title">Kontaktieren Sie uns</h3>
+    <p class="form-subtitle">Wir melden uns schnellstmöglich bei Ihnen zurück.</p>
+    
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input 
+              type="text" 
+              id="firstName"
+              formControlName="firstName"
+              class="form-control"
+              [class.is-invalid]="isFieldInvalid('firstName')"
+              placeholder="Vorname *">
+            <div class="invalid-feedback" *ngIf="isFieldInvalid('firstName')">
+              {{ getFieldError('firstName') }}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input 
+              type="text" 
+              id="lastName"
+              formControlName="lastName"
+              class="form-control"
+              [class.is-invalid]="isFieldInvalid('lastName')"
+              placeholder="Nachname *">
+            <div class="invalid-feedback" *ngIf="isFieldInvalid('lastName')">
+              {{ getFieldError('lastName') }}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input 
+              type="email" 
+              id="email"
+              formControlName="email"
+              class="form-control"
+              [class.is-invalid]="isFieldInvalid('email')"
+              placeholder="E-Mail Adresse *">
+            <div class="invalid-feedback" *ngIf="isFieldInvalid('email')">
+              {{ getFieldError('email') }}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <input 
+              type="tel" 
+              id="phone"
+              formControlName="phone"
+              class="form-control"
+              placeholder="Telefonnummer">
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <select 
+          id="service"
+          formControlName="service"
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('service')">
+          <option value="">Beratungsthema wählen *</option>
+          <option *ngFor="let option of serviceOptions" [value]="option.value">
+            {{ option.label }}
+          </option>
+        </select>
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('service')">
+          {{ getFieldError('service') }}
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <input 
+          type="text" 
+          id="subject"
+          formControlName="subject"
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('subject')"
+          placeholder="Betreff *">
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('subject')">
+          {{ getFieldError('subject') }}
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <textarea 
+          id="message"
+          formControlName="message"
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('message')"
+          rows="5"
+          placeholder="Ihre Nachricht *"></textarea>
+        <div class="invalid-feedback" *ngIf="isFieldInvalid('message')">
+          {{ getFieldError('message') }}
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="form-check">
+          <input 
+            type="checkbox" 
+            id="urgent"
+            formControlName="urgent"
+            class="form-check-input">
+          <label for="urgent" class="form-check-label">
+            Dringende Anfrage (wir melden uns innerhalb von 2 Stunden)
+          </label>
+        </div>
+      </div>
+      
+      <button 
+        type="submit" 
+        class="btn btn-cta"
+        [disabled]="isSubmitting">
+        <span *ngIf="!isSubmitting">Nachricht senden</span>
+        <span *ngIf="isSubmitting">
+          <i class="fas fa-spinner fa-spin"></i>
+          Wird gesendet...
+        </span>
+      </button>
+    </form>
+  </div>
+  
+  <div class="success-message" *ngIf="submitSuccess">
+    <i class="fas fa-check-circle"></i>
+    <h3>Vielen Dank für Ihre Nachricht!</h3>
+    <p>Wir haben Ihre Anfrage erhalten und melden uns schnellstmöglich bei Ihnen zurück.</p>
+    <button class="btn btn-outline" (click)="submitSuccess = false; initForm()">
+      Weitere Nachricht senden
+    </button>
+  </div>
+</div>

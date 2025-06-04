@@ -1,0 +1,50 @@
+<div class="team-page">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Unser Team</h1>
+      <p class="page-subtitle">Die Experten hinter unseren erfolgreichen Projekten</p>
+    </div>
+  </section>
+
+  <!-- Team Introduction -->
+  <section class="team-intro section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-title">Kompetenz & Leidenschaft</h2>
+          <p class="lead">Unser Team besteht aus erfahrenen Fachkräften, die mit Leidenschaft und Expertise für Ihre Projekte arbeiten. Jeder bringt sein spezifisches Know-how ein, um Ihnen die bestmögliche Lösung zu bieten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team by Departments -->
+  <section class="team-departments section" *ngFor="let department of departments; let i = index">
+    <div class="container" *ngIf="department.members.length > 0">
+      <h3 class="department-title">{{ department.name }}</h3>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" *ngFor="let member of department.members">
+          <app-team-card [teamMember]="member"></app-team-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Team -->
+  <section class="join-team section">
+    <div class="container">
+      <div class="join-team-card">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <h3>Werden Sie Teil unseres Teams!</h3>
+            <p>Wir suchen ständig motivierte Fachkräfte, die mit uns die Zukunft der Sanitär- und Heizungstechnik gestalten möchten.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a routerLink="/contact/career" class="btn btn-cta">Karriere-Möglichkeiten</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

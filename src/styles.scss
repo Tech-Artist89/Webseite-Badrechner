@@ -1,0 +1,35 @@
+// Import Bootstrap first
+@import 'bootstrap/scss/bootstrap';
+
+// Import our custom styles in correct order
+@import 'app/styles/variables';
+@import 'app/styles/mixins';
+@import 'app/styles/animations';
+@import 'app/styles/components';
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-base;
+  background-color: $primary-color;
+  color: $text-light;
+  overflow-x: hidden;
+  line-height: $line-height-base;
+}
+
+// Global utilities
+.text-primary { color: $primary-color !important; }
+.text-cta { color: $cta-color !important; }
+.text-accent { color: $accent-color !important; }
+.bg-primary { background-color: $primary-color !important; }
+.bg-cta { background-color: $cta-color !important; }
+.bg-accent { background-color: $accent-color !important; }

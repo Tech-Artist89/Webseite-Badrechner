@@ -1,0 +1,30 @@
+<div class="team-card">
+  <div class="team-avatar">
+    <img *ngIf="teamMember.image; else defaultAvatar" 
+         [src]="teamMember.image" 
+         [alt]="teamMember.firstName + ' ' + teamMember.lastName">
+    <ng-template #defaultAvatar>
+      <i class="fas fa-user"></i>
+    </ng-template>
+  </div>
+  
+  <div class="team-info">
+    <h4 class="team-name">{{ teamMember.firstName }} {{ teamMember.lastName }}</h4>
+    <p class="team-position">{{ teamMember.position }}</p>
+    <p class="team-description">{{ teamMember.description }}</p>
+    
+    <div class="team-specialties" *ngIf="teamMember.specialties && teamMember.specialties.length > 0">
+      <h5>Spezialisierung:</h5>
+      <div class="specialty-tags">
+        <span *ngFor="let specialty of teamMember.specialties" class="specialty-tag">
+          {{ specialty }}
+        </span>
+      </div>
+    </div>
+    
+    <div class="team-experience">
+      <i class="fas fa-clock"></i>
+      <span>{{ teamMember.experience }}+ Jahre Erfahrung</span>
+    </div>
+  </div>
+</div>

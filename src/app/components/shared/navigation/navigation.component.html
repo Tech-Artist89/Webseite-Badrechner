@@ -1,0 +1,78 @@
+<!-- src/app/components/shared/navigation/navigation.component.html - Erweitert -->
+<nav class="navigation" (clickOutside)="closeDropdown()">
+  <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="nav-list" [class.active]="isMenuOpen">
+    <li class="nav-item">
+      <a routerLink="/" class="nav-link" (click)="closeMenu()">Startseite</a>
+    </li>
+    
+    <!-- Badrechner - Neue Hauptfunktion -->
+    <li class="nav-item special-nav">
+      <a routerLink="/badrechner" class="nav-link nav-link-special" (click)="closeMenu()">
+        <i class="fas fa-bath"></i>
+        Badrechner
+        <span class="special-badge">NEU</span>
+      </a>
+    </li>
+    
+    <!-- Services Dropdown -->
+    <li class="nav-item dropdown" [class.active]="isDropdownOpen('services')">
+      <a class="nav-link dropdown-toggle" 
+         (click)="toggleDropdown('services', $event)"
+         [class.active]="isDropdownOpen('services')">
+        Dienstleistungen
+        <i class="fas fa-chevron-down" [class.rotated]="isDropdownOpen('services')"></i>
+      </a>
+      <ul class="dropdown-menu" [class.show]="isDropdownOpen('services')">
+        <li><a routerLink="/services" class="dropdown-link" (click)="closeMenu()">Übersicht</a></li>
+        <li><a routerLink="/services/heating" class="dropdown-link" (click)="closeMenu()">Heizungsbau</a></li>
+        <li><a routerLink="/services/bathroom" class="dropdown-link" (click)="closeMenu()">Bäderbau</a></li>
+        <li><a routerLink="/services/installation" class="dropdown-link" (click)="closeMenu()">Installation</a></li>
+        <li class="dropdown-divider"></li>
+        <li>
+          <a routerLink="/badrechner" class="dropdown-link special-dropdown-link" (click)="closeMenu()">
+            <i class="fas fa-calculator"></i>
+            Badrechner verwenden
+          </a>
+        </li>
+      </ul>
+    </li>
+    
+    <!-- About Dropdown -->
+    <li class="nav-item dropdown" [class.active]="isDropdownOpen('about')">
+      <a class="nav-link dropdown-toggle" 
+         (click)="toggleDropdown('about', $event)"
+         [class.active]="isDropdownOpen('about')">
+        Über uns
+        <i class="fas fa-chevron-down" [class.rotated]="isDropdownOpen('about')"></i>
+      </a>
+      <ul class="dropdown-menu" [class.show]="isDropdownOpen('about')">
+        <li><a routerLink="/about/company" class="dropdown-link" (click)="closeMenu()">Firma</a></li>
+        <li><a routerLink="/about/team" class="dropdown-link" (click)="closeMenu()">Team</a></li>
+      </ul>
+    </li>
+    
+    <!-- Contact Dropdown -->
+    <li class="nav-item dropdown" [class.active]="isDropdownOpen('contact')">
+      <a class="nav-link dropdown-toggle" 
+         (click)="toggleDropdown('contact', $event)"
+         [class.active]="isDropdownOpen('contact')">
+        Kontakt
+        <i class="fas fa-chevron-down" [class.rotated]="isDropdownOpen('contact')"></i>
+      </a>
+      <ul class="dropdown-menu" [class.show]="isDropdownOpen('contact')">
+        <li><a routerLink="/contact" class="dropdown-link" (click)="closeMenu()">Kontakt</a></li>
+        <li><a routerLink="/contact/career" class="dropdown-link" (click)="closeMenu()">Karriere</a></li>
+      </ul>
+    </li>
+    
+    <li class="nav-item">
+      <a routerLink="/legal" class="nav-link" (click)="closeMenu()">Impressum</a>
+    </li>
+  </ul>
+</nav>

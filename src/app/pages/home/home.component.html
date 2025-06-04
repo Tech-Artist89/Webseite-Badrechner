@@ -1,0 +1,281 @@
+<div class="home-page">
+  <!-- Hero Section -->
+  <app-hero-section></app-hero-section>
+  
+  <!-- Badrechner Highlight Section -->
+  <section class="badrechner-highlight section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="badrechner-content fade-in">
+            <h2 class="section-title text-start">🛁 Ihr Traumbad planen</h2>
+            <p class="lead">
+              Nutzen Sie unseren kostenlosen Badrechner und planen Sie Ihr Traumbadezimmer 
+              in nur 5 einfachen Schritten. Erhalten Sie eine individuelle Beratung und 
+              ein maßgeschneidertes Angebot.
+            </p>
+            <div class="badrechner-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Kostenlose 3D-Planung</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Individuelle Beratung</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Unverbindliches Angebot</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Hochwertige Materialien</span>
+              </div>
+            </div>
+            <div class="badrechner-actions">
+              <a routerLink="/badrechner" class="btn btn-cta btn-lg me-3">
+                <i class="fas fa-calculator me-2"></i>
+                Badrechner starten
+              </a>
+              <a routerLink="/services/bathroom" class="btn btn-outline-cta btn-lg">
+                <i class="fas fa-info-circle me-2"></i>
+                Mehr über Bäderbau
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="badrechner-visual fade-in">
+            <div class="visual-container">
+              <div class="bathroom-preview">
+                <i class="fas fa-bath"></i>
+                <div class="preview-elements">
+                  <div class="element element-1">
+                    <i class="fas fa-shower"></i>
+                  </div>
+                  <div class="element element-2">
+                    <i class="fas fa-toilet"></i>
+                  </div>
+                  <div class="element element-3">
+                    <i class="fas fa-sink"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="steps-preview">
+                <div class="step-circle active">1</div>
+                <div class="step-circle">2</div>
+                <div class="step-circle">3</div>
+                <div class="step-circle">4</div>
+                <div class="step-circle">5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Preview -->
+  <section id="services" class="services-preview section">
+    <div class="container">
+      <h2 class="section-title fade-in">Unsere Dienstleistungen</h2>
+      <p class="section-subtitle fade-in">
+        Professionelle Lösungen für alle Bereiche der Sanitär- und Heizungstechnik
+      </p>
+
+      <!-- Service Cards -->
+      <div class="row g-4" *ngIf="services && services.length > 0; else fallbackServices">
+        <div class="col-lg-4" *ngFor="let service of services; trackBy: trackByServiceId">
+          <div class="fade-in">
+            <app-service-card [service]="service" class="visible-card"></app-service-card>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fallback Services Template -->
+      <ng-template #fallbackServices>
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="service-card-fallback">
+              <div class="service-icon">
+                <i class="fas fa-fire"></i>
+              </div>
+              <div class="service-content">
+                <h3>Heizungsbau</h3>
+                <p>Moderne Heizungsanlagen für optimale Energieeffizienz</p>
+                <a routerLink="/services/heating" class="btn btn-service">
+                  Mehr erfahren <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="service-card-fallback">
+              <div class="service-icon">
+                <i class="fas fa-bath"></i>
+              </div>
+              <div class="service-content">
+                <h3>Bäderbau</h3>
+                <p>Komplette Badezimmerplanung und -umsetzung</p>
+                <a routerLink="/services/bathroom" class="btn btn-service">
+                  Mehr erfahren <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="service-card-fallback">
+              <div class="service-icon">
+                <i class="fas fa-wrench"></i>
+              </div>
+              <div class="service-content">
+                <h3>Installation</h3>
+                <p>Professionelle Installation und Wartung</p>
+                <a routerLink="/services/installation" class="btn btn-service">
+                  Mehr erfahren <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <div class="text-center mt-4">
+        <a routerLink="/services" class="btn btn-cta">
+          Alle Dienstleistungen ansehen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Badrechner Teaser Section -->
+  <section class="badrechner-teaser section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-title fade-in">Starten Sie jetzt Ihre Badplanung!</h2>
+          <p class="section-subtitle fade-in">
+            Unser kostenloser Badrechner führt Sie in 5 einfachen Schritten zu Ihrem Traumbad. 
+            Erhalten Sie eine professionelle Beratung und ein individuelles Angebot.
+          </p>
+          
+          <div class="teaser-steps fade-in">
+            <div class="row">
+              <div class="col-md-2">
+                <div class="teaser-step">
+                  <div class="step-icon">1</div>
+                  <span>Ausstattung</span>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="teaser-step">
+                  <div class="step-icon">2</div>
+                  <span>Qualität</span>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="teaser-step">
+                  <div class="step-icon">3</div>
+                  <span>Fliesen</span>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="teaser-step">
+                  <div class="step-icon">4</div>
+                  <span>Heizung</span>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="teaser-step">
+                  <div class="step-icon">5</div>
+                  <span>Kontakt</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="teaser-actions fade-in">
+            <a routerLink="/badrechner" class="btn btn-cta btn-lg">
+              <i class="fas fa-play me-2"></i>
+              Badrechner jetzt starten
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Why Choose Us -->
+  <section class="why-choose-us section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="section-title text-start fade-in">Warum Mitra Sanitär?</h2>
+          <div class="feature-list">
+            <div class="feature-item fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-award"></i>
+              </div>
+              <div class="feature-content">
+                <h4>1+ Jahre Erfahrung</h4>
+                <p>Langjährige Expertise in der Sanitär- und Heizungstechnik</p>
+              </div>
+            </div>
+            
+            <div class="feature-item fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="feature-content">
+                <h4>24/7 Notdienst</h4>
+                <p>Wir sind rund um die Uhr für Sie da</p>
+              </div>
+            </div>
+            
+            <div class="feature-item fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <div class="feature-content">
+                <h4>Nachhaltige Lösungen</h4>
+                <p>Umweltfreundliche und energieeffiziente Technologien</p>
+              </div>
+            </div>
+
+            <div class="feature-item fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-calculator"></i>
+              </div>
+              <div class="feature-content">
+                <h4>Kostenloser Badrechner</h4>
+                <p>Planen Sie Ihr Traumbad online in nur 5 Schritten</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="stats-grid fade-in">
+            <div class="stat-item">
+              <div class="stat-number">100+</div>
+              <div class="stat-label">Zufriedene Kunden</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">1+</div>
+              <div class="stat-label">Jahre Erfahrung</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Kundenzufriedenheit</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Notdienst</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

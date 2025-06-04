@@ -1,0 +1,78 @@
+@import '../../styles/variables';
+
+.services-page {
+  .page-header {
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+  }
+
+  .services-grid {
+    padding: 100px 0;
+    background: linear-gradient(135deg, darken($primary-color, 5%) 0%, $primary-color 100%);
+  }
+
+  .service-overview {
+    padding: 80px 0;
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+  }
+
+  .overview-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    height: 100%;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($cta-color, 0.1);
+      transform: translateY(-10px);
+      border-color: $cta-color;
+    }
+  }
+
+  .overview-icon {
+    font-size: 4rem;
+    color: $cta-color;
+    margin-bottom: 2rem;
+  }
+
+  .overview-card h3 {
+    color: $text-light;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .overview-card p {
+    color: rgba($text-light, 0.8);
+    margin-bottom: 2rem;
+  }
+
+  .btn-service {
+    background: transparent;
+    color: $cta-color;
+    border: 2px solid $cta-color;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+      background: $cta-color;
+      color: white;
+      
+      i {
+        transform: translateX(5px);
+      }
+    }
+
+    i {
+      transition: transform 0.3s ease;
+    }
+  }
+}
