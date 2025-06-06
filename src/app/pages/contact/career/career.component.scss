@@ -180,21 +180,25 @@
 
   .benefit-card {
     text-align: center;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem 1.5rem;
+    @include glass-effect();
+    padding: 1.5rem 1.25rem;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     height: 100%;
     transition: all 0.3s ease;
 
     @include media-up(sm) {
-      padding: 2.25rem 1.75rem;
+      padding: 1.75rem 1.5rem;
       border-radius: 17px;
     }
     
     @include media-up(md) {
-      padding: 2.5rem 2rem;
+      padding: 2rem;
       border-radius: 20px;
+    }
+    
+    @include media-up(lg) {
+      padding: 2.5rem;
     }
 
     &:hover {
@@ -260,6 +264,7 @@
     display: grid;
     gap: 1.5rem;
     margin-top: 2rem;
+    grid-template-columns: 1fr;
 
     @include media-up(sm) {
       gap: 2rem;
@@ -268,11 +273,16 @@
     
     @include media-up(md) {
       margin-top: 3rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include media-up(xl) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
   .job-card {
-    background: rgba(255, 255, 255, 0.05);
+    @include glass-effect();
     backdrop-filter: blur(20px);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -344,3 +354,304 @@
   .job-start {
     background: rgba($cta-color, 0.2);
     color: $cta-color;
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-weight: 500;
+    @include font-size(small);
+    display: inline-block;
+    text-align: center;
+
+    @include media-up(sm) {
+      padding: 0.5rem 1rem;
+      border-radius: 15px;
+      @include font-size(body);
+      text-align: left;
+    }
+  }
+
+  .job-body {
+    padding: 1.5rem;
+
+    @include media-up(sm) {
+      padding: 1.75rem;
+    }
+    
+    @include media-up(md) {
+      padding: 2rem;
+    }
+  }
+
+  .job-description {
+    color: rgba($text-light, 0.9);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    @include font-size(small);
+
+    @include media-up(sm) {
+      margin-bottom: 1.75rem;
+      @include font-size(body);
+    }
+    
+    @include media-up(md) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .job-requirements,
+  .job-benefits {
+    margin-bottom: 1.5rem;
+
+    @include media-up(sm) {
+      margin-bottom: 1.75rem;
+    }
+    
+    @include media-up(md) {
+      margin-bottom: 2rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h5 {
+      color: $text-light;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      @include font-size(body);
+
+      @include media-up(sm) {
+        margin-bottom: 1rem;
+        @include font-size(h6);
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 0.5rem;
+        color: rgba($text-light, 0.8);
+        @include font-size(small);
+
+        @include media-up(sm) {
+          margin-bottom: 0.6rem;
+          @include font-size(body);
+        }
+
+        &::before {
+          content: "✓";
+          color: $accent-color;
+          font-weight: bold;
+          margin-right: 0.5rem;
+          flex-shrink: 0;
+          margin-top: 0.1rem;
+
+          @include media-up(sm) {
+            margin-right: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+
+  .apply-section {
+    background: rgba($accent-color, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    @include media-up(sm) {
+      padding: 1.75rem;
+    }
+    
+    @include media-up(md) {
+      padding: 2rem;
+    }
+  }
+
+  .btn-cta {
+    background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.3s ease;
+    @include font-size(small);
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+
+    @include media-up(sm) {
+      padding: 12px 24px;
+      border-radius: 22px;
+      gap: 0.5rem;
+      @include font-size(body);
+      width: auto;
+      max-width: none;
+    }
+    
+    @include media-up(md) {
+      padding: 15px 30px;
+      border-radius: 25px;
+    }
+
+    &:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 25px rgba($cta-color, 0.4);
+      color: white;
+      
+      @include media-up(md) {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 10px 30px rgba($cta-color, 0.4);
+      }
+    }
+
+    i {
+      font-size: 0.9rem;
+
+      @include media-up(md) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+// Grid adjustments
+.row.g-4 {
+  --bs-gutter-x: 1rem;
+  --bs-gutter-y: 1rem;
+  
+  @include media-up(sm) {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+  }
+  
+  @include media-up(md) {
+    --bs-gutter-x: 2rem;
+    --bs-gutter-y: 2rem;
+  }
+}
+
+// Mobile specific adjustments
+@include media-down(sm) {
+  .career-page {
+    .career-highlights {
+      margin-top: 1.25rem;
+    }
+    
+    .highlight {
+      margin-bottom: 0.6rem;
+      font-size: 0.8rem;
+      
+      i {
+        font-size: 0.9rem;
+        margin-right: 0.6rem;
+      }
+    }
+    
+    .career-visual i {
+      font-size: 6rem;
+    }
+    
+    .benefit-card {
+      padding: 1.25rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    
+    .benefit-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .benefit-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+    }
+    
+    .benefit-card p {
+      font-size: 0.8rem;
+    }
+    
+    .jobs-grid {
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .job-header {
+      padding: 1.25rem;
+      
+      h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+      }
+    }
+    
+    .job-meta {
+      gap: 0.5rem;
+    }
+    
+    .job-type,
+    .job-start {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.75rem;
+      border-radius: 10px;
+    }
+    
+    .job-body {
+      padding: 1.25rem;
+    }
+    
+    .job-description {
+      font-size: 0.8rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .job-requirements,
+    .job-benefits {
+      margin-bottom: 1.25rem;
+      
+      h5 {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+      }
+      
+      ul li {
+        font-size: 0.75rem;
+        margin-bottom: 0.4rem;
+        
+        &::before {
+          margin-right: 0.4rem;
+        }
+      }
+    }
+    
+    .apply-section {
+      padding: 1.25rem;
+    }
+    
+    .btn-cta {
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      border-radius: 18px;
+    }
+  }
+}
+
+// Container adjustments
+@include media-down(md) {
+  .career-page {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+}

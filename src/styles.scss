@@ -7,7 +7,7 @@
 @import 'app/styles/animations';
 @import 'app/styles/components';
 
-// Global styles
+// Global reset with responsive considerations
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +16,12 @@
 
 html {
   scroll-behavior: smooth;
+  
+  // Prevent zoom on input focus in mobile Safari
+  @include media-down(sm) {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
 }
 
 body {
@@ -24,12 +30,415 @@ body {
   color: $text-light;
   overflow-x: hidden;
   line-height: $line-height-base;
+  @include font-size(body);
+  
+  // Improve text rendering
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
+  // Mobile optimizations
+  @include media-down(sm) {
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
-// Global utilities
+// Global utilities with responsive variations
 .text-primary { color: $primary-color !important; }
 .text-cta { color: $cta-color !important; }
 .text-accent { color: $accent-color !important; }
 .bg-primary { background-color: $primary-color !important; }
 .bg-cta { background-color: $cta-color !important; }
 .bg-accent { background-color: $accent-color !important; }
+
+// Responsive text utilities
+.text-responsive {
+  @include font-size(body);
+}
+
+.text-responsive-small {
+  @include font-size(small);
+}
+
+.text-responsive-large {
+  @include font-size(h6);
+  
+  @include media-up(md) {
+    @include font-size(h5);
+  }
+}
+
+// Image responsive utilities
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+// Container adjustments
+.container,
+.container-fluid {
+  @include container-responsive();
+}
+
+// Bootstrap overrides for better mobile experience
+.btn {
+  // Minimum touch target size for mobile
+  @include media-down(lg) {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  // Better button spacing on mobile
+  @include media-down(sm) {
+    padding: 10px 16px;
+    border-radius: 8px;
+  }
+}
+
+// Form controls responsive
+.form-control,
+.form-select {
+  @include media-down(sm) {
+    // Prevent zoom on iOS
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+  
+  @include media-up(sm) {
+    padding: 10px 15px;
+  }
+  
+  @include media-up(md) {
+    padding: 12px 20px;
+  }
+}
+
+// Modal responsive adjustments
+.modal {
+  @include media-down(sm) {
+    padding: 0 !important;
+    
+    .modal-dialog {
+      margin: 0;
+      min-height: 100vh;
+      max-width: 100%;
+      
+      .modal-content {
+        border-radius: 0;
+        min-height: 100vh;
+      }
+    }
+  }
+  
+  @include media-up(sm) {
+    .modal-dialog {
+      margin: 1.75rem auto;
+    }
+  }
+}
+
+// Navigation responsive fixes
+.navbar-nav {
+  @include media-down(lg) {
+    .nav-link {
+      padding: 0.75rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+// Dropdown responsive
+.dropdown-menu {
+  @include media-down(lg) {
+    position: static !important;
+    transform: none !important;
+    border: none;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 0;
+    padding: 0;
+    
+    .dropdown-item {
+      color: rgba($text-light, 0.8);
+      padding: 0.75rem 1.5rem;
+      
+      &:hover {
+        background: rgba($cta-color, 0.1);
+        color: $cta-color;
+      }
+    }
+  }
+}
+
+// Card responsive improvements
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  
+  @include media-down(sm) {
+    margin-bottom: 1rem;
+  }
+}
+
+// Grid responsive improvements
+.row {
+  @include media-down(sm) {
+    margin-left: -10px;
+    margin-right: -10px;
+    
+    > [class*="col-"] {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+// Spacing utilities responsive
+.mb-responsive-sm {
+  margin-bottom: 0.5rem;
+  
+  @include media-up(sm) {
+    margin-bottom: 1rem;
+  }
+  
+  @include media-up(md) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.mb-responsive-md {
+  margin-bottom: 1rem;
+  
+  @include media-up(sm) {
+    margin-bottom: 1.5rem;
+  }
+  
+  @include media-up(md) {
+    margin-bottom: 2rem;
+  }
+  
+  @include media-up(lg) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.mb-responsive-lg {
+  margin-bottom: 1.5rem;
+  
+  @include media-up(sm) {
+    margin-bottom: 2rem;
+  }
+  
+  @include media-up(md) {
+    margin-bottom: 3rem;
+  }
+  
+  @include media-up(lg) {
+    margin-bottom: 4rem;
+  }
+}
+
+// Padding utilities responsive
+.p-responsive {
+  padding: 1rem;
+  
+  @include media-up(sm) {
+    padding: 1.5rem;
+  }
+  
+  @include media-up(md) {
+    padding: 2rem;
+  }
+  
+  @include media-up(lg) {
+    padding: 2.5rem;
+  }
+}
+
+// Display utilities enhanced
+.d-mobile-none {
+  @include media-down(sm) {
+    display: none !important;
+  }
+}
+
+.d-mobile-block {
+  @include media-up(sm) {
+    display: none !important;
+  }
+}
+
+.d-tablet-none {
+  @include media-between($sm, $lg) {
+    display: none !important;
+  }
+}
+
+.d-desktop-none {
+  @include media-up(lg) {
+    display: none !important;
+  }
+}
+
+// Text alignment responsive
+.text-center-mobile {
+  @include media-down(md) {
+    text-align: center !important;
+  }
+}
+
+.text-left-desktop {
+  @include media-up(md) {
+    text-align: left !important;
+  }
+}
+
+// Loading states
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($primary-color, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba($cta-color, 0.3);
+  border-top: 3px solid $cta-color;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  
+  @include media-up(md) {
+    width: 50px;
+    height: 50px;
+    border-width: 4px;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Accessibility improvements
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Focus styles
+*:focus {
+  outline: 2px solid $cta-color;
+  outline-offset: 2px;
+}
+
+// Skip to content link
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: $cta-color;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 10000;
+  
+  &:focus {
+    top: 6px;
+  }
+}
+
+// Print styles
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .page-break-before {
+    page-break-before: always;
+  }
+  
+  .page-break-after {
+    page-break-after: always;
+  }
+}
+
+// Reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .fade-in,
+  .hover-lift,
+  .pulse,
+  .float,
+  .bounce-in {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .btn {
+    border: 2px solid currentColor;
+  }
+  
+  .card,
+  .modal-content {
+    border: 2px solid currentColor;
+  }
+}
+
+// Dark mode support (for future)
+@media (prefers-color-scheme: dark) {
+  // Already using dark theme, but can be extended
+}
+
+// Landscape mobile optimization
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .modal-dialog {
+    margin: 0.5rem auto;
+    max-height: 90vh;
+  }
+  
+  .page-header {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+}

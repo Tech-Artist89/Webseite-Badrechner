@@ -1,20 +1,85 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .legal-page {
+  .page-header {
+    @include section-padding();
+    padding-top: 100px;
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+
+    @include media-up(md) {
+      padding-top: 120px;
+    }
+    
+    @include media-up(lg) {
+      padding-top: 140px;
+    }
+  }
+
+  .page-title {
+    @include font-size(h2);
+    font-weight: 700;
+    color: $text-light;
+    margin-bottom: 1rem;
+    text-align: center;
+
+    @include media-up(md) {
+      @include font-size(h1);
+    }
+  }
+
+  .page-subtitle {
+    @include font-size(body);
+    color: rgba($text-light, 0.8);
+    text-align: center;
+    margin-bottom: 0;
+
+    @include media-up(md) {
+      font-size: 1.2rem;
+    }
+  }
+
   .legal-content {
-    padding: 80px 0;
+    @include section-padding();
+    padding-top: 60px;
+
+    @include media-up(md) {
+      padding-top: 80px;
+    }
   }
 
   .legal-card {
-    background: rgba(255, 255, 255, 0.05);
+    @include glass-effect();
     backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 3rem;
+    border-radius: 15px;
+    padding: 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
+
+    @include media-up(sm) {
+      padding: 2rem;
+      border-radius: 17px;
+    }
+    
+    @include media-up(md) {
+      padding: 2.5rem;
+      border-radius: 20px;
+    }
+    
+    @include media-up(lg) {
+      padding: 3rem;
+    }
   }
 
   .legal-section {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+
+    @include media-up(sm) {
+      margin-bottom: 2.5rem;
+    }
+    
+    @include media-up(md) {
+      margin-bottom: 3rem;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -22,19 +87,43 @@
 
     h3 {
       color: $cta-color;
-      font-size: 1.5rem;
       font-weight: 600;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       padding-bottom: 0.5rem;
       border-bottom: 2px solid $cta-color;
+      @include font-size(h5);
+
+      @include media-up(sm) {
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.6rem;
+        @include font-size(h4);
+      }
+      
+      @include media-up(md) {
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        @include font-size(h3);
+      }
     }
 
     h4 {
       color: $text-light;
-      font-size: 1.2rem;
       font-weight: 600;
-      margin-bottom: 1rem;
-      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      margin-top: 1.5rem;
+      @include font-size(body);
+
+      @include media-up(sm) {
+        margin-bottom: 1rem;
+        margin-top: 1.75rem;
+        @include font-size(h6);
+      }
+      
+      @include media-up(md) {
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        @include font-size(h5);
+      }
 
       &:first-child {
         margin-top: 0;
@@ -46,14 +135,28 @@
     color: rgba($text-light, 0.9);
     line-height: 1.6;
 
+    @include media-up(md) {
+      line-height: 1.7;
+    }
+
     strong {
       color: $text-light;
       font-weight: 600;
     }
 
     p {
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       text-align: justify;
+      @include font-size(small);
+
+      @include media-up(sm) {
+        margin-bottom: 1rem;
+        @include font-size(body);
+      }
+      
+      @include media-up(md) {
+        font-size: 1rem;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -70,24 +173,162 @@
         text-decoration: underline;
       }
     }
+
+    ul, ol {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      @include font-size(small);
+
+      @include media-up(sm) {
+        padding-left: 2rem;
+        @include font-size(body);
+      }
+
+      li {
+        margin-bottom: 0.4rem;
+        line-height: 1.6;
+
+        @include media-up(sm) {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .contact-section {
+    background: rgba($cta-color, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border: 1px solid rgba($cta-color, 0.3);
+
+    @include media-up(sm) {
+      padding: 1.75rem;
+      border-radius: 14px;
+      margin-top: 2.5rem;
+    }
+    
+    @include media-up(md) {
+      padding: 2rem;
+      border-radius: 15px;
+      margin-top: 3rem;
+    }
+
+    h4 {
+      color: $cta-color;
+      margin-bottom: 1rem;
+      @include font-size(h6);
+
+      @include media-up(sm) {
+        margin-bottom: 1.25rem;
+        @include font-size(h5);
+      }
+      
+      @include media-up(md) {
+        margin-bottom: 1.5rem;
+        @include font-size(h4);
+      }
+    }
+
+    p {
+      color: rgba($text-light, 0.9);
+      margin: 0;
+      @include font-size(small);
+
+      @include media-up(sm) {
+        @include font-size(body);
+      }
+    }
   }
 }
 
-@media (max-width: 768px) {
+// Mobile specific adjustments
+@include media-down(sm) {
   .legal-page {
     .legal-card {
-      padding: 2rem;
+      padding: 1.25rem;
+      border-radius: 12px;
     }
 
     .legal-section {
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
 
       h3 {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.4rem;
       }
 
       h4 {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+        margin-top: 1.25rem;
+      }
+    }
+
+    .info-block {
+      p {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+        text-align: left;
+      }
+
+      ul, ol {
+        font-size: 0.8rem;
+        padding-left: 1.25rem;
+      }
+    }
+
+    .contact-section {
+      padding: 1.25rem;
+      margin-top: 1.5rem;
+
+      h4 {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+// Container adjustments
+@include media-down(md) {
+  .legal-page {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .legal-page {
+    .legal-card {
+      background: white;
+      color: black;
+      border: 1px solid #ccc;
+    }
+
+    .legal-section h3 {
+      color: #333;
+      border-bottom-color: #333;
+    }
+
+    .info-block {
+      color: black;
+
+      strong {
+        color: black;
+      }
+
+      a {
+        color: #333;
+        text-decoration: underline;
       }
     }
   }
