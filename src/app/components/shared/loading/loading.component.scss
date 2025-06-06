@@ -15,7 +15,18 @@
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: all $transition-normal;
+  padding: 1rem;
+
+  @include media-up(sm) {
+    backdrop-filter: blur(15px);
+    padding: 1.5rem;
+  }
+  
+  @include media-up(md) {
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+  }
 
   &.active {
     opacity: 1;
@@ -26,19 +37,258 @@
 .loading-spinner {
   text-align: center;
   color: $text-light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  @include media-up(sm) {
+    gap: 1.25rem;
+  }
+  
+  @include media-up(md) {
+    gap: 1.5rem;
+  }
+  
+  @include media-up(lg) {
+    gap: 2rem;
+  }
 }
 
 .spinner {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 3px solid rgba($cta-color, 0.3);
   border-top: 3px solid $cta-color;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin: 0 auto 1rem;
+  margin: 0 auto;
+
+  @include media-up(sm) {
+    width: 45px;
+    height: 45px;
+    border-width: 3.5px;
+    border-top-width: 3.5px;
+  }
+  
+  @include media-up(md) {
+    width: 50px;
+    height: 50px;
+    border-width: 4px;
+    border-top-width: 4px;
+  }
+  
+  @include media-up(lg) {
+    width: 60px;
+    height: 60px;
+    border-width: 5px;
+    border-top-width: 5px;
+  }
+  
+  @include media-up(xl) {
+    width: 70px;
+    height: 70px;
+    border-width: 6px;
+    border-top-width: 6px;
+  }
+}
+
+.loading-spinner p {
+  margin: 0;
+  font-weight: 500;
+  color: rgba($text-light, 0.9);
+  @include font-size(small);
+
+  @include media-up(sm) {
+    @include font-size(body);
+    font-weight: 600;
+  }
+  
+  @include media-up(md) {
+    font-size: 1.1rem;
+  }
+  
+  @include media-up(lg) {
+    font-size: 1.2rem;
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
+
+// Loading dots animation
+.loading-dots {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 20px;
+
+  @include media-up(sm) {
+    width: 70px;
+    height: 24px;
+  }
+  
+  @include media-up(md) {
+    width: 80px;
+    height: 28px;
+  }
+  
+  @include media-up(lg) {
+    width: 90px;
+    height: 32px;
+  }
+
+  div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $cta-color;
+    animation: loading-dots 1.2s linear infinite;
+
+    @include media-up(sm) {
+      width: 10px;
+      height: 10px;
+    }
+    
+    @include media-up(md) {
+      width: 12px;
+      height: 12px;
+    }
+    
+    @include media-up(lg) {
+      width: 14px;
+      height: 14px;
+    }
+
+    &:nth-child(1) {
+      left: 8px;
+      animation-delay: -0.24s;
+      
+      @include media-up(sm) {
+        left: 10px;
+      }
+      
+      @include media-up(md) {
+        left: 12px;
+      }
+    }
+
+    &:nth-child(2) {
+      left: 26px;
+      animation-delay: -0.12s;
+      
+      @include media-up(sm) {
+        left: 30px;
+      }
+      
+      @include media-up(md) {
+        left: 34px;
+      }
+      
+      @include media-up(lg) {
+        left: 38px;
+      }
+    }
+
+    &:nth-child(3) {
+      left: 44px;
+      animation-delay: 0s;
+      
+      @include media-up(sm) {
+        left: 50px;
+      }
+      
+      @include media-up(md) {
+        left: 56px;
+      }
+      
+      @include media-up(lg) {
+        left: 62px;
+      }
+    }
+  }
+}
+
+@keyframes loading-dots {
+  0%, 80%, 100% {
+    transform: translateY(-50%) scale(0);
+  }
+  40% {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+// Alternative pulse spinner
+.pulse-spinner {
+  width: 40px;
+  height: 40px;
+  background-color: $cta-color;
+  border-radius: 50%;
+  animation: pulse-scale 1.0s infinite ease-in-out;
+
+  @include media-up(sm) {
+    width: 50px;
+    height: 50px;
+  }
+  
+  @include media-up(md) {
+    width: 60px;
+    height: 60px;
+  }
+  
+  @include media-up(lg) {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@keyframes pulse-scale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  .spinner,
+  .loading-dots div,
+  .pulse-spinner {
+    animation-duration: 2s;
+  }
+}
+
+// Mobile optimizations
+@include media-down(sm) {
+  .loading-overlay {
+    padding: 0.75rem;
+  }
+  
+  .loading-spinner {
+    gap: 0.75rem;
+  }
+  
+  .spinner {
+    width: 35px;
+    height: 35px;
+    border-width: 2.5px;
+    border-top-width: 2.5px;
+  }
+  
+  .loading-spinner p {
+    font-size: 0.8rem;
+  }
 }

@@ -1,36 +1,124 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .about-page {
+  .page-header {
+    @include section-padding();
+    padding-top: 100px;
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+
+    @include media-up(md) {
+      padding-top: 120px;
+    }
+    
+    @include media-up(lg) {
+      padding-top: 140px;
+    }
+  }
+
+  .page-title {
+    @include font-size(h2);
+    font-weight: 700;
+    color: $text-light;
+    margin-bottom: 1rem;
+    text-align: center;
+
+    @include media-up(md) {
+      @include font-size(h1);
+    }
+  }
+
+  .page-subtitle {
+    @include font-size(body);
+    color: rgba($text-light, 0.8);
+    text-align: center;
+    margin-bottom: 0;
+
+    @include media-up(md) {
+      font-size: 1.2rem;
+    }
+  }
+
   .about-navigation {
-    padding: 100px 0;
+    @include section-padding();
+    padding-top: 60px;
+
+    @include media-up(md) {
+      padding-top: 80px;
+    }
+    
+    @include media-up(lg) {
+      padding-top: 100px;
+    }
   }
 
   .about-nav-card {
     display: flex;
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 3rem;
+    border-radius: 15px;
+    padding: 1.5rem;
     text-decoration: none;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
-    gap: 2rem;
+    gap: 1rem;
+    flex-direction: column;
+    text-align: center;
+
+    @include media-up(sm) {
+      padding: 2rem;
+      border-radius: 17px;
+      gap: 1.25rem;
+    }
+    
+    @include media-up(md) {
+      flex-direction: row;
+      text-align: left;
+      padding: 2.5rem;
+      border-radius: 20px;
+      gap: 1.5rem;
+    }
+    
+    @include media-up(lg) {
+      padding: 3rem;
+      gap: 2rem;
+    }
 
     &:hover {
       background: rgba($cta-color, 0.1);
-      transform: translateY(-10px);
+      transform: translateY(-3px);
       border-color: $cta-color;
       
+      @include media-up(md) {
+        transform: translateY(-5px);
+      }
+      
       .nav-arrow {
-        transform: translateX(10px);
+        transform: translateX(5px);
+        
+        @include media-up(md) {
+          transform: translateX(10px);
+        }
       }
     }
   }
 
   .nav-icon {
-    font-size: 4rem;
+    font-size: 2.5rem;
     color: $cta-color;
     flex-shrink: 0;
+
+    @include media-up(sm) {
+      font-size: 3rem;
+    }
+    
+    @include media-up(md) {
+      font-size: 3.5rem;
+    }
+    
+    @include media-up(lg) {
+      font-size: 4rem;
+    }
   }
 
   .nav-content {
@@ -38,34 +126,104 @@
     color: $text-light;
 
     h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+      @include font-size(h6);
+      margin-bottom: 0.75rem;
       font-weight: 600;
+
+      @include media-up(sm) {
+        @include font-size(h5);
+        margin-bottom: 1rem;
+      }
+      
+      @include media-up(md) {
+        @include font-size(h4);
+      }
+      
+      @include media-up(lg) {
+        @include font-size(h3);
+      }
     }
 
     p {
       color: rgba($text-light, 0.8);
       margin: 0;
+      @include font-size(small);
+
+      @include media-up(sm) {
+        @include font-size(body);
+      }
     }
   }
 
   .nav-arrow {
     color: $cta-color;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     transition: transform 0.3s ease;
+
+    @include media-up(sm) {
+      font-size: 1.3rem;
+    }
+    
+    @include media-up(md) {
+      font-size: 1.4rem;
+    }
+    
+    @include media-up(lg) {
+      font-size: 1.5rem;
+    }
   }
 }
 
-@media (max-width: 768px) {
+// Grid adjustments
+.row.g-4 {
+  --bs-gutter-x: 1rem;
+  --bs-gutter-y: 1rem;
+  
+  @include media-up(sm) {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+  }
+  
+  @include media-up(md) {
+    --bs-gutter-x: 2rem;
+    --bs-gutter-y: 2rem;
+  }
+}
+
+// Mobile specific adjustments
+@include media-down(sm) {
   .about-page {
     .about-nav-card {
-      flex-direction: column;
-      text-align: center;
-      gap: 1.5rem;
+      padding: 1.25rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
     }
-
+    
     .nav-icon {
-      font-size: 3rem;
+      font-size: 2.2rem;
+    }
+    
+    .nav-content h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+    
+    .nav-content p {
+      font-size: 0.85rem;
+    }
+    
+    .nav-arrow {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Container adjustments
+@include media-down(md) {
+  .about-page {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 }

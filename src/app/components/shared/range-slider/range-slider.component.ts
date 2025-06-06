@@ -39,77 +39,8 @@ import { FormsModule, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/f
       </div>
     </div>
   `,
-  styles: [`
-    .range-slider-container {
-      margin: 20px 0;
-    }
+  styleUrls: ['./range-slider.component.scss']
 
-    .slider-wrapper {
-      position: relative;
-      margin: 15px 0;
-    }
-
-    .custom-range {
-      width: 100%;
-      height: 8px;
-      border-radius: 4px;
-      background: #dee2e6;
-      outline: none;
-      -webkit-appearance: none;
-    }
-
-    .custom-range::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--cta-color, #ef804e);
-      cursor: pointer;
-      border: 2px solid white;
-      box-shadow: 0 2px 6px rgba(239, 128, 78, 0.3);
-    }
-
-    .custom-range::-moz-range-thumb {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--cta-color, #ef804e);
-      cursor: pointer;
-      border: 2px solid white;
-      box-shadow: 0 2px 6px rgba(239, 128, 78, 0.3);
-    }
-
-    .slider-labels {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-      font-size: 12px;
-      color: #666;
-    }
-
-    .current-value {
-      font-weight: 600;
-      color: var(--cta-color, #ef804e);
-      font-size: 14px;
-    }
-
-    .value-display {
-      text-align: center;
-      margin-top: 15px;
-      padding: 10px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: var(--text-light, #ffffff);
-    }
-
-    .form-label {
-      font-weight: 600;
-      color: var(--text-light, #ffffff);
-      margin-bottom: 8px;
-    }
-  `]
 })
 export class RangeSliderComponent implements ControlValueAccessor {
   @Input() label: string = '';

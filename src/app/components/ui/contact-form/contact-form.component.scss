@@ -2,41 +2,106 @@
 @import '../../../styles/mixins';
 
 .contact-form-container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
+
+  @include media-up(sm) {
+    max-width: 550px;
+  }
+  
+  @include media-up(md) {
+    max-width: 600px;
+  }
+  
+  @include media-up(lg) {
+    max-width: 650px;
+  }
 }
 
 .contact-form {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 3rem;
+  border-radius: 15px;
+  padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
+
+  @include media-up(sm) {
+    padding: 2rem;
+    border-radius: 17px;
+  }
+  
+  @include media-up(md) {
+    padding: 2.5rem;
+    border-radius: 20px;
+  }
+  
+  @include media-up(lg) {
+    padding: 3rem;
+  }
 }
 
 .form-title {
   color: $text-light;
   margin-bottom: 0.5rem;
   font-weight: 600;
+  @include font-size(h6);
+  text-align: center;
+
+  @include media-up(sm) {
+    @include font-size(h5);
+    text-align: left;
+  }
+  
+  @include media-up(md) {
+    @include font-size(h4);
+  }
 }
 
 .form-subtitle {
   color: rgba($text-light, 0.8);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  @include font-size(small);
+  text-align: center;
+
+  @include media-up(sm) {
+    margin-bottom: 2rem;
+    @include font-size(body);
+    text-align: left;
+  }
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+
+  @include media-up(sm) {
+    margin-bottom: 1.25rem;
+  }
+  
+  @include media-up(md) {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .form-control {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+  border-radius: 8px;
   color: $text-light;
-  padding: 12px 20px;
+  padding: 10px 15px;
   width: 100%;
   transition: all 0.3s ease;
+  @include font-size(small);
+
+  @include media-up(sm) {
+    padding: 11px 18px;
+    border-radius: 9px;
+    @include font-size(body);
+  }
+  
+  @include media-up(md) {
+    padding: 12px 20px;
+    border-radius: 10px;
+  }
 
   &:focus {
     background: rgba(255, 255, 255, 0.15);
@@ -72,45 +137,85 @@ select.form-control {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  @include media-up(sm) {
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
 }
 
 .form-check-input {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   margin: 0;
+
+  @include media-up(sm) {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .form-check-label {
   color: rgba($text-light, 0.8);
   cursor: pointer;
+  @include font-size(small);
+
+  @include media-up(sm) {
+    @include font-size(body);
+  }
 }
 
 .invalid-feedback {
   color: #dc3545;
-  font-size: 0.875rem;
+  @include font-size(small);
   margin-top: 0.25rem;
+
+  @include media-up(sm) {
+    font-size: 0.8rem;
+  }
 }
 
 .btn-cta {
   background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
   color: white;
-  padding: 15px 35px;
-  border-radius: 50px;
+  padding: 12px 24px;
+  border-radius: 25px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   border: none;
   transition: all 0.3s ease;
   width: 100%;
+  @include font-size(small);
+
+  @include media-up(sm) {
+    padding: 14px 28px;
+    border-radius: 28px;
+    letter-spacing: 0.7px;
+    @include font-size(body);
+  }
+  
+  @include media-up(md) {
+    padding: 15px 35px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+  }
 
   &:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba($cta-color, 0.4);
+    box-shadow: 0 8px 25px rgba($cta-color, 0.4);
+    
+    @include media-up(md) {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba($cta-color, 0.4);
+    }
   }
 
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;
+    transform: none !important;
   }
 }
 
@@ -118,23 +223,58 @@ select.form-control {
   text-align: center;
   background: rgba($accent-color, 0.1);
   border: 1px solid $accent-color;
-  border-radius: 20px;
-  padding: 3rem;
+  border-radius: 15px;
+  padding: 2rem;
+
+  @include media-up(sm) {
+    padding: 2.5rem;
+    border-radius: 17px;
+  }
+  
+  @include media-up(md) {
+    padding: 3rem;
+    border-radius: 20px;
+  }
 
   i {
-    font-size: 4rem;
+    font-size: 3rem;
     color: $accent-color;
     margin-bottom: 1rem;
+
+    @include media-up(sm) {
+      font-size: 3.5rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    @include media-up(md) {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
   }
 
   h3 {
     color: $text-light;
     margin-bottom: 1rem;
+    @include font-size(h6);
+
+    @include media-up(sm) {
+      @include font-size(h5);
+    }
+    
+    @include media-up(md) {
+      @include font-size(h4);
+    }
   }
 
   p {
     color: rgba($text-light, 0.8);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    @include font-size(small);
+
+    @include media-up(sm) {
+      margin-bottom: 2rem;
+      @include font-size(body);
+    }
   }
 }
 
@@ -142,13 +282,90 @@ select.form-control {
   background: transparent;
   color: $accent-color;
   border: 2px solid $accent-color;
-  padding: 12px 30px;
-  border-radius: 25px;
+  padding: 10px 24px;
+  border-radius: 20px;
   font-weight: 600;
   transition: all 0.3s ease;
+  @include font-size(small);
+
+  @include media-up(sm) {
+    padding: 11px 28px;
+    border-radius: 22px;
+    @include font-size(body);
+  }
+  
+  @include media-up(md) {
+    padding: 12px 30px;
+    border-radius: 25px;
+  }
 
   &:hover {
     background: $accent-color;
     color: $primary-color;
+    transform: translateY(-2px);
+    
+    @include media-up(md) {
+      transform: translateY(-3px);
+    }
+  }
+}
+
+// Mobile grid adjustments
+.row {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+
+  @include media-up(sm) {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+  }
+  
+  @include media-up(md) {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  > .col-md-6 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 1rem;
+
+    @include media-up(sm) {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+    
+    @include media-up(md) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Mobile specific adjustments
+@include media-down(sm) {
+  .contact-form-container {
+    padding: 0 1rem;
+  }
+  
+  .contact-form {
+    padding: 1.25rem;
+  }
+  
+  .form-control {
+    font-size: 16px; // Prevents zoom on iOS
+  }
+}
+
+// Touch targets for mobile
+@include media-down(lg) {
+  .form-check-input {
+    min-width: 24px;
+    min-height: 24px;
+  }
+  
+  .btn-cta {
+    min-height: 44px;
   }
 }
