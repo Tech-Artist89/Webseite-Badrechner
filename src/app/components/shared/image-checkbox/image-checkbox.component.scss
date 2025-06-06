@@ -61,7 +61,7 @@
 .checkbox-image {
   width: 100%;
   height: 80px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 6px;
   background: #f8f9fa;
   border: 1px solid rgba(27, 50, 68, 0.1);
