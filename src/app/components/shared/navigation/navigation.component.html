@@ -1,6 +1,12 @@
-<!-- src/app/components/shared/navigation/navigation.component.html - Erweitert -->
-<nav class="navigation" (clickOutside)="closeDropdown()">
-  <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+<!-- src/app/components/shared/navigation/navigation.component.html -->
+<nav class="navigation" (clickOutside)="onClickOutside()">
+  <button 
+    class="menu-toggle" 
+    (click)="toggleMenu($event)" 
+    [class.active]="isMenuOpen"
+    type="button"
+    aria-label="Navigation Menu Toggle"
+    [attr.aria-expanded]="isMenuOpen">
     <span></span>
     <span></span>
     <span></span>
@@ -24,7 +30,9 @@
     <li class="nav-item dropdown" [class.active]="isDropdownOpen('services')">
       <a class="nav-link dropdown-toggle" 
          (click)="toggleDropdown('services', $event)"
-         [class.active]="isDropdownOpen('services')">
+         [class.active]="isDropdownOpen('services')"
+         role="button"
+         [attr.aria-expanded]="isDropdownOpen('services')">
         Dienstleistungen
         <i class="fas fa-chevron-down" [class.rotated]="isDropdownOpen('services')"></i>
       </a>
@@ -47,7 +55,9 @@
     <li class="nav-item dropdown" [class.active]="isDropdownOpen('about')">
       <a class="nav-link dropdown-toggle" 
          (click)="toggleDropdown('about', $event)"
-         [class.active]="isDropdownOpen('about')">
+         [class.active]="isDropdownOpen('about')"
+         role="button"
+         [attr.aria-expanded]="isDropdownOpen('about')">
         Über uns
         <i class="fas fa-chevron-down" [class.rotated]="isDropdownOpen('about')"></i>
       </a>
@@ -61,7 +71,9 @@
     <li class="nav-item dropdown" [class.active]="isDropdownOpen('contact')">
       <a class="nav-link dropdown-toggle" 
          (click)="toggleDropdown('contact', $event)"
-         [class.active]="isDropdownOpen('contact')">
+         [class.active]="isDropdownOpen('contact')"
+         role="button"
+         [attr.aria-expanded]="isDropdownOpen('contact')">
         Kontakt
         <i class="fas fa-chevron-down" [class.rotated]="isDropdownOpen('contact')"></i>
       </a>

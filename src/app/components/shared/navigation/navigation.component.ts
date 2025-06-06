@@ -1,3 +1,4 @@
+// src/app/components/shared/navigation/navigation.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -14,8 +15,13 @@ export class NavigationComponent {
   isMenuOpen = false;
   activeDropdown: string | null = null;
 
-  toggleMenu(): void {
+  toggleMenu(event?: Event): void {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
     this.isMenuOpen = !this.isMenuOpen;
+    console.log('Menu toggled:', this.isMenuOpen); // Debug log
   }
 
   closeMenu(): void {
@@ -27,18 +33,37 @@ export class NavigationComponent {
     event.preventDefault();
     event.stopPropagation();
     
-    if (this.activeDropdown === dropdownName) {
-      this.activeDropdown = null;
+    // Auf Mobile: schließe andere Dropdowns
+    if (window.innerWidth < 992) { // lg breakpoint
+      if (this.activeDropdown === dropdownName) {
+        this.activeDropdown = null;
+      } else {
+        this.activeDropdown = dropdownName;
+      }
     } else {
-      this.activeDropdown = dropdownName;
+      // Desktop Verhalten bleibt gleich
+      if (this.activeDropdown === dropdownName) {
+        this.activeDropdown = null;
+      } else {
+        this.activeDropdown = dropdownName;
+      }
     }
   }
 
   closeDropdown(): void {
+    // Nur Dropdown schließen, nicht das gesamte Mobile Menu
     this.activeDropdown = null;
   }
 
   isDropdownOpen(dropdownName: string): boolean {
     return this.activeDropdown === dropdownName;
+  }
+
+  // Neue Methode für Click Outside auf Mobile
+  onClickOutside(): void {
+    // Nur auf Desktop das Menu schließen
+    if (window.innerWidth >= 992) {
+      this.closeDropdown();
+    }
   }
 }

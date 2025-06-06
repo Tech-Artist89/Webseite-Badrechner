@@ -3,6 +3,7 @@
 
 .navigation {
   position: relative;
+  z-index: 1000; // Ensure navigation is above other content
 }
 
 .menu-toggle {
@@ -16,6 +17,7 @@
   min-width: 44px;
   min-height: 44px;
   justify-content: center;
+  position: relative; // Ensure it's positioned correctly
 
   span {
     display: block;
@@ -414,14 +416,14 @@
   }
 }
 
-// Mobile styles
+// Mobile styles - FIXED
 @include media-down(lg) {
   .menu-toggle {
     display: flex;
   }
 
   .nav-list {
-    position: absolute;
+    position: fixed; // Changed from absolute to fixed
     top: 100%;
     left: 0;
     right: 0;
@@ -433,10 +435,13 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); // Smoother easing
     gap: 0;
     max-height: 70vh;
     overflow-y: auto;
+    z-index: 999; // Ensure it's below toggle but above content
+    width: 100vw; // Full width
+    left: 0; // Reset left position
 
     @include media-up(sm) {
       padding: 2rem;
@@ -448,6 +453,7 @@
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
+      display: flex; // Ensure it displays as flex when active
     }
   }
 
@@ -491,13 +497,14 @@
   .nav-link {
     width: 100%;
     padding: 0.8rem;
-    border-radius: 0;
+    border-radius: 8px; // Add border radius for mobile
     justify-content: space-between;
     min-height: 48px;
     
     @include media-up(sm) {
       padding: 1rem;
       min-height: 52px;
+      border-radius: 10px;
     }
   }
 
@@ -509,44 +516,52 @@
     box-shadow: none;
     background: rgba(255, 255, 255, 0.05);
     margin: 0;
-    border-radius: 0;
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px; // Add border radius
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0.5rem; // Add some spacing
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.3s ease, margin-top 0.3s ease;
 
     &.show {
-      max-height: 250px;
+      max-height: 300px; // Increased for better content fit
       
       @include media-up(sm) {
-        max-height: 300px;
+        max-height: 350px;
       }
     }
   }
 
   .dropdown-link {
-    padding: 0.6rem 1.5rem;
+    padding: 0.6rem 1rem; // Reduced padding for mobile
     
     @include media-up(sm) {
-      padding: 0.75rem 2rem;
+      padding: 0.75rem 1.5rem;
     }
     
     &:hover {
-      padding-left: 2rem;
+      padding-left: 1.5rem;
       
       @include media-up(sm) {
-        padding-left: 2.5rem;
+        padding-left: 2rem;
       }
     }
 
     &.special-dropdown-link {
-      margin: 0.4rem 1rem;
+      margin: 0.4rem 0.5rem; // Adjusted margins
       border-radius: 6px;
       
       @include media-up(sm) {
-        margin: 0.5rem 1.5rem;
+        margin: 0.5rem 1rem;
         border-radius: 8px;
+      }
+
+      &:hover {
+        padding-left: 1rem;
+        
+        @include media-up(sm) {
+          padding-left: 1.5rem;
+        }
       }
     }
   }
@@ -609,4 +624,25 @@
 
 .dropdown-menu.show {
   animation: fadeIn 0.3s ease;
+}
+
+// Additional mobile fixes
+@include media-down(lg) {
+  // Prevent body scroll when menu is open
+  body.menu-open {
+    overflow: hidden;
+  }
+  
+  // Ensure proper stacking
+  .navigation {
+    z-index: 1000;
+  }
+  
+  .menu-toggle {
+    z-index: 1001;
+  }
+  
+  .nav-list {
+    z-index: 999;
+  }
 }
