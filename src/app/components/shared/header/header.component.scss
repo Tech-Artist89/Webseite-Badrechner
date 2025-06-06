@@ -11,19 +11,34 @@
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
+
+  @include media-up(sm) {
+    padding: 1rem 0;
+  }
 
   &.scrolled {
     background: $primary-color;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
     padding: 0.5rem 0;
+    
+    @include media-up(sm) {
+      padding: 0.75rem 0;
+    }
   }
 }
 
 .header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex-between;
+  padding: 0 1rem;
+  
+  @include media-up(sm) {
+    padding: 0 1.5rem;
+  }
+  
+  @include media-up(md) {
+    padding: 0 2rem;
+  }
 }
 
 .logo-link {
@@ -31,16 +46,63 @@
   align-items: center;
   color: $text-light;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   transition: color 0.3s ease;
+
+  @include media-up(sm) {
+    font-size: 1.3rem;
+  }
+  
+  @include media-up(md) {
+    font-size: 1.5rem;
+  }
 
   &:hover {
     color: $cta-color;
   }
 
   i {
-    margin-right: 0.5rem;
+    margin-right: 0.4rem;
     color: $cta-color;
+    font-size: 1rem;
+    
+    @include media-up(sm) {
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    @include media-up(md) {
+      font-size: 1.2rem;
+    }
+  }
+  
+  span {
+    @include media-down(sm) {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Mobile adjustments
+@include media-down(md) {
+  .header {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  
+  .header-content {
+    padding: 0;
+  }
+}
+
+// Touch targets for mobile
+@include media-down(lg) {
+  .logo-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
 }

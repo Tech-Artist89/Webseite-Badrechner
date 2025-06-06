@@ -1,41 +1,118 @@
-// Bootstrap overrides
+// Bootstrap overrides with responsive containers
 .container {
-  padding-left: $container-padding;
-  padding-right: $container-padding;
+  @include container-responsive();
 }
 
 .row {
   margin-left: -15px;
   margin-right: -15px;
+  
+  @include media-up(sm) {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
 }
 
 .col, [class*="col-"] {
   padding-left: 15px;
   padding-right: 15px;
+  
+  @include media-up(sm) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 // Custom components
 .page-header {
-  padding: 120px 0 60px;
+  @include section-padding();
+  padding-top: 100px;
   text-align: center;
   background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+  
+  @include media-up(md) {
+    padding-top: 120px;
+  }
+  
+  @include media-up(lg) {
+    padding-top: 140px;
+  }
 }
 
 .page-title {
-  font-size: 3rem;
+  @include font-size(h1);
   font-weight: 700;
   color: $text-light;
   margin-bottom: 1rem;
+  line-height: 1.2;
+  
+  @include media-up(lg) {
+    line-height: 1.1;
+  }
 }
 
 .page-subtitle {
-  font-size: 1.2rem;
+  @include font-size(body);
   color: rgba($text-light, 0.8);
   margin-bottom: 0;
+  line-height: 1.6;
+  
+  @include media-up(md) {
+    font-size: 1.2rem;
+  }
 }
 
 .section {
-  padding: $section-padding;
+  @include section-padding();
+}
+
+.section-title {
+  @include font-size(h2);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+  color: $text-light;
+  line-height: 1.2;
+
+  &::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background: $cta-color;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    
+    @include media-up(md) {
+      width: 80px;
+      height: 4px;
+      bottom: -15px;
+    }
+  }
+
+  &.text-start::after {
+    left: 0;
+    transform: none;
+  }
+  
+  @include media-up(lg) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.section-subtitle {
+  text-align: center;
+  color: rgba($text-light, 0.8);
+  @include font-size(body);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  
+  @include media-up(md) {
+    margin-bottom: 3rem;
+  }
 }
 
 // Utility classes
@@ -47,15 +124,110 @@
 }
 
 .glass-card {
-  @include glass-effect;
-  border-radius: $border-radius-lg;
-  padding: 2rem;
+  @include card-responsive();
 }
 
 .btn-cta {
   @include btn-cta;
+  
+  &.btn-lg {
+    padding: 12px 24px;
+    font-size: 1rem;
+    
+    @include media-up(sm) {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+    }
+    
+    @include media-up(md) {
+      padding: 18px 40px;
+      font-size: 1.1rem;
+    }
+  }
 }
 
 .hover-lift {
   @include hover-lift;
+}
+
+// Responsive grid utilities
+.grid-responsive {
+  @include grid-responsive();
+}
+
+.grid-1-2-3 {
+  @include grid-responsive(1, 2, 3, 3, 3, 3);
+}
+
+.grid-1-1-2-3 {
+  @include grid-responsive(1, 1, 2, 3, 3, 3);
+}
+
+.grid-1-2-2-4 {
+  @include grid-responsive(1, 2, 2, 4, 4, 4);
+}
+
+// Flex utilities
+.flex-responsive {
+  @include flex-responsive();
+}
+
+// Spacing utilities responsive
+.mb-responsive {
+  margin-bottom: 1rem;
+  
+  @include media-up(sm) {
+    margin-bottom: 1.5rem;
+  }
+  
+  @include media-up(md) {
+    margin-bottom: 2rem;
+  }
+  
+  @include media-up(lg) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.mt-responsive {
+  margin-top: 1rem;
+  
+  @include media-up(sm) {
+    margin-top: 1.5rem;
+  }
+  
+  @include media-up(md) {
+    margin-top: 2rem;
+  }
+  
+  @include media-up(lg) {
+    margin-top: 2.5rem;
+  }
+}
+
+// Hide/show utilities
+.d-none-xs {
+  display: none;
+  
+  @include media-up(sm) {
+    display: block;
+  }
+}
+
+.d-none-sm {
+  @include media-up(sm) {
+    display: none;
+  }
+  
+  @include media-up(md) {
+    display: block;
+  }
+}
+
+.d-block-md-up {
+  display: none;
+  
+  @include media-up(md) {
+    display: block;
+  }
 }

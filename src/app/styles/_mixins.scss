@@ -1,3 +1,118 @@
+// Responsive breakpoint mixins
+@mixin media-up($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: $md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: $lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: $xl) { @content; }
+  } @else if $breakpoint == xxl {
+    @media (min-width: $xxl) { @content; }
+  }
+}
+
+@mixin media-down($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: #{$sm - 1px}) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: #{$md - 1px}) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: #{$lg - 1px}) { @content; }
+  } @else if $breakpoint == xl {
+    @media (max-width: #{$xl - 1px}) { @content; }
+  } @else if $breakpoint == xxl {
+    @media (max-width: #{$xxl - 1px}) { @content; }
+  }
+}
+
+@mixin media-between($lower, $upper) {
+  @media (min-width: $lower) and (max-width: #{$upper - 1px}) { @content; }
+}
+
+// Font size responsive mixin
+@mixin font-size($size-key) {
+  font-size: map-get(map-get($font-sizes, xs), $size-key);
+  
+  @include media-up(sm) {
+    font-size: map-get(map-get($font-sizes, sm), $size-key);
+  }
+  
+  @include media-up(md) {
+    font-size: map-get(map-get($font-sizes, md), $size-key);
+  }
+  
+  @include media-up(lg) {
+    font-size: map-get(map-get($font-sizes, lg), $size-key);
+  }
+  
+  @include media-up(xl) {
+    font-size: map-get(map-get($font-sizes, xl), $size-key);
+  }
+  
+  @include media-up(xxl) {
+    font-size: map-get(map-get($font-sizes, xxl), $size-key);
+  }
+}
+
+// Section padding responsive mixin
+@mixin section-padding() {
+  padding: map-get(map-get($spacing, xs), section);
+  
+  @include media-up(sm) {
+    padding: map-get(map-get($spacing, sm), section);
+  }
+  
+  @include media-up(md) {
+    padding: map-get(map-get($spacing, md), section);
+  }
+  
+  @include media-up(lg) {
+    padding: map-get(map-get($spacing, lg), section);
+  }
+  
+  @include media-up(xl) {
+    padding: map-get(map-get($spacing, xl), section);
+  }
+  
+  @include media-up(xxl) {
+    padding: map-get(map-get($spacing, xxl), section);
+  }
+}
+
+// Grid responsive mixin
+@mixin grid-responsive($columns-xs: 1, $columns-sm: 2, $columns-md: 3, $columns-lg: 4, $columns-xl: 4, $columns-xxl: 5) {
+  display: grid;
+  gap: map-get(map-get($spacing, xs), grid-gap);
+  grid-template-columns: repeat($columns-xs, 1fr);
+  
+  @include media-up(sm) {
+    gap: map-get(map-get($spacing, sm), grid-gap);
+    grid-template-columns: repeat($columns-sm, 1fr);
+  }
+  
+  @include media-up(md) {
+    gap: map-get(map-get($spacing, md), grid-gap);
+    grid-template-columns: repeat($columns-md, 1fr);
+  }
+  
+  @include media-up(lg) {
+    gap: map-get(map-get($spacing, lg), grid-gap);
+    grid-template-columns: repeat($columns-lg, 1fr);
+  }
+  
+  @include media-up(xl) {
+    gap: map-get(map-get($spacing, xl), grid-gap);
+    grid-template-columns: repeat($columns-xl, 1fr);
+  }
+  
+  @include media-up(xxl) {
+    gap: map-get(map-get($spacing, xxl), grid-gap);
+    grid-template-columns: repeat($columns-xxl, 1fr);
+  }
+}
+
 // Flexbox mixins
 @mixin flex-center {
   display: flex;
@@ -11,6 +126,22 @@
   justify-content: space-between;
 }
 
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-responsive() {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+  @include media-up(md) {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
 // Glass effect
 @mixin glass-effect($opacity: 0.05) {
   background: rgba(255, 255, 255, $opacity);
@@ -19,18 +150,20 @@
 }
 
 // Hover effects
-@mixin hover-lift {
+@mixin hover-lift($translate: -5px, $scale: 1) {
   transition: transform $transition-normal;
   
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY($translate) scale($scale);
   }
 }
 
 // Button styles
 @mixin btn-base {
-  display: inline-block;
-  padding: 12px 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
   border: none;
   border-radius: $border-radius-round;
   font-weight: 600;
@@ -39,6 +172,14 @@
   cursor: pointer;
   transition: all $transition-normal;
   font-family: $font-family-base;
+  
+  @include media-up(sm) {
+    padding: 12px 24px;
+  }
+  
+  @include media-up(md) {
+    padding: 12px 30px;
+  }
 }
 
 @mixin btn-cta {
@@ -53,21 +194,55 @@
   }
 }
 
-// Responsive breakpoints
-@mixin mobile-only {
-  @media (max-width: #{$tablet - 1px}) {
-    @content;
+// Container responsive
+@mixin container-responsive() {
+  width: 100%;
+  padding: 0 map-get(map-get($spacing, xs), container);
+  margin: 0 auto;
+  
+  @include media-up(sm) {
+    padding: 0 map-get(map-get($spacing, sm), container);
+    max-width: map-get($container-max-widths, sm);
+  }
+  
+  @include media-up(md) {
+    padding: 0 map-get(map-get($spacing, md), container);
+    max-width: map-get($container-max-widths, md);
+  }
+  
+  @include media-up(lg) {
+    padding: 0 map-get(map-get($spacing, lg), container);
+    max-width: map-get($container-max-widths, lg);
+  }
+  
+  @include media-up(xl) {
+    padding: 0 map-get(map-get($spacing, xl), container);
+    max-width: map-get($container-max-widths, xl);
+  }
+  
+  @include media-up(xxl) {
+    padding: 0 map-get(map-get($spacing, xxl), container);
+    max-width: map-get($container-max-widths, xxl);
   }
 }
 
-@mixin tablet-up {
-  @media (min-width: $tablet) {
-    @content;
+// Card responsive
+@mixin card-responsive() {
+  @include glass-effect();
+  border-radius: $border-radius-md;
+  padding: 1rem;
+  transition: all $transition-normal;
+  
+  @include media-up(sm) {
+    padding: 1.5rem;
+    border-radius: $border-radius-lg;
   }
-}
-
-@mixin desktop-up {
-  @media (min-width: $desktop) {
-    @content;
+  
+  @include media-up(md) {
+    padding: 2rem;
+  }
+  
+  @include media-up(lg) {
+    padding: 2.5rem;
   }
 }

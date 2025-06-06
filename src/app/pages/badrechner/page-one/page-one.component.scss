@@ -1,0 +1,141 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+ .page-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(27, 50, 68, 0.1);
+  border: 1px solid rgba(27, 50, 68, 0.1);
+
+  @include media-up(sm) {
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(27, 50, 68, 0.1);
+  }
+  
+  @include media-up(md) {
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(27, 50, 68, 0.1);
+  }
+  
+  @include media-up(lg) {
+    padding: 3rem;
+  }
+}
+
+.page-title {
+  color: #1b3244;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  @include font-size(h3);
+  text-align: center;
+
+  @include media-up(sm) {
+    margin-bottom: 1rem;
+    @include font-size(h2);
+  }
+  
+  @include media-up(md) {
+    @include font-size(h1);
+  }
+}
+
+.page-subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+  font-style: italic;
+  text-align: center;
+  @include font-size(small);
+
+  @include media-up(sm) {
+    @include font-size(body);
+  }
+  
+  @include media-up(md) {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  @include media-up(lg) {
+    margin-bottom: 3rem;
+  }
+}
+
+.equipment-grid {
+  @include grid-responsive(1, 2, 2, 3, 4, 4);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+
+  @include media-up(sm) {
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+  
+  @include media-up(md) {
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+  
+  @include media-up(lg) {
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.bathroom-size-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(27, 50, 68, 0.1);
+
+  @include media-up(sm) {
+    padding: 2.25rem;
+    border-radius: 10px;
+    margin-bottom: 2.25rem;
+  }
+  
+  @include media-up(md) {
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+  }
+  
+  @include media-up(lg) {
+    padding: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  h3 {
+    color: #1b3244;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    @include font-size(h5);
+    text-align: center;
+
+    @include media-up(sm) {
+      @include font-size(h4);
+      text-align: left;
+    }
+    
+    @include media-up(md) {
+      @include font-size(h3);
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+// Mobile container adjustments
+@include media-down(sm) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .equipment-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}

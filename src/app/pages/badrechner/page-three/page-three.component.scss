@@ -1,0 +1,259 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.page-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  @include media-up(sm) {
+    padding: 2rem;
+    border-radius: 17px;
+  }
+  
+  @include media-up(md) {
+    padding: 2.5rem;
+    border-radius: 20px;
+  }
+  
+  @include media-up(lg) {
+    padding: 3rem;
+  }
+}
+
+.page-title {
+  color: var(--text-light, #ffffff);
+  margin-bottom: 2rem;
+  font-weight: 700;
+  text-align: center;
+  @include font-size(h3);
+
+  @include media-up(sm) {
+    margin-bottom: 2.25rem;
+    @include font-size(h2);
+  }
+  
+  @include media-up(md) {
+    margin-bottom: 2.5rem;
+    @include font-size(h1);
+  }
+  
+  @include media-up(lg) {
+    margin-bottom: 3rem;
+  }
+}
+
+.tiles-section {
+  margin-bottom: 2.5rem;
+
+  @include media-up(sm) {
+    margin-bottom: 3rem;
+  }
+  
+  @include media-up(md) {
+    margin-bottom: 3.5rem;
+  }
+  
+  @include media-up(lg) {
+    margin-bottom: 4rem;
+  }
+}
+
+.section-title {
+  color: var(--cta-color, #ef804e);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(239, 128, 78, 0.3);
+  padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  @include font-size(h5);
+
+  @include media-up(sm) {
+    margin-bottom: 1.75rem;
+    padding-bottom: 10px;
+    gap: 10px;
+    @include font-size(h4);
+  }
+  
+  @include media-up(md) {
+    margin-bottom: 2rem;
+    @include font-size(h3);
+  }
+
+  i {
+    font-size: 1rem;
+
+    @include media-up(sm) {
+      font-size: 1.1rem;
+    }
+    
+    @include media-up(md) {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.tiles-grid {
+  @include grid-responsive(1, 2, 2, 3, 4, 4);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  @include media-up(sm) {
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+  
+  @include media-up(md) {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  @include media-up(lg) {
+    gap: 2rem;
+  }
+}
+
+.info-section {
+  margin-bottom: 2rem;
+
+  @include media-up(sm) {
+    margin-bottom: 2.25rem;
+  }
+  
+  @include media-up(md) {
+    margin-bottom: 2.5rem;
+  }
+  
+  @include media-up(lg) {
+    margin-bottom: 3rem;
+  }
+}
+
+.alert {
+  background: rgba(23, 162, 184, 0.1);
+  border: 1px solid rgba(23, 162, 184, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: var(--text-light, #ffffff);
+
+  @include media-up(sm) {
+    padding: 1.75rem;
+    border-radius: 14px;
+  }
+  
+  @include media-up(md) {
+    padding: 2rem;
+    border-radius: 15px;
+  }
+}
+
+.alert-heading {
+  color: #17a2b8;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  @include font-size(h6);
+
+  @include media-up(sm) {
+    margin-bottom: 1.5rem;
+    gap: 10px;
+    @include font-size(h5);
+  }
+  
+  @include media-up(md) {
+    @include font-size(h4);
+  }
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+
+  li {
+    padding: 4px 0;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    padding-left: 16px;
+    @include font-size(small);
+
+    @include media-up(sm) {
+      padding: 5px 0;
+      padding-left: 18px;
+      @include font-size(body);
+    }
+    
+    @include media-up(md) {
+      padding-left: 20px;
+    }
+
+    &:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color, #9fce99);
+      font-weight: bold;
+      font-size: 1rem;
+
+      @include media-up(md) {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+.row p {
+  @include font-size(small);
+  margin-bottom: 1rem;
+  font-weight: 600;
+
+  @include media-up(sm) {
+    @include font-size(body);
+    margin-bottom: 1.25rem;
+  }
+  
+  @include media-up(md) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Mobile specific adjustments
+@include media-down(sm) {
+  .tiles-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+    
+    i {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .alert {
+    padding: 1.25rem;
+  }
+  
+  .info-list li {
+    font-size: 0.8rem;
+    padding-left: 14px;
+  }
+}
+
+// Container adjustments
+@include media-down(md) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

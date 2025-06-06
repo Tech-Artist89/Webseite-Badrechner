@@ -1,48 +1,181 @@
 @import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 .heating-page {
   .page-header {
     background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+    @include section-padding();
+    padding-top: 100px;
+
+    @include media-up(md) {
+      padding-top: 120px;
+    }
     
-    .page-title i {
-      color: $cta-color;
-      margin-right: 1rem;
+    @include media-up(lg) {
+      padding-top: 140px;
+    }
+    
+    .page-title {
+      @include font-size(h2);
+      font-weight: 700;
+      color: $text-light;
+      margin-bottom: 1rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      @include media-up(md) {
+        @include font-size(h1);
+        flex-wrap: nowrap;
+      }
+
+      i {
+        color: $cta-color;
+        font-size: 2rem;
+
+        @include media-up(sm) {
+          font-size: 2.5rem;
+        }
+        
+        @include media-up(md) {
+          font-size: 3rem;
+        }
+      }
+    }
+
+    .page-subtitle {
+      @include font-size(body);
+      color: rgba($text-light, 0.8);
+      text-align: center;
+      margin-bottom: 0;
+
+      @include media-up(md) {
+        font-size: 1.2rem;
+      }
     }
   }
 
-  .section-title.text-start::after {
-    left: 0;
-    transform: none;
+  .section {
+    @include section-padding();
+  }
+
+  .section-title {
+    @include font-size(h3);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    color: $text-light;
+
+    @include media-up(sm) {
+      margin-bottom: 2rem;
+      @include font-size(h2);
+    }
+
+    &.text-start {
+      text-align: left;
+
+      @include media-down(md) {
+        text-align: center;
+      }
+
+      &::after {
+        left: 0;
+        transform: none;
+
+        @include media-down(md) {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    &::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background: $cta-color;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+
+      @include media-up(md) {
+        width: 80px;
+        height: 4px;
+        bottom: -15px;
+      }
+    }
   }
 
   .lead {
-    font-size: 1.2rem;
+    @include font-size(body);
     color: rgba($text-light, 0.9);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+
+    @include media-up(md) {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
   }
 
   .feature-highlights {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+
+    @include media-up(md) {
+      margin-bottom: 2rem;
+    }
   }
 
   .highlight-item {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: $text-light;
+    @include font-size(small);
+
+    @include media-up(sm) {
+      margin-bottom: 1rem;
+      @include font-size(body);
+    }
 
     i {
       color: $accent-color;
-      margin-right: 1rem;
+      margin-right: 0.75rem;
+      font-size: 1rem;
+      flex-shrink: 0;
+
+      @include media-up(md) {
+        margin-right: 1rem;
+        font-size: 1.2rem;
+      }
     }
   }
 
   .visual-element {
     text-align: center;
+    margin-top: 2rem;
+
+    @include media-up(lg) {
+      margin-top: 0;
+    }
     
     i {
-      font-size: 12rem;
+      font-size: 8rem;
       color: rgba($cta-color, 0.3);
+
+      @include media-up(sm) {
+        font-size: 10rem;
+      }
+      
+      @include media-up(md) {
+        font-size: 12rem;
+      }
     }
   }
 
@@ -51,53 +184,104 @@
   }
 
   .heating-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2.5rem;
+    @include card-responsive();
     text-align: center;
     height: 100%;
     transition: all 0.3s ease;
 
     &:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
       border-color: $cta-color;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+
+      @include media-up(md) {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
     }
   }
 
   .heating-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: $cta-color;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+
+    @include media-up(sm) {
+      font-size: 2.75rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    @include media-up(md) {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
   }
 
   .heating-card h3 {
     color: $text-light;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    @include font-size(h6);
+
+    @include media-up(sm) {
+      margin-bottom: 1rem;
+      @include font-size(h5);
+    }
+    
+    @include media-up(md) {
+      @include font-size(h4);
+    }
   }
 
   .heating-card p {
     color: rgba($text-light, 0.8);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    @include font-size(small);
+
+    @include media-up(sm) {
+      margin-bottom: 1.25rem;
+      @include font-size(body);
+    }
+    
+    @include media-up(md) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   .feature-list {
     list-style: none;
     padding: 0;
     text-align: left;
+    margin: 0 auto;
+    max-width: 250px;
+
+    @include media-up(sm) {
+      max-width: 280px;
+    }
 
     li {
       display: flex;
       align-items: center;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       color: rgba($text-light, 0.8);
+      @include font-size(small);
+
+      @include media-up(sm) {
+        margin-bottom: 0.5rem;
+        @include font-size(body);
+      }
 
       i {
         color: $accent-color;
-        margin-right: 0.5rem;
-        font-size: 0.8rem;
+        margin-right: 0.4rem;
+        font-size: 0.7rem;
+        flex-shrink: 0;
+
+        @include media-up(sm) {
+          margin-right: 0.5rem;
+          font-size: 0.8rem;
+        }
       }
     }
   }
@@ -107,60 +291,160 @@
   }
 
   .process-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    @include grid-responsive(1, 2, 2, 4, 4, 4);
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+    @include media-up(sm) {
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    
+    @include media-up(md) {
+      margin-top: 3rem;
+    }
   }
 
   .step {
     text-align: center;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    @include glass-effect();
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
     transition: all 0.3s ease;
+
+    @include media-up(sm) {
+      padding: 1.75rem 1.25rem;
+      border-radius: 14px;
+    }
+    
+    @include media-up(md) {
+      padding: 2rem;
+      border-radius: 15px;
+    }
 
     &:hover {
       background: rgba($cta-color, 0.1);
-      transform: translateY(-5px);
+      transform: translateY(-3px);
+
+      @include media-up(md) {
+        transform: translateY(-5px);
+      }
     }
   }
 
   .step-number {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: white;
     margin: 0 auto 1rem;
+
+    @include media-up(sm) {
+      width: 55px;
+      height: 55px;
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    @include media-up(md) {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
   }
 
   .step h4 {
     color: $text-light;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     font-weight: 600;
+    @include font-size(body);
+
+    @include media-up(sm) {
+      margin-bottom: 1rem;
+      @include font-size(h6);
+    }
+    
+    @include media-up(md) {
+      @include font-size(h5);
+    }
   }
 
   .step p {
     color: rgba($text-light, 0.8);
     margin: 0;
+    line-height: 1.5;
+    @include font-size(small);
+
+    @include media-up(sm) {
+      @include font-size(body);
+    }
+  }
+
+  .btn-cta {
+    @include btn-cta;
+    @include font-size(small);
+
+    @include media-up(sm) {
+      @include font-size(body);
+    }
   }
 }
 
-@media (max-width: 768px) {
+// Mobile specific adjustments
+@include media-down(sm) {
   .heating-page {
-    .visual-element i {
-      font-size: 8rem;
+    .feature-highlights {
+      margin-bottom: 1.25rem;
     }
-
+    
+    .highlight-item {
+      margin-bottom: 0.6rem;
+      font-size: 0.85rem;
+      
+      i {
+        font-size: 0.9rem;
+        margin-right: 0.6rem;
+      }
+    }
+    
+    .visual-element i {
+      font-size: 6rem;
+    }
+    
+    .heating-card {
+      min-height: 280px;
+    }
+    
     .process-steps {
       grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .step {
+      padding: 1.25rem;
+    }
+    
+    .step-number {
+      width: 45px;
+      height: 45px;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Container adjustments
+@include media-down(md) {
+  .heating-page {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 }

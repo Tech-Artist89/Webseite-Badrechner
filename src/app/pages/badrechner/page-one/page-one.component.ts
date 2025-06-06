@@ -72,66 +72,7 @@ import { BathroomData, EquipmentItem, EquipmentOption } from '../../../interface
       </app-popup-modal>
     </div>
   `,
-  styles: [`
-    .page-content {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(27, 50, 68, 0.1);
-      border: 1px solid rgba(27, 50, 68, 0.1);
-    }
-
-    .page-title {
-      color: #1b3244;
-      margin-bottom: 10px;
-      font-weight: 700;
-      font-size: 2rem;
-    }
-
-    .page-subtitle {
-      color: #666;
-      margin-bottom: 30px;
-      font-style: italic;
-      font-size: 1.1rem;
-    }
-
-    .equipment-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .bathroom-size-section {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      padding: 30px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      border: 1px solid rgba(27, 50, 68, 0.1);
-    }
-
-    .bathroom-size-section h3 {
-      color: #1b3244;
-      margin-bottom: 20px;
-      font-weight: 600;
-      font-size: 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .equipment-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
-      }
-      
-      .page-content {
-        padding: 20px;
-      }
-      
-      .page-title {
-        font-size: 1.5rem;
-      }
-    }
-  `]
+  styleUrls: ['./page-one.component.scss']
 })
 export class PageOneComponent implements OnInit, OnDestroy {
   bathroomData!: BathroomData;

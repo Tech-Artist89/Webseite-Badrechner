@@ -1,19 +1,16 @@
 @import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 .service-card {
-  background: rgba(255, 255, 255, 0.1) !important;  // ✅ Mehr Sichtbarkeit
-  backdrop-filter: blur(20px);
-  border: 2px solid rgba(255, 255, 255, 0.2) !important;  // ✅ Sichtbarer Border
-  border-radius: 20px;
-  padding: 2.5rem;
+  @include card-responsive();
   height: 100%;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  display: flex !important;  // ✅ Sicherstellen dass sichtbar
+  display: flex;
   flex-direction: column;
-  opacity: 1 !important;    // ✅ Sichtbarkeit forcieren
-  visibility: visible !important;  // ✅ Sichtbarkeit forcieren
+  opacity: 1 !important;
+  visibility: visible !important;
 
   &::before {
     content: '';
@@ -27,10 +24,15 @@
   }
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     border-color: $cta-color !important;
     background: rgba(255, 255, 255, 0.15) !important;
+
+    @include media-up(md) {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
 
     &::before {
       left: 100%;
@@ -44,11 +46,21 @@
 }
 
 .service-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: $cta-color !important;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
   display: block !important;
+
+  @include media-up(sm) {
+    font-size: 2.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  @include media-up(md) {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .service-content {
@@ -58,36 +70,66 @@
 }
 
 .service-title {
-  font-size: 1.5rem;
+  @include font-size(h5);
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   color: $text-light !important;
   display: block !important;
+  text-align: center;
+
+  @include media-up(md) {
+    margin-bottom: 1rem;
+    @include font-size(h4);
+  }
 }
 
 .service-description {
   color: rgba($text-light, 0.9) !important;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   line-height: 1.6;
   display: block !important;
+  text-align: center;
+  @include font-size(small);
+
+  @include media-up(md) {
+    margin-bottom: 1.5rem;
+    @include font-size(body);
+  }
 }
 
 .service-features {
   list-style: none;
   padding: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   display: block !important;
+  text-align: left;
+
+  @include media-up(md) {
+    margin-bottom: 2rem;
+  }
 
   li {
     display: flex !important;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     color: rgba($text-light, 0.8) !important;
+    @include font-size(small);
+
+    @include media-up(md) {
+      margin-bottom: 0.5rem;
+      @include font-size(body);
+    }
 
     i {
       color: $accent-color !important;
-      margin-right: 0.5rem;
-      font-size: 0.8rem;
+      margin-right: 0.4rem;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+
+      @include media-up(md) {
+        margin-right: 0.5rem;
+        font-size: 0.8rem;
+      }
     }
   }
 }
@@ -95,37 +137,127 @@
 .service-footer {
   margin-top: auto;
   display: block !important;
+  text-align: center;
 }
 
 .btn-service {
   background: transparent;
   color: $cta-color !important;
   border: 1px solid $cta-color;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 8px 16px;
+  border-radius: 20px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
   display: inline-flex !important;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  @include font-size(small);
+
+  @include media-up(sm) {
+    padding: 9px 18px;
+    border-radius: 22px;
+    gap: 0.45rem;
+  }
+  
+  @include media-up(md) {
+    padding: 10px 20px;
+    border-radius: 25px;
+    gap: 0.5rem;
+    @include font-size(body);
+  }
 
   &:hover {
     background: $cta-color !important;
     color: white !important;
+    
+    i {
+      transform: translateX(2px);
+      
+      @include media-up(md) {
+        transform: translateX(3px);
+      }
+    }
   }
 
   i {
     transition: transform 0.3s ease;
-  }
-
-  &:hover i {
-    transform: translateX(3px);
+    font-size: 0.8rem;
+    
+    @include media-up(md) {
+      font-size: 0.9rem;
+    }
   }
 }
 
-// Debug-Styles (temporär zum Testen)
+// Mobile optimizations
+@include media-down(sm) {
+  .service-card {
+    min-height: 300px;
+    padding: 1.5rem;
+  }
+  
+  .service-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .service-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .service-description {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .service-features {
+    margin-bottom: 1rem;
+    
+    li {
+      font-size: 0.8rem;
+      margin-bottom: 0.3rem;
+      
+      i {
+        font-size: 0.65rem;
+        margin-right: 0.3rem;
+      }
+    }
+  }
+  
+  .btn-service {
+    padding: 7px 14px;
+    font-size: 0.8rem;
+    border-radius: 18px;
+    
+    i {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+// Touch targets for mobile
+@include media-down(lg) {
+  .btn-service {
+    min-height: 40px;
+    min-width: 120px;
+  }
+}
+
+// Fix for service card height consistency
 .service-card {
-  min-height: 400px !important;
-  border: 3px solid red !important;  // ✅ DEBUG: Roten Border hinzufügen
+  min-height: 320px;
+  
+  @include media-up(sm) {
+    min-height: 350px;
+  }
+  
+  @include media-up(md) {
+    min-height: 380px;
+  }
+  
+  @include media-up(lg) {
+    min-height: 400px;
+  }
 }

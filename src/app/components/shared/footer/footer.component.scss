@@ -4,75 +4,164 @@
 .footer {
   background: darken($primary-color, 10%);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 3rem 0 1rem;
+  @include section-padding();
+  padding-top: 2rem;
+  padding-bottom: 1rem;
   margin-top: auto;
+  
+  @include media-up(md) {
+    padding-top: 3rem;
+  }
+}
+
+.footer-content {
+  margin-bottom: 1.5rem;
+  
+  @include media-up(md) {
+    margin-bottom: 2rem;
+  }
 }
 
 .footer-section {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  
+  @include media-up(md) {
+    margin-bottom: 2rem;
+  }
 
   h5 {
     color: $cta-color;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     font-weight: 600;
+    @include font-size(h6);
+    
+    @include media-up(md) {
+      margin-bottom: 1rem;
+    }
   }
 
   p {
     color: rgba($text-light, 0.8);
     line-height: 1.6;
+    @include font-size(small);
+    
+    @include media-up(md) {
+      @include font-size(body);
+    }
   }
 }
 
 .contact-item {
   display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
+  align-items: flex-start;
+  margin-bottom: 0.4rem;
   color: rgba($text-light, 0.8);
+  @include font-size(small);
+  
+  @include media-up(sm) {
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  @include media-up(md) {
+    @include font-size(body);
+  }
 
   i {
-    width: 20px;
-    margin-right: 0.5rem;
+    width: 16px;
+    margin-right: 0.4rem;
     color: $cta-color;
+    flex-shrink: 0;
+    margin-top: 2px;
+    
+    @include media-up(sm) {
+      width: 18px;
+      margin-right: 0.5rem;
+      margin-top: 0;
+    }
+    
+    @include media-up(md) {
+      width: 20px;
+    }
+  }
+  
+  span {
+    line-height: 1.4;
   }
 }
 
 .social-links {
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  
+  @include media-up(sm) {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
 }
 
 .social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background: rgba($cta-color, 0.1);
   border-radius: 50%;
   color: $cta-color;
   text-decoration: none;
   transition: all 0.3s ease;
+  
+  @include media-up(sm) {
+    width: 38px;
+    height: 38px;
+  }
+  
+  @include media-up(md) {
+    width: 40px;
+    height: 40px;
+  }
 
   &:hover {
     background: $cta-color;
     color: white;
     transform: translateY(-2px);
   }
+  
+  i {
+    font-size: 0.9rem;
+    
+    @include media-up(md) {
+      font-size: 1rem;
+    }
+  }
 }
 
 .footer-links {
   list-style: none;
   padding: 0;
+  margin: 0;
 
   li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+    
+    @include media-up(md) {
+      margin-bottom: 0.5rem;
+    }
   }
 
   a {
     color: rgba($text-light, 0.8);
     text-decoration: none;
     transition: color 0.3s ease;
+    @include font-size(small);
+    display: block;
+    padding: 0.2rem 0;
+    
+    @include media-up(md) {
+      @include font-size(body);
+    }
 
     &:hover {
       color: $cta-color;
@@ -82,7 +171,84 @@
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   text-align: center;
   color: rgba($text-light, 0.6);
+  @include font-size(small);
+  
+  @include media-up(md) {
+    padding-top: 2rem;
+  }
+}
+
+// Mobile optimizations
+@include media-down(md) {
+  .footer {
+    .row {
+      text-align: center;
+    }
+    
+    .footer-section {
+      text-align: center;
+      
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 1.5rem;
+      }
+    }
+  }
+  
+  .contact-item {
+    justify-content: center;
+    text-align: left;
+    max-width: 250px;
+    margin: 0.5rem auto;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .footer-links {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+// Extra small devices
+@include media-down(sm) {
+  .footer-section {
+    h5 {
+      font-size: 1rem;
+    }
+    
+    p {
+      font-size: 0.8rem;
+    }
+  }
+  
+  .contact-item {
+    font-size: 0.8rem;
+    
+    i {
+      width: 14px;
+    }
+  }
+  
+  .social-link {
+    width: 32px;
+    height: 32px;
+    
+    i {
+      font-size: 0.8rem;
+    }
+  }
+  
+  .footer-links a {
+    font-size: 0.8rem;
+  }
+  
+  .footer-bottom {
+    font-size: 0.75rem;
+  }
 }
