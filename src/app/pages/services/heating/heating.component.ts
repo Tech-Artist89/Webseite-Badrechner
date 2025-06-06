@@ -28,10 +28,10 @@ export class HeatingComponent implements OnInit {
       features: ['Brennwertkessel', 'Kombi-Thermen', 'Modulierende Systeme']
     },
     {
-      title: 'Solartechnik',
-      description: 'Kostenlose Energie der Sonne nutzen',
-      icon: 'fas fa-sun',
-      features: ['Solarthermie', 'Photovoltaik', 'Speichersysteme']
+      title: 'Fußbodenheizung',
+      description: 'Wohlige Wärme von unten für Ihr Zuhause',
+      icon: 'fas fa-th',
+      features: ['Gleichmäßige Wärme', 'Energieeffizient', 'Allergikerfreundlich']
     }
   ];
 

@@ -112,19 +112,43 @@
 
   <!-- Map Section -->
   <section class="map-section">
-    <div class="container">
-      <h3 class="text-center mb-4">So finden Sie uns</h3>
-      <div class="map-placeholder">
-        <div class="map-content">
-          <i class="fas fa-map-marked-alt"></i>
-          <h4>Mitra Sanitär GmbH</h4>
+  <div class="container">
+    <h3 class="text-center mb-4">So finden Sie uns</h3>
+    
+    <!-- Einfache Google Maps ohne API Key -->
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1215.3443905928702!2d13.382660007091406!3d52.46666354298265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x47a84ffc663f147d%3A0xd34f017be1c2448e!2sAlt-Tempelhof%2C%2012099%20Berlin!3m2!1d52.4662365!2d13.3858403!4m5!1s0x47a84ffd73794c8d%3A0x28d7c14432bce456!2sBorussiastra%C3%9Fe%2062A%2C%2012103%20Berlin!3m2!1d52.46732!2d13.38206!5e0!3m2!1sde!2sde!4v1749078536324!5m2!1sde!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        width="100%" 
+        height="400" 
+        style="border:0; border-radius: 10px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- Adresse unter der Karte -->
+    <div class="address-info text-center mt-4">
+      <div class="row">
+        <div class="col-md-6">
+          <h5><i class="fas fa-map-marker-alt"></i> Unser Standort</h5>
           <p *ngIf="contactInfo">
+            <strong>Mitra Sanitär GmbH</strong><br>
             {{ contactInfo.address.street }}<br>
             {{ contactInfo.address.zip }} {{ contactInfo.address.city }}
           </p>
-          <small>Google Maps Integration würde hier erscheinen</small>
+        </div>
+        <div class="col-md-6">
+          <h5><i class="fas fa-route"></i> Anfahrt</h5>
+          <a href="https://www.google.com/maps/dir/Alt-Tempelhof,+12099+Berlin/Borussiastra%C3%9Fe+62A,+12103+Berlin/@52.4666635,13.38266,18z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x47a84ffc663f147d:0xd34f017be1c2448e!2m2!1d13.3858403!2d52.4662365!1m5!1m1!1s0x47a84ffd73794c8d:0x28d7c14432bce456!2m2!1d13.38206!2d52.46732!3e2?entry=ttu&g_ep=EgoyMDI1MDYwMi4wIKXMDSoASAFQAw%3D%3D" 
+             target="_blank" 
+             class="btn btn-primary">
+            <i class="fas fa-directions"></i> Route planen
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 </div>

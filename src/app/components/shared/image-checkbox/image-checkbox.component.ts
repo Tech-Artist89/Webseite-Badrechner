@@ -55,7 +55,7 @@ import { CommonModule } from '@angular/common';
 
     .checkbox-image {
       width: 100%;
-      height: 120px;
+      height: 230px;
       object-fit: cover;
       border-radius: 8px;
       background: #f8f9fa;

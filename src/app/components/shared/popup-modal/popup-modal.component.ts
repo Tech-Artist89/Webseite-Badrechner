@@ -51,6 +51,11 @@ import { EquipmentOption } from '../../../interfaces/badrechner';
       z-index: 1055;
     }
 
+    .modal-dialog {
+      margin-top: 100px; /* oder ein Wert, der für dich passt */
+}
+
+
     .modal-backdrop {
       z-index: 1050;
       background-color: rgba(27, 50, 68, 0.7);
@@ -215,7 +220,7 @@ import { EquipmentOption } from '../../../interfaces/badrechner';
 
     @media (max-width: 768px) {
       .modal-dialog {
-        margin: 10px;
+        margin: 20px;
       }
       
       .option-image {
