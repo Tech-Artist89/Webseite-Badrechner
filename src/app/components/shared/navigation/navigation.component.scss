@@ -1,5 +1,5 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles/variables' as vr;
+@use '../../../styles/mixins' as mi;
 
 .navigation {
   position: relative;
@@ -23,11 +23,11 @@
     display: block;
     width: 22px;
     height: 2px;
-    background: $text-light;
+    background: vr.$text-light;
     margin: 2px 0;
     transition: all 0.3s ease;
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       width: 25px;
       height: 3px;
       margin: 3px 0;
@@ -38,7 +38,7 @@
     span:nth-child(1) {
       transform: rotate(45deg) translate(4px, 4px);
       
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         transform: rotate(45deg) translate(6px, 6px);
       }
     }
@@ -48,7 +48,7 @@
     span:nth-child(3) {
       transform: rotate(-45deg) translate(4px, -4px);
       
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         transform: rotate(-45deg) translate(6px, -6px);
       }
     }
@@ -62,7 +62,7 @@
   padding: 0;
   gap: 0.5rem;
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     gap: 1rem;
   }
 }
@@ -71,7 +71,7 @@
   position: relative;
 
   // Desktop hover effects
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     &.dropdown:hover .dropdown-menu {
       opacity: 1;
       visibility: visible;
@@ -87,32 +87,32 @@
   &.special-nav {
     margin: 0 0.25rem;
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       margin: 0 0.5rem;
     }
     
     .nav-link-special {
-      background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+      background: linear-gradient(45deg, vr.$cta-color, lighten(vr.$cta-color, 10%));
       color: white !important;
       padding: 0.5rem 1rem;
       border-radius: 20px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.3px;
-      box-shadow: 0 2px 10px rgba($cta-color, 0.3);
+      box-shadow: 0 2px 10px rgba(vr.$cta-color, 0.3);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
       font-size: 0.8rem;
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         padding: 0.6rem 1.2rem;
         border-radius: 22px;
         letter-spacing: 0.4px;
         font-size: 0.85rem;
       }
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         padding: 0.75rem 1.5rem;
         border-radius: 25px;
         letter-spacing: 0.5px;
@@ -121,21 +121,21 @@
 
       &:hover {
         transform: translateY(-2px) scale(1.03);
-        box-shadow: 0 6px 20px rgba($cta-color, 0.4);
-        background: linear-gradient(45deg, lighten($cta-color, 5%), $cta-color);
+        box-shadow: 0 6px 20px rgba(vr.$cta-color, 0.4);
+        background: linear-gradient(45deg, lighten(vr.$cta-color, 5%), vr.$cta-color);
         
-        @include media-up(lg) {
+        @include mi.media-up(lg) {
           transform: translateY(-2px) scale(1.05);
-          box-shadow: 0 8px 25px rgba($cta-color, 0.4);
+          box-shadow: 0 8px 25px rgba(vr.$cta-color, 0.4);
         }
       }
 
       &.router-link-active {
-        background: linear-gradient(45deg, darken($cta-color, 5%), $cta-color);
-        box-shadow: 0 4px 15px rgba($cta-color, 0.5);
+        background: linear-gradient(45deg, darken(vr.$cta-color, 5%), vr.$cta-color);
+        box-shadow: 0 4px 15px rgba(vr.$cta-color, 0.5);
         
-        @include media-up(lg) {
-          box-shadow: 0 6px 20px rgba($cta-color, 0.5);
+        @include mi.media-up(lg) {
+          box-shadow: 0 6px 20px rgba(vr.$cta-color, 0.5);
         }
       }
 
@@ -143,12 +143,12 @@
         margin-right: 0.3rem;
         font-size: 0.9rem;
         
-        @include media-up(sm) {
+        @include mi.media-up(sm) {
           margin-right: 0.4rem;
           font-size: 1rem;
         }
         
-        @include media-up(md) {
+        @include mi.media-up(md) {
           margin-right: 0.5rem;
           font-size: 1.1rem;
         }
@@ -158,8 +158,8 @@
         position: absolute;
         top: -6px;
         right: -6px;
-        background: $accent-color;
-        color: $primary-color;
+        background: vr.$accent-color;
+        color: vr.$primary-color;
         font-size: 0.5rem;
         font-weight: 700;
         padding: 1px 4px;
@@ -168,7 +168,7 @@
         text-transform: uppercase;
         letter-spacing: 0.3px;
         
-        @include media-up(sm) {
+        @include mi.media-up(sm) {
           top: -7px;
           right: -7px;
           font-size: 0.55rem;
@@ -177,7 +177,7 @@
           letter-spacing: 0.4px;
         }
         
-        @include media-up(md) {
+        @include mi.media-up(md) {
           top: -8px;
           right: -8px;
           font-size: 0.6rem;
@@ -191,7 +191,7 @@
 }
 
 .nav-link {
-  color: $text-light;
+  color: vr.$text-light;
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 0.75rem;
@@ -205,7 +205,7 @@
   font-size: 0.85rem;
   min-height: 36px;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 0.6rem 0.8rem;
     border-radius: 22px;
     gap: 0.4rem;
@@ -213,7 +213,7 @@
     min-height: 38px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 0.65rem 0.9rem;
     border-radius: 23px;
     gap: 0.45rem;
@@ -221,7 +221,7 @@
     min-height: 40px;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     padding: 0.75rem 1rem;
     border-radius: 25px;
     gap: 0.5rem;
@@ -231,24 +231,24 @@
 
   &:hover,
   &.active {
-    color: $cta-color;
-    background: rgba($cta-color, 0.1);
+    color: vr.$cta-color;
+    background: rgba(vr.$cta-color, 0.1);
   }
 
   &.router-link-active {
-    color: $cta-color;
-    background: rgba($cta-color, 0.15);
+    color: vr.$cta-color;
+    background: rgba(vr.$cta-color, 0.15);
   }
 
   i {
     font-size: 0.7rem;
     transition: transform 0.3s ease;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 0.75rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 0.8rem;
     }
 
@@ -268,7 +268,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background: $primary-color;
+  background: vr.$primary-color;
   border-radius: 8px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   opacity: 0;
@@ -281,13 +281,13 @@
   z-index: 1000;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     border-radius: 10px;
     min-width: 220px;
     padding: 1rem 0;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     min-width: 240px;
   }
 
@@ -304,72 +304,72 @@
 
 .dropdown-link {
   display: block;
-  color: $text-light;
+  color: vr.$text-light;
   text-decoration: none;
   padding: 0.5rem 1rem;
   transition: all 0.3s ease;
   font-weight: 400;
   font-size: 0.85rem;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 0.75rem 1.5rem;
     font-size: 0.95rem;
   }
 
   &:hover {
-    background: rgba($cta-color, 0.1);
-    color: $cta-color;
+    background: rgba(vr.$cta-color, 0.1);
+    color: vr.$cta-color;
     padding-left: 1.5rem;
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding-left: 1.7rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-left: 2rem;
     }
   }
 
   &.router-link-active {
-    background: rgba($cta-color, 0.15);
-    color: $cta-color;
-    border-left: 3px solid $cta-color;
+    background: rgba(vr.$cta-color, 0.15);
+    color: vr.$cta-color;
+    border-left: 3px solid vr.$cta-color;
   }
 
   &.special-dropdown-link {
-    background: rgba($cta-color, 0.1);
+    background: rgba(vr.$cta-color, 0.1);
     margin: 0.3rem 0.75rem;
     border-radius: 6px;
     font-weight: 500;
-    border: 1px solid rgba($cta-color, 0.3);
+    border: 1px solid rgba(vr.$cta-color, 0.3);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin: 0.4rem 1rem;
       border-radius: 7px;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin: 0.5rem 1rem;
       border-radius: 8px;
     }
 
     &:hover {
-      background: rgba($cta-color, 0.2);
-      color: $cta-color;
+      background: rgba(vr.$cta-color, 0.2);
+      color: vr.$cta-color;
       padding-left: 1rem;
       transform: translateX(3px);
       
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         padding-left: 1.2rem;
         transform: translateX(4px);
       }
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         padding-left: 1.5rem;
         transform: translateX(5px);
       }
@@ -377,9 +377,9 @@
 
     i {
       margin-right: 0.4rem;
-      color: $cta-color;
+      color: vr.$cta-color;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         margin-right: 0.5rem;
       }
     }
@@ -391,11 +391,11 @@
   background: rgba(255, 255, 255, 0.1);
   margin: 0.3rem 0.75rem;
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin: 0.4rem 1rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin: 0.5rem 1rem;
   }
 }
@@ -410,14 +410,14 @@
     transform: scale(1.05);
     opacity: 0.8;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: scale(1.1);
     }
   }
 }
 
 // Mobile styles - FIXED
-@include media-down(lg) {
+@include mi.media-down(lg) {
   .menu-toggle {
     display: flex;
   }
@@ -427,7 +427,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: $primary-color;
+    background: vr.$primary-color;
     flex-direction: column;
     padding: 1.5rem;
     border-radius: 0 0 15px 15px;
@@ -443,7 +443,7 @@
     width: 100vw; // Full width
     left: 0; // Reset left position
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 2rem;
       border-radius: 0 0 20px 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -476,7 +476,7 @@
         justify-content: center;
         width: 100%;
         
-        @include media-up(sm) {
+        @include mi.media-up(sm) {
           padding: 1rem 1.5rem;
           border-radius: 15px;
         }
@@ -485,7 +485,7 @@
           top: -4px;
           right: 8px;
           
-          @include media-up(sm) {
+          @include mi.media-up(sm) {
             top: -5px;
             right: 10px;
           }
@@ -501,7 +501,7 @@
     justify-content: space-between;
     min-height: 48px;
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 1rem;
       min-height: 52px;
       border-radius: 10px;
@@ -526,7 +526,7 @@
     &.show {
       max-height: 300px; // Increased for better content fit
       
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         max-height: 350px;
       }
     }
@@ -535,14 +535,14 @@
   .dropdown-link {
     padding: 0.6rem 1rem; // Reduced padding for mobile
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 0.75rem 1.5rem;
     }
     
     &:hover {
       padding-left: 1.5rem;
       
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         padding-left: 2rem;
       }
     }
@@ -551,7 +551,7 @@
       margin: 0.4rem 0.5rem; // Adjusted margins
       border-radius: 6px;
       
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         margin: 0.5rem 1rem;
         border-radius: 8px;
       }
@@ -559,7 +559,7 @@
       &:hover {
         padding-left: 1rem;
         
-        @include media-up(sm) {
+        @include mi.media-up(sm) {
           padding-left: 1.5rem;
         }
       }
@@ -568,7 +568,7 @@
 }
 
 // Extra small devices adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .nav-item.special-nav .nav-link-special {
     font-size: 0.75rem;
     padding: 0.7rem 1rem;
@@ -601,7 +601,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba($cta-color, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(vr.$cta-color, 0.1), transparent);
     transition: left 0.5s;
   }
 
@@ -627,7 +627,7 @@
 }
 
 // Additional mobile fixes
-@include media-down(lg) {
+@include mi.media-down(lg) {
   // Prevent body scroll when menu is open
   body.menu-open {
     overflow: hidden;

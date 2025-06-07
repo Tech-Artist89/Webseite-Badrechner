@@ -1,5 +1,5 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles/variables' as vr;
+@use '../../../styles/mixins' as mi;
 
 .navigation-buttons {
   display: flex;
@@ -11,20 +11,20 @@
   flex-direction: column;
   gap: 1rem;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-top: 2rem;
     padding: 1.25rem 0;
     gap: 1.25rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     flex-direction: row;
     gap: 0;
     margin-top: 2.5rem;
     padding: 1.5rem 0;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin-top: 3rem;
     padding: 2rem 0;
   }
@@ -34,7 +34,7 @@
   flex: 1;
   display: none;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     display: block;
   }
 }
@@ -50,20 +50,20 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  @include font-size(small);
+  @include mi.font-size(small);
   width: 100%;
   max-width: 280px;
   justify-content: center;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 11px 22px;
     border-radius: 22px;
     gap: 0.6rem;
-    @include font-size(body);
+    @include mi.font-size(body);
     max-width: 320px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 12px 24px;
     border-radius: 25px;
     gap: 0.75rem;
@@ -71,7 +71,7 @@
     max-width: none;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     padding: 15px 30px;
     border-radius: 30px;
     gap: 1rem;
@@ -86,11 +86,11 @@
   i {
     font-size: 0.9rem;
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 1rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.1rem;
     }
   }
@@ -98,16 +98,16 @@
 
 .btn-outline-light {
   background: transparent;
-  color: var(--text-light, #ffffff);
+  color: var(--text-light, #{vr.$text-light});
   border: 2px solid rgba(255, 255, 255, 0.3);
 
   &:hover:not(:disabled) {
     background: rgba(255, 255, 255, 0.1);
-    border-color: var(--accent-color, #9fce99);
-    color: var(--accent-color, #9fce99);
+    border-color: var(--accent-color, #{vr.$accent-color});
+    color: var(--accent-color, #{vr.$accent-color});
     transform: translateY(-2px);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-3px);
     }
   }
@@ -122,7 +122,7 @@
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 8px 20px rgba(239, 128, 78, 0.4);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 10px 30px rgba(239, 128, 78, 0.4);
     }
@@ -139,7 +139,7 @@
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 8px 20px rgba(159, 206, 153, 0.4);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 10px 30px rgba(159, 206, 153, 0.4);
     }
@@ -147,7 +147,7 @@
 }
 
 // Mobile specific adjustments
-@include media-down(md) {
+@include mi.media-down(md) {
   .navigation-buttons {
     .btn {
       margin-bottom: 0.5rem;
@@ -160,7 +160,7 @@
 }
 
 // Touch targets for mobile
-@include media-down(lg) {
+@include mi.media-down(lg) {
   .btn {
     min-height: 44px;
     min-width: 120px;

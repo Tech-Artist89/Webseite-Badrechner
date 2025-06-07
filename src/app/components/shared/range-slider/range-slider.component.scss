@@ -1,18 +1,18 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles/variables' as vr;
+@use '../../../styles/mixins' as mi;
 
 .range-slider-container {
   margin: 1rem 0;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin: 1.25rem 0;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin: 1.5rem 0;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin: 2rem 0;
   }
 }
@@ -21,11 +21,11 @@
   position: relative;
   margin: 1rem 0;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin: 1.25rem 0;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin: 1.5rem 0;
   }
 }
@@ -39,12 +39,12 @@
   -webkit-appearance: none;
   cursor: pointer;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     height: 7px;
     border-radius: 4px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     height: 8px;
     border-radius: 4px;
   }
@@ -55,18 +55,18 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--cta-color, #ef804e);
+    background: var(--cta-color, #{vr.$cta-color});
     cursor: pointer;
     border: 2px solid white;
     box-shadow: 0 2px 6px rgba(239, 128, 78, 0.3);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       width: 22px;
       height: 22px;
       box-shadow: 0 2px 8px rgba(239, 128, 78, 0.3);
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       width: 24px;
       height: 24px;
     }
@@ -76,18 +76,18 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--cta-color, #ef804e);
+    background: var(--cta-color, #{vr.$cta-color});
     cursor: pointer;
     border: 2px solid white;
     box-shadow: 0 2px 6px rgba(239, 128, 78, 0.3);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       width: 22px;
       height: 22px;
       box-shadow: 0 2px 8px rgba(239, 128, 78, 0.3);
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       width: 24px;
       height: 24px;
     }
@@ -98,29 +98,29 @@
   display: flex;
   justify-content: space-between;
   margin-top: 0.75rem;
-  @include font-size(small);
+  @include mi.font-size(small);
   color: #666;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-top: 1rem;
     font-size: 0.8rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     font-size: 0.85rem;
   }
 }
 
 .current-value {
   font-weight: 600;
-  color: var(--cta-color, #ef804e);
-  @include font-size(small);
+  color: var(--cta-color, #{vr.$cta-color});
+  @include mi.font-size(small);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     font-size: 0.9rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     font-size: 1rem;
   }
 }
@@ -132,17 +132,17 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--text-light, #ffffff);
-  @include font-size(small);
+  color: var(--text-light, #{vr.$text-light});
+  @include mi.font-size(small);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-top: 1.25rem;
     padding: 1rem;
     border-radius: 8px;
-    @include font-size(body);
+    @include mi.font-size(body);
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-top: 1.5rem;
     padding: 1.25rem;
     border-radius: 10px;
@@ -151,22 +151,22 @@
 
 .form-label {
   font-weight: 600;
-  color: var(--text-light, #ffffff);
+  color: var(--text-light, #{vr.$text-light});
   margin-bottom: 0.5rem;
-  @include font-size(small);
+  @include mi.font-size(small);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 0.6rem;
-    @include font-size(body);
+    @include mi.font-size(body);
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 0.75rem;
   }
 }
 
 // Mobile specific adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .custom-range {
     height: 5px;
     
@@ -201,7 +201,7 @@
 }
 
 // Touch targets for mobile
-@include media-down(lg) {
+@include mi.media-down(lg) {
   .custom-range {
     min-height: 44px;
     padding: 10px 0;

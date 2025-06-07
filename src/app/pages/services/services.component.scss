@@ -1,80 +1,81 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use 'sass:color';
+@use '../../styles/variables' as vr;
+@use '../../styles/mixins' as mi;
 
 .services-page {
   .page-header {
-    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 100px;
+    background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -15%) 100%);
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 120px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding-top: 140px;
     }
   }
 
   .page-title {
-    @include font-size(h2);
+    @include mi.font-size(h2);
     font-weight: 700;
-    color: $text-light;
+    color: vr.$text-light;
     margin-bottom: 1rem;
     text-align: center;
 
-    @include media-up(md) {
-      @include font-size(h1);
+    @include mi.media-up(md) {
+      @include mi.font-size(h1);
     }
   }
 
   .page-subtitle {
-    @include font-size(body);
-    color: rgba($text-light, 0.8);
+    @include mi.font-size(body);
+    color: rgba(vr.$text-light, 0.8);
     text-align: center;
     margin-bottom: 0;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.2rem;
     }
   }
 
   .services-grid {
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 60px;
-    background: linear-gradient(135deg, darken($primary-color, 5%) 0%, $primary-color 100%);
+    background: linear-gradient(135deg, color.adjust(vr.$primary-color, $lightness: -5%) 0%, vr.$primary-color 100%);
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 80px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding-top: 100px;
     }
   }
 
   .service-overview {
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 60px;
-    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+    background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -10%) 100%);
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 80px;
     }
   }
 
   .overview-card {
-    @include card-responsive();
+    @include mi.card-responsive();
     text-align: center;
     height: 100%;
     transition: all 0.3s ease;
 
     &:hover {
-      background: rgba($cta-color, 0.1);
+      background: rgba(vr.$cta-color, 0.1);
       transform: translateY(-5px);
-      border-color: $cta-color;
+      border-color: vr.$cta-color;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: translateY(-10px);
       }
     }
@@ -82,60 +83,60 @@
 
   .overview-icon {
     font-size: 2.5rem;
-    color: $cta-color;
+    color: vr.$cta-color;
     margin-bottom: 1.5rem;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 3rem;
       margin-bottom: 1.75rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 3.5rem;
       margin-bottom: 2rem;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       font-size: 4rem;
     }
   }
 
   .overview-card h3 {
-    color: $text-light;
+    color: vr.$text-light;
     margin-bottom: 0.75rem;
     font-weight: 600;
-    @include font-size(h6);
+    @include mi.font-size(h6);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 1rem;
-      @include font-size(h5);
+      @include mi.font-size(h5);
     }
     
-    @include media-up(md) {
-      @include font-size(h4);
+    @include mi.media-up(md) {
+      @include mi.font-size(h4);
     }
   }
 
   .overview-card p {
-    color: rgba($text-light, 0.8);
+    color: rgba(vr.$text-light, 0.8);
     margin-bottom: 1.5rem;
     line-height: 1.6;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 1.75rem;
-      @include font-size(body);
+      @include mi.font-size(body);
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-bottom: 2rem;
     }
   }
 
   .btn-service {
     background: transparent;
-    color: $cta-color;
-    border: 2px solid $cta-color;
+    color: vr.$cta-color;
+    border: 2px solid vr.$cta-color;
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
@@ -144,30 +145,30 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 11px 22px;
       border-radius: 22px;
       gap: 0.45rem;
-      @include font-size(body);
+      @include mi.font-size(body);
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 12px 25px;
       border-radius: 25px;
       gap: 0.5rem;
     }
 
     &:hover {
-      background: $cta-color;
+      background: vr.$cta-color;
       color: white;
       transform: translateY(-2px);
       
       i {
         transform: translateX(3px);
         
-        @include media-up(md) {
+        @include mi.media-up(md) {
           transform: translateX(5px);
         }
       }
@@ -177,26 +178,26 @@
       transition: transform 0.3s ease;
       font-size: 0.8rem;
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         font-size: 0.9rem;
       }
     }
   }
 
   .section-title {
-    @include font-size(h3);
+    @include mi.font-size(h3);
     font-weight: 700;
     margin-bottom: 2rem;
     text-align: center;
     position: relative;
-    color: $text-light;
+    color: vr.$text-light;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 2.5rem;
-      @include font-size(h2);
+      @include mi.font-size(h2);
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-bottom: 3rem;
     }
 
@@ -204,14 +205,14 @@
       content: '';
       width: 60px;
       height: 3px;
-      background: $cta-color;
+      background: vr.$cta-color;
       position: absolute;
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
       border-radius: 2px;
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         width: 80px;
         height: 4px;
         bottom: -15px;
@@ -225,19 +226,19 @@
   --bs-gutter-x: 1rem;
   --bs-gutter-y: 1rem;
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 1.5rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     --bs-gutter-x: 2rem;
     --bs-gutter-y: 2rem;
   }
 }
 
 // Mobile specific adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .services-page {
     .overview-card {
       text-align: center;
@@ -271,7 +272,7 @@
 }
 
 // Container adjustments
-@include media-down(md) {
+@include mi.media-down(md) {
   .services-page {
     .container {
       padding-left: 1rem;

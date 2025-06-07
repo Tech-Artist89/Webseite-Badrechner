@@ -1,5 +1,5 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles/variables' as vr;
+@use '../../../styles/mixins' as mi;
 
 .page-content {
   background: rgba(255, 255, 255, 0.05);
@@ -8,17 +8,17 @@
   padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 2rem;
     border-radius: 17px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 2.5rem;
     border-radius: 20px;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     padding: 3rem;
   }
 }
@@ -28,15 +28,15 @@
   margin-bottom: 0.75rem;
   font-weight: 700;
   text-align: center;
-  @include font-size(h3);
+  @include mi.font-size(h3);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 1rem;
-    @include font-size(h2);
+    @include mi.font-size(h2);
   }
   
-  @include media-up(md) {
-    @include font-size(h1);
+  @include mi.media-up(md) {
+    @include mi.font-size(h1);
   }
 }
 
@@ -45,37 +45,37 @@
   margin-bottom: 2rem;
   font-style: italic;
   text-align: center;
-  @include font-size(small);
+  @include mi.font-size(small);
 
-  @include media-up(sm) {
-    @include font-size(body);
+  @include mi.media-up(sm) {
+    @include mi.font-size(body);
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 2.5rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin-bottom: 3rem;
   }
 }
 
 .quality-grid {
-  @include grid-responsive(1, 1, 2, 3, 3, 3);
+  @include mi.grid-responsive(1, 1, 2, 3, 3, 3);
   gap: 1rem;
   margin-bottom: 2.5rem;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     gap: 1.25rem;
     margin-bottom: 3rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     gap: 1.5rem;
     margin-bottom: 3.5rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     gap: 2rem;
     margin-bottom: 4rem;
   }
@@ -93,12 +93,12 @@
   display: flex;
   flex-direction: column;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 1.75rem;
     border-radius: 17px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 2rem;
     border-radius: 20px;
   }
@@ -108,7 +108,7 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       transform: translateY(-5px);
     }
@@ -119,7 +119,7 @@
     background: rgba(239, 128, 78, 0.1);
     box-shadow: 0 12px 35px rgba(239, 128, 78, 0.3);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       box-shadow: 0 15px 40px rgba(239, 128, 78, 0.3);
     }
   }
@@ -133,19 +133,19 @@
   margin-bottom: 1rem;
   background: rgba(255, 255, 255, 0.1);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     height: 160px;
     border-radius: 12px;
     margin-bottom: 1.25rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     height: 180px;
     border-radius: 15px;
     margin-bottom: 1.5rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     height: 200px;
   }
 }
@@ -161,15 +161,15 @@
   margin-bottom: 0.75rem;
   font-weight: 700;
   text-align: center;
-  @include font-size(h6);
+  @include mi.font-size(h6);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 1rem;
-    @include font-size(h5);
+    @include mi.font-size(h5);
   }
   
-  @include media-up(md) {
-    @include font-size(h4);
+  @include mi.media-up(md) {
+    @include mi.font-size(h4);
   }
 }
 
@@ -179,14 +179,14 @@
   line-height: 1.5;
   text-align: center;
   flex: 1;
-  @include font-size(small);
+  @include mi.font-size(small);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 1.25rem;
-    @include font-size(body);
+    @include mi.font-size(body);
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 1.5rem;
   }
 }
@@ -201,13 +201,13 @@
   align-self: center;
   transition: all 0.3s ease;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 6px 12px;
     border-radius: 13px;
     font-size: 0.8rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     border-radius: 15px;
     font-size: 0.85rem;
   }
@@ -225,13 +225,13 @@
   color: var(--cta-color, #ef804e);
   font-size: 20px;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     top: 12px;
     right: 12px;
     font-size: 24px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     top: 15px;
     right: 15px;
     font-size: 28px;
@@ -259,11 +259,11 @@
   max-height: 90vh;
   overflow-y: auto;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     max-width: 550px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     max-width: 600px;
   }
 }
@@ -273,7 +273,7 @@
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.2);
 
-  @include media-up(md) {
+  @include mi.media-up(md) {
     border-radius: 20px;
   }
 }
@@ -285,7 +285,7 @@
   justify-content: space-between;
   align-items: center;
 
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 1.5rem;
   }
 }
@@ -294,10 +294,10 @@
   color: var(--text-light, #ffffff);
   margin: 0;
   font-weight: 600;
-  @include font-size(h6);
+  @include mi.font-size(h6);
 
-  @include media-up(sm) {
-    @include font-size(h5);
+  @include mi.media-up(sm) {
+    @include mi.font-size(h5);
   }
 }
 
@@ -311,7 +311,7 @@
   border-radius: 50%;
   transition: all 0.3s ease;
 
-  @include media-up(md) {
+  @include mi.media-up(md) {
     font-size: 1.2rem;
   }
 
@@ -324,7 +324,7 @@
 .modal-body {
   padding: 1.25rem;
 
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 1.5rem;
   }
 }
@@ -336,12 +336,12 @@
   border-radius: 10px;
   margin-bottom: 1.5rem;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     height: 200px;
     border-radius: 12px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     height: 220px;
     border-radius: 15px;
     margin-bottom: 2rem;
@@ -352,9 +352,9 @@
   color: var(--text-light, #ffffff);
   margin: 1.5rem 0 0.75rem 0;
   font-weight: 600;
-  @include font-size(body);
+  @include mi.font-size(body);
 
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin: 2rem 0 1rem 0;
   }
 }
@@ -369,15 +369,15 @@
     color: rgba(255, 255, 255, 0.9);
     position: relative;
     padding-left: 20px;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 7px 0;
       padding-left: 22px;
-      @include font-size(body);
+      @include mi.font-size(body);
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 8px 0;
       padding-left: 25px;
     }
@@ -390,7 +390,7 @@
       font-weight: bold;
       font-size: 0.9rem;
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         font-size: 1rem;
       }
     }
@@ -405,12 +405,12 @@
   justify-content: flex-end;
   flex-direction: column;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     flex-direction: row;
     gap: 1rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 1.5rem;
   }
 
@@ -421,15 +421,15 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 10px 18px;
       border-radius: 22px;
-      @include font-size(body);
+      @include mi.font-size(body);
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 10px 20px;
       border-radius: 25px;
     }
@@ -454,14 +454,14 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(239, 128, 78, 0.4);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       box-shadow: 0 5px 15px rgba(239, 128, 78, 0.4);
     }
   }
 }
 
 // Mobile specific adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .modal-overlay {
     padding: 0.5rem;
   }

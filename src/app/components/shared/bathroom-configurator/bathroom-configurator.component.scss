@@ -1,5 +1,5 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles/variables' as vr;
+@use '../../../styles/mixins' as mi;
 
 .configurator-container {
   min-height: 100vh;
@@ -9,25 +9,25 @@
 
 .hero-section {
   background: linear-gradient(135deg, 
-    var(--primary-color, #1b3244) 0%, 
+    var(--primary-color, #{vr.$primary-color}) 0%, 
     #142230 100%);
-  color: var(--text-light, #ffffff);
-  @include section-padding();
+  color: var(--text-light, #{vr.$text-light});
+  @include mi.section-padding();
   padding-top: 4rem;
   position: relative;
   z-index: 1;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding-top: 5rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     padding-top: 6rem;
   }
 }
 
 .hero-title {
-  @include font-size(h1);
+  @include mi.font-size(h1);
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -38,33 +38,33 @@
   flex-direction: column;
   text-align: center;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     gap: 18px;
     margin-bottom: 1.25rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     flex-direction: row;
     gap: 20px;
     margin-bottom: 1.5rem;
   }
 
   i {
-    color: var(--cta-color, #ef804e);
+    color: var(--cta-color, #{vr.$cta-color});
     font-size: 2rem;
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 2.5rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 3rem;
     }
   }
 }
 
 .hero-subtitle {
-  @include font-size(body);
+  @include mi.font-size(body);
   margin-bottom: 2rem;
   opacity: 0.95;
   line-height: 1.7;
@@ -74,19 +74,19 @@
   text-align: center;
   padding: 0 1rem;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     max-width: 700px;
     font-size: 1.2rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     max-width: 800px;
     font-size: 1.4rem;
     margin-bottom: 2.5rem;
     padding: 0;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin-bottom: 3rem;
   }
 }
@@ -94,7 +94,7 @@
 .hero-features {
   margin-top: 2rem;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-top: 3rem;
   }
 }
@@ -104,7 +104,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  @include font-size(small);
+  @include mi.font-size(small);
   font-weight: 600;
   margin-bottom: 1rem;
   padding: 15px;
@@ -114,7 +114,7 @@
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 18px;
     border-radius: 14px;
     gap: 12px;
@@ -122,7 +122,7 @@
     margin-bottom: 1.25rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 20px;
     border-radius: 15px;
     font-size: 1.1rem;
@@ -131,26 +131,26 @@
 
   &:hover {
     background: rgba(239, 128, 78, 0.2);
-    border-color: var(--cta-color, #ef804e);
+    border-color: var(--cta-color, #{vr.$cta-color});
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
   }
 
   i {
-    color: var(--cta-color, #ef804e);
+    color: var(--cta-color, #{vr.$cta-color});
     font-size: 1.5rem;
     margin-bottom: 5px;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 1.75rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 2rem;
     }
   }
@@ -170,7 +170,7 @@
   position: relative;
   z-index: 1;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     min-height: calc(100vh - 300px);
   }
 }
@@ -185,7 +185,7 @@
   z-index: 0;
   display: none;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     display: block;
   }
 }
@@ -204,7 +204,7 @@
   left: 10%;
   animation-delay: 0s;
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     width: 200px;
     height: 200px;
   }
@@ -217,7 +217,7 @@
   right: 15%;
   animation-delay: 3s;
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     width: 150px;
     height: 150px;
   }
@@ -230,7 +230,7 @@
   left: 80%;
   animation-delay: 6s;
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     width: 100px;
     height: 100px;
   }
@@ -245,7 +245,7 @@
     transform: translateY(-15px) rotate(90deg);
     opacity: 0.5;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-20px) rotate(90deg);
     }
   }
@@ -253,7 +253,7 @@
     transform: translateY(-30px) rotate(180deg);
     opacity: 0.7;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-40px) rotate(180deg);
     }
   }
@@ -261,14 +261,14 @@
     transform: translateY(-15px) rotate(270deg);
     opacity: 0.5;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-20px) rotate(270deg);
     }
   }
 }
 
 // Mobile grid adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .hero-features {
     .row > div {
       margin-bottom: 10px;
@@ -290,7 +290,7 @@
 }
 
 // Tablet adjustments
-@include media-between($sm, $lg) {
+@include mi.media-between(vr.$sm, vr.$lg) {
   .hero-features {
     .col-md-3 {
       margin-bottom: 1rem;
@@ -304,12 +304,12 @@
     padding-left: 1rem;
     padding-right: 1rem;
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-left: 2rem;
       padding-right: 2rem;
     }

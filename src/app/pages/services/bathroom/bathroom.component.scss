@@ -1,24 +1,25 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use 'sass:color';
+@use '../../../styles/variables' as vr;
+@use '../../../styles/mixins' as mi;
 
 .bathroom-page {
   .page-header {
-    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 100px;
+    background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -15%) 100%);
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 120px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding-top: 140px;
     }
     
     .page-title {
-      @include font-size(h2);
+      @include mi.font-size(h2);
       font-weight: 700;
-      color: $text-light;
+      color: vr.$text-light;
       margin-bottom: 1rem;
       text-align: center;
       display: flex;
@@ -27,58 +28,58 @@
       gap: 1rem;
       flex-wrap: wrap;
 
-      @include media-up(md) {
-        @include font-size(h1);
+      @include mi.media-up(md) {
+        @include mi.font-size(h1);
         flex-wrap: nowrap;
       }
 
       i {
-        color: $cta-color;
+        color: vr.$cta-color;
         font-size: 2rem;
 
-        @include media-up(sm) {
+        @include mi.media-up(sm) {
           font-size: 2.5rem;
         }
         
-        @include media-up(md) {
+        @include mi.media-up(md) {
           font-size: 3rem;
         }
       }
     }
 
     .page-subtitle {
-      @include font-size(body);
-      color: rgba($text-light, 0.8);
+      @include mi.font-size(body);
+      color: rgba(vr.$text-light, 0.8);
       text-align: center;
       margin-bottom: 0;
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         font-size: 1.2rem;
       }
     }
   }
 
   .section {
-    @include section-padding();
+    @include mi.section-padding();
   }
 
   .section-title {
-    @include font-size(h3);
+    @include mi.font-size(h3);
     font-weight: 700;
     margin-bottom: 1.5rem;
     text-align: center;
     position: relative;
-    color: $text-light;
+    color: vr.$text-light;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 2rem;
-      @include font-size(h2);
+      @include mi.font-size(h2);
     }
 
     &.text-start {
       text-align: left;
 
-      @include media-down(md) {
+      @include mi.media-down(md) {
         text-align: center;
       }
 
@@ -86,7 +87,7 @@
         left: 0;
         transform: none;
 
-        @include media-down(md) {
+        @include mi.media-down(md) {
           left: 50%;
           transform: translateX(-50%);
         }
@@ -97,14 +98,14 @@
       content: '';
       width: 60px;
       height: 3px;
-      background: $cta-color;
+      background: vr.$cta-color;
       position: absolute;
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
       border-radius: 2px;
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         width: 80px;
         height: 4px;
         bottom: -15px;
@@ -113,12 +114,12 @@
   }
 
   .lead {
-    @include font-size(body);
-    color: rgba($text-light, 0.9);
+    @include mi.font-size(body);
+    color: rgba(vr.$text-light, 0.9);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
@@ -130,71 +131,71 @@
     margin: 1.5rem 0;
     flex-direction: column;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       flex-direction: row;
       gap: 1.5rem;
       margin: 2rem 0;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       gap: 2rem;
     }
   }
 
   .stat {
     text-align: center;
-    @include glass-effect();
+    @include mi.glass-effect();
     padding: 1.25rem 1rem;
     border-radius: 12px;
     flex: 1;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 1.5rem;
       border-radius: 14px;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 1.75rem;
       border-radius: 15px;
     }
   }
 
   .stat-number {
-    @include font-size(h4);
+    @include mi.font-size(h4);
     font-weight: 700;
-    color: $cta-color;
+    color: vr.$cta-color;
     margin-bottom: 0.4rem;
 
-    @include media-up(sm) {
-      @include font-size(h3);
+    @include mi.media-up(sm) {
+      @include mi.font-size(h3);
       margin-bottom: 0.5rem;
     }
     
-    @include media-up(md) {
-      @include font-size(h2);
+    @include mi.media-up(md) {
+      @include mi.font-size(h2);
     }
   }
 
   .stat-label {
-    color: rgba($text-light, 0.8);
-    @include font-size(small);
+    color: rgba(vr.$text-light, 0.8);
+    @include mi.font-size(small);
     font-weight: 500;
 
-    @include media-up(sm) {
-      @include font-size(body);
+    @include mi.media-up(sm) {
+      @include mi.font-size(body);
     }
   }
 
   .bathroom-gallery {
-    @include grid-responsive(2, 2, 2, 2, 2, 2);
+    @include mi.grid-responsive(2, 2, 2, 2, 2, 2);
     gap: 1rem;
     margin-top: 2rem;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       gap: 1.25rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       gap: 1.5rem;
       margin-top: 0;
     }
@@ -202,56 +203,56 @@
 
   .gallery-item {
     aspect-ratio: 1;
-    background: rgba($accent-color, 0.1);
+    background: rgba(vr.$accent-color, 0.1);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    color: $accent-color;
-    border: 1px solid rgba($accent-color, 0.3);
+    color: vr.$accent-color;
+    border: 1px solid rgba(vr.$accent-color, 0.3);
     transition: all 0.3s ease;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       border-radius: 14px;
       font-size: 2.5rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       border-radius: 15px;
       font-size: 3rem;
     }
 
     &:hover {
-      background: rgba($accent-color, 0.2);
+      background: rgba(vr.$accent-color, 0.2);
       transform: scale(1.03);
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: scale(1.05);
       }
     }
   }
 
   .bathroom-services {
-    background: linear-gradient(135deg, darken($primary-color, 5%) 0%, $primary-color 100%);
+    background: linear-gradient(135deg, color.adjust(vr.$primary-color, $lightness: -5%) 0%, vr.$primary-color 100%);
   }
 
   .bathroom-service-card {
     display: flex;
     align-items: center;
-    @include glass-effect();
+    @include mi.glass-effect();
     border-radius: 15px;
     padding: 1.5rem;
     transition: all 0.3s ease;
     flex-direction: column;
     text-align: center;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 1.75rem;
       border-radius: 17px;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       flex-direction: row;
       text-align: left;
       padding: 2rem;
@@ -259,11 +260,11 @@
     }
 
     &:hover {
-      background: rgba($cta-color, 0.1);
+      background: rgba(vr.$cta-color, 0.1);
       transform: translateY(-3px);
-      border-color: $cta-color;
+      border-color: vr.$cta-color;
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: translateX(10px);
         transform: translateY(-5px);
       }
@@ -272,15 +273,15 @@
 
   .service-icon {
     font-size: 2.5rem;
-    color: $cta-color;
+    color: vr.$cta-color;
     margin-bottom: 1.5rem;
     flex-shrink: 0;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 2.75rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 3rem;
       margin-bottom: 0;
       margin-right: 2rem;
@@ -291,29 +292,29 @@
     flex: 1;
 
     h3 {
-      color: $text-light;
+      color: vr.$text-light;
       margin-bottom: 0.75rem;
       font-weight: 600;
-      @include font-size(h6);
+      @include mi.font-size(h6);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         margin-bottom: 1rem;
-        @include font-size(h5);
+        @include mi.font-size(h5);
       }
       
-      @include media-up(md) {
-        @include font-size(h4);
+      @include mi.media-up(md) {
+        @include mi.font-size(h4);
       }
     }
 
     p {
-      color: rgba($text-light, 0.8);
+      color: rgba(vr.$text-light, 0.8);
       margin-bottom: 1rem;
       line-height: 1.6;
-      @include font-size(small);
+      @include mi.font-size(small);
 
-      @include media-up(sm) {
-        @include font-size(body);
+      @include mi.media-up(sm) {
+        @include mi.font-size(body);
       }
     }
   }
@@ -321,36 +322,36 @@
   .service-duration {
     display: flex;
     align-items: center;
-    color: $accent-color;
+    color: vr.$accent-color;
     font-weight: 500;
     justify-content: center;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
-      @include font-size(body);
+    @include mi.media-up(sm) {
+      @include mi.font-size(body);
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       justify-content: flex-start;
     }
 
     i {
       margin-right: 0.4rem;
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         margin-right: 0.5rem;
       }
     }
   }
 
   .design-process {
-    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+    background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -10%) 100%);
   }
 
   .process-timeline {
     margin-top: 2rem;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-top: 3rem;
     }
   }
@@ -363,7 +364,7 @@
     flex-direction: column;
     text-align: center;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       flex-direction: row;
       text-align: left;
       margin-bottom: 2.5rem;
@@ -374,12 +375,12 @@
       position: absolute;
       width: 2px;
       height: 30px;
-      background: rgba($cta-color, 0.3);
+      background: rgba(vr.$cta-color, 0.3);
       bottom: -35px;
       left: 50%;
       transform: translateX(-50%);
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         left: 30px;
         top: 60px;
         bottom: auto;
@@ -392,7 +393,7 @@
   .timeline-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+    background: linear-gradient(45deg, vr.$cta-color, color.adjust(vr.$cta-color, $lightness: 10%));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -402,14 +403,14 @@
     margin-bottom: 1rem;
     flex-shrink: 0;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       width: 55px;
       height: 55px;
       font-size: 1.35rem;
       margin-bottom: 1.25rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       width: 60px;
       height: 60px;
       font-size: 1.5rem;
@@ -420,45 +421,45 @@
 
   .timeline-content {
     h4 {
-      color: $text-light;
+      color: vr.$text-light;
       margin-bottom: 0.75rem;
       font-weight: 600;
-      @include font-size(body);
+      @include mi.font-size(body);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         margin-bottom: 1rem;
-        @include font-size(h6);
+        @include mi.font-size(h6);
       }
       
-      @include media-up(md) {
-        @include font-size(h5);
+      @include mi.media-up(md) {
+        @include mi.font-size(h5);
       }
     }
 
     p {
-      color: rgba($text-light, 0.8);
+      color: rgba(vr.$text-light, 0.8);
       margin: 0;
       line-height: 1.5;
-      @include font-size(small);
+      @include mi.font-size(small);
 
-      @include media-up(sm) {
-        @include font-size(body);
+      @include mi.media-up(sm) {
+        @include mi.font-size(body);
       }
     }
   }
 
   .btn-cta {
-    @include btn-cta;
-    @include font-size(small);
+    @include mi.btn-cta;
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
-      @include font-size(body);
+    @include mi.media-up(sm) {
+      @include mi.font-size(body);
     }
   }
 }
 
 // Mobile specific adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .bathroom-page {
     .bathroom-gallery {
       grid-template-columns: 2fr 2fr;
@@ -507,7 +508,7 @@
 }
 
 // Container adjustments
-@include media-down(md) {
+@include mi.media-down(md) {
   .bathroom-page {
     .container {
       padding-left: 1rem;

@@ -1,24 +1,25 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use 'sass:color';
+@use '../../styles/variables' as vr;
+@use '../../styles/mixins' as mi;
 
 .home-page {
   min-height: 100vh;
 }
 
 .section {
-  @include section-padding();
+  @include mi.section-padding();
 }
 
 .section-title {
-  @include font-size(h2);
+  @include mi.font-size(h2);
   font-weight: 700;
   margin-bottom: 1rem;
   text-align: center;
   position: relative;
-  color: $text-light;
+  color: vr.$text-light;
   line-height: 1.2;
 
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin-bottom: 1.5rem;
   }
 
@@ -26,14 +27,14 @@
     content: '';
     width: 60px;
     height: 3px;
-    background: $cta-color;
+    background: vr.$cta-color;
     position: absolute;
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 2px;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       width: 80px;
       height: 4px;
       bottom: -15px;
@@ -48,12 +49,12 @@
 
 .section-subtitle {
   text-align: center;
-  color: rgba($text-light, 0.8);
-  @include font-size(body);
+  color: rgba(vr.$text-light, 0.8);
+  @include mi.font-size(body);
   margin-bottom: 2rem;
   line-height: 1.6;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 3rem;
     font-size: 1.1rem;
   }
@@ -61,24 +62,24 @@
 
 // ===== BADRECHNER HIGHLIGHT SECTION =====
 .badrechner-highlight {
-  background: linear-gradient(135deg, rgba($cta-color, 0.1) 0%, rgba($accent-color, 0.1) 100%);
-  border-top: 2px solid $cta-color;
-  border-bottom: 2px solid $accent-color;
+  background: linear-gradient(135deg, rgba(vr.$cta-color, 0.1) 0%, rgba(vr.$accent-color, 0.1) 100%);
+  border-top: 2px solid vr.$cta-color;
+  border-bottom: 2px solid vr.$accent-color;
   
-  @include media-up(md) {
-    border-top: 3px solid $cta-color;
-    border-bottom: 3px solid $accent-color;
+  @include mi.media-up(md) {
+    border-top: 3px solid vr.$cta-color;
+    border-bottom: 3px solid vr.$accent-color;
   }
 }
 
 .badrechner-content {
   .lead {
-    @include font-size(body);
-    color: rgba($text-light, 0.9);
+    @include mi.font-size(body);
+    color: rgba(vr.$text-light, 0.9);
     margin-bottom: 1.5rem;
     line-height: 1.6;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
@@ -87,10 +88,10 @@
 
 .badrechner-features {
   margin: 1.5rem 0;
-  @include grid-responsive(1, 2, 2, 2, 2, 2);
+  @include mi.grid-responsive(1, 2, 2, 2, 2, 2);
   gap: 0.75rem;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin: 2rem 0;
     gap: 1rem;
   }
@@ -99,21 +100,21 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: $text-light;
+    color: vr.$text-light;
     font-weight: 500;
-    @include font-size(small);
+    @include mi.font-size(small);
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       gap: 0.75rem;
-      @include font-size(body);
+      @include mi.font-size(body);
     }
 
     i {
-      color: $accent-color;
+      color: vr.$accent-color;
       font-size: 1rem;
       flex-shrink: 0;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         font-size: 1.2rem;
       }
     }
@@ -127,13 +128,13 @@
   flex-direction: column;
   align-items: center;
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     flex-direction: row;
     gap: 1rem;
     justify-content: flex-start;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-top: 2.5rem;
   }
   
@@ -143,7 +144,7 @@
     text-align: center;
     justify-content: center;
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       width: auto;
       max-width: none;
     }
@@ -152,8 +153,8 @@
 
 .btn-outline-cta {
   background: transparent;
-  color: $cta-color;
-  border: 2px solid $cta-color;
+  color: vr.$cta-color;
+  border: 2px solid vr.$cta-color;
   padding: 12px 24px;
   border-radius: 50px;
   font-weight: 600;
@@ -161,25 +162,25 @@
   display: inline-flex;
   align-items: center;
   transition: all 0.3s ease;
-  @include font-size(small);
+  @include mi.font-size(small);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 13px 27px;
-    @include font-size(body);
+    @include mi.font-size(body);
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 15px 30px;
   }
 
   &:hover {
-    background: $cta-color;
+    background: vr.$cta-color;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba($cta-color, 0.3);
+    box-shadow: 0 8px 25px rgba(vr.$cta-color, 0.3);
     
-    @include media-up(md) {
-      box-shadow: 0 10px 30px rgba($cta-color, 0.3);
+    @include mi.media-up(md) {
+      box-shadow: 0 10px 30px rgba(vr.$cta-color, 0.3);
     }
   }
 }
@@ -189,7 +190,7 @@
   text-align: center;
   margin-top: 2rem;
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin-top: 0;
   }
 }
@@ -209,38 +210,38 @@
   justify-content: center;
   position: relative;
   backdrop-filter: blur(20px);
-  border: 2px solid rgba($cta-color, 0.3);
+  border: 2px solid rgba(vr.$cta-color, 0.3);
   margin: 0 auto 1.5rem;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     width: 240px;
     height: 240px;
     margin-bottom: 2rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     width: 280px;
     height: 280px;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     width: 300px;
     height: 300px;
   }
 
   > i {
     font-size: 5rem;
-    color: rgba($cta-color, 0.6);
+    color: rgba(vr.$cta-color, 0.6);
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 6rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 7rem;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       font-size: 8rem;
     }
   }
@@ -255,23 +256,23 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    background: rgba($accent-color, 0.2);
+    background: rgba(vr.$accent-color, 0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $accent-color;
+    color: vr.$accent-color;
     font-size: 1.2rem;
     animation: float 4s ease-in-out infinite;
-    border: 2px solid $accent-color;
+    border: 2px solid vr.$accent-color;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       width: 50px;
       height: 50px;
       font-size: 1.4rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       width: 60px;
       height: 60px;
       font-size: 1.5rem;
@@ -282,7 +283,7 @@
       right: 5%;
       animation-delay: 0s;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         top: 20%;
         right: 10%;
       }
@@ -293,7 +294,7 @@
       left: 10%;
       animation-delay: 1.5s;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         bottom: 30%;
         left: 15%;
       }
@@ -304,7 +305,7 @@
       left: -5%;
       animation-delay: 3s;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         top: 45%;
         left: -10%;
       }
@@ -317,11 +318,11 @@
   justify-content: center;
   gap: 0.5rem;
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     gap: 0.75rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     gap: 1rem;
   }
 
@@ -330,54 +331,54 @@
     height: 30px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba($cta-color, 0.5);
+    border: 2px solid rgba(vr.$cta-color, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba($text-light, 0.7);
+    color: rgba(vr.$text-light, 0.7);
     font-weight: 600;
     transition: all 0.3s ease;
     font-size: 0.8rem;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       width: 35px;
       height: 35px;
       font-size: 0.9rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       width: 40px;
       height: 40px;
       font-size: 1rem;
     }
 
     &.active {
-      background: $cta-color;
-      border-color: $cta-color;
+      background: vr.$cta-color;
+      border-color: vr.$cta-color;
       color: white;
       transform: scale(1.1);
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: scale(1.15);
       }
     }
 
     &:hover {
       transform: scale(1.05);
-      background: rgba($cta-color, 0.3);
+      background: rgba(vr.$cta-color, 0.3);
     }
   }
 }
 
 // ===== BADRECHNER TEASER SECTION =====
 .badrechner-teaser {
-  background: linear-gradient(135deg, darken($primary-color, 5%) 0%, $primary-color 100%);
+  background: linear-gradient(135deg, color.adjust(vr.$primary-color, $lightness: -5%) 0%, vr.$primary-color 100%);
 }
 
 .teaser-steps {
   margin: 2rem 0;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin: 3rem 0;
   }
 
@@ -390,14 +391,14 @@
     margin-bottom: 1rem;
     padding: 0 0.5rem;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-bottom: 1.5rem;
     }
 
     .step-icon {
       width: 45px;
       height: 45px;
-      background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+      background: linear-gradient(45deg, vr.$cta-color, color.adjust(vr.$cta-color, $lightness: 10%));
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -408,14 +409,14 @@
       margin: 0 auto 0.75rem;
       transition: all 0.3s ease;
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         width: 50px;
         height: 50px;
         font-size: 1.3rem;
         margin-bottom: 1rem;
       }
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         width: 60px;
         height: 60px;
         font-size: 1.5rem;
@@ -423,20 +424,20 @@
 
       &:hover {
         transform: scale(1.1);
-        box-shadow: 0 8px 20px rgba($cta-color, 0.4);
+        box-shadow: 0 8px 20px rgba(vr.$cta-color, 0.4);
         
-        @include media-up(md) {
-          box-shadow: 0 10px 20px rgba($cta-color, 0.4);
+        @include mi.media-up(md) {
+          box-shadow: 0 10px 20px rgba(vr.$cta-color, 0.4);
         }
       }
     }
 
     span {
-      color: rgba($text-light, 0.9);
+      color: rgba(vr.$text-light, 0.9);
       font-weight: 500;
-      @include font-size(small);
+      @include mi.font-size(small);
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         font-size: 0.9rem;
       }
     }
@@ -447,18 +448,18 @@
   margin-top: 1.5rem;
   text-align: center;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-top: 2rem;
   }
 }
 
 // ===== EXISTING SECTIONS =====
 .services-preview {
-  background: linear-gradient(135deg, darken($primary-color, 5%) 0%, $primary-color 100%);
+  background: linear-gradient(135deg, color.adjust(vr.$primary-color, $lightness: -5%) 0%, vr.$primary-color 100%);
 }
 
 .why-choose-us {
-  background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+  background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -10%) 100%);
 }
 
 // Service Cards
@@ -467,7 +468,7 @@ app-service-card {
   height: 100%;
 
   ::ng-deep .service-card {
-    @include card-responsive();
+    @include mi.card-responsive();
     height: 100%;
     transition: all 0.3s ease;
     position: relative;
@@ -476,9 +477,9 @@ app-service-card {
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      border-color: $cta-color;
+      border-color: vr.$cta-color;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: translateY(-10px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       }
@@ -487,7 +488,7 @@ app-service-card {
 }
 
 .service-card-fallback {
-  @include card-responsive();
+  @include mi.card-responsive();
   height: 100%;
   transition: all 0.3s ease;
   text-align: center;
@@ -495,9 +496,9 @@ app-service-card {
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    border-color: $cta-color;
+    border-color: vr.$cta-color;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-10px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
@@ -505,49 +506,49 @@ app-service-card {
 
   .service-icon {
     font-size: 2.5rem;
-    color: $cta-color;
+    color: vr.$cta-color;
     margin-bottom: 1rem;
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 2.75rem;
       margin-bottom: 1.25rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 3rem;
       margin-bottom: 1.5rem;
     }
   }
 
   h3 {
-    color: $text-light;
+    color: vr.$text-light;
     margin-bottom: 0.75rem;
     font-weight: 600;
-    @include font-size(h5);
+    @include mi.font-size(h5);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-bottom: 1rem;
-      @include font-size(h4);
+      @include mi.font-size(h4);
     }
   }
 
   p {
-    color: rgba($text-light, 0.8);
+    color: rgba(vr.$text-light, 0.8);
     margin-bottom: 1.5rem;
-    @include font-size(small);
+    @include mi.font-size(small);
     line-height: 1.5;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-bottom: 2rem;
-      @include font-size(body);
+      @include mi.font-size(body);
     }
   }
 }
 
 .btn-service {
   background: transparent;
-  color: $cta-color;
-  border: 1px solid $cta-color;
+  color: vr.$cta-color;
+  border: 1px solid vr.$cta-color;
   padding: 8px 16px;
   border-radius: 20px;
   text-decoration: none;
@@ -556,29 +557,29 @@ app-service-card {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  @include font-size(small);
+  @include mi.font-size(small);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 10px 18px;
     border-radius: 22px;
     gap: 0.45rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 10px 20px;
     border-radius: 25px;
     gap: 0.5rem;
-    @include font-size(body);
+    @include mi.font-size(body);
   }
 
   &:hover {
-    background: $cta-color;
+    background: vr.$cta-color;
     color: white;
     
     i {
       transform: translateX(2px);
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: translateX(3px);
       }
     }
@@ -588,14 +589,14 @@ app-service-card {
     transition: transform 0.3s ease;
     font-size: 0.8rem;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 0.9rem;
     }
   }
 }
 
 .btn-cta {
-  background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+  background: linear-gradient(45deg, vr.$cta-color, color.adjust(vr.$cta-color, $lightness: 10%));
   color: white;
   border: none;
   padding: 12px 24px;
@@ -606,40 +607,40 @@ app-service-card {
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
-  @include font-size(small);
+  @include mi.font-size(small);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 13px 27px;
     border-radius: 23px;
-    @include font-size(body);
+    @include mi.font-size(body);
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 15px 30px;
     border-radius: 25px;
   }
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba($cta-color, 0.3);
+    box-shadow: 0 8px 20px rgba(vr.$cta-color, 0.3);
     color: white;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba($cta-color, 0.3);
+      box-shadow: 0 10px 20px rgba(vr.$cta-color, 0.3);
     }
   }
 
   &.btn-lg {
     padding: 15px 30px;
-    @include font-size(body);
+    @include mi.font-size(body);
     
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 16px 35px;
       font-size: 1.05rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 18px 40px;
       font-size: 1.1rem;
     }
@@ -649,7 +650,7 @@ app-service-card {
 .feature-list {
   margin-top: 1.5rem;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-top: 2rem;
   }
 }
@@ -660,7 +661,7 @@ app-service-card {
   margin-bottom: 1.5rem;
   gap: 1rem;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 2rem;
     gap: 1.5rem;
   }
@@ -669,7 +670,7 @@ app-service-card {
 .feature-icon {
   width: 45px;
   height: 45px;
-  background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+  background: linear-gradient(45deg, vr.$cta-color, color.adjust(vr.$cta-color, $lightness: 10%));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -678,13 +679,13 @@ app-service-card {
   font-size: 1.2rem;
   flex-shrink: 0;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     width: 50px;
     height: 50px;
     font-size: 1.3rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     width: 60px;
     height: 60px;
     font-size: 1.5rem;
@@ -693,84 +694,84 @@ app-service-card {
 
 .feature-content {
   h4 {
-    color: $text-light;
+    color: vr.$text-light;
     margin-bottom: 0.4rem;
     font-weight: 600;
-    @include font-size(h6);
+    @include mi.font-size(h6);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-bottom: 0.5rem;
-      @include font-size(h5);
+      @include mi.font-size(h5);
     }
   }
 
   p {
-    color: rgba($text-light, 0.8);
+    color: rgba(vr.$text-light, 0.8);
     margin: 0;
     line-height: 1.6;
-    @include font-size(small);
+    @include mi.font-size(small);
     
-    @include media-up(md) {
-      @include font-size(body);
+    @include mi.media-up(md) {
+      @include mi.font-size(body);
     }
   }
 }
 
 .stats-grid {
-  @include grid-responsive(2, 2, 2, 2, 2, 2);
+  @include mi.grid-responsive(2, 2, 2, 2, 2, 2);
   gap: 1rem;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     gap: 2rem;
   }
 }
 
 .stat-item {
   text-align: center;
-  @include glass-effect();
+  @include mi.glass-effect();
   padding: 1.5rem 1rem;
   border-radius: 12px;
   transition: all 0.3s ease;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 1.75rem 1.25rem;
     border-radius: 14px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 2rem;
     border-radius: 15px;
   }
 
   &:hover {
     transform: translateY(-3px);
-    background: rgba($cta-color, 0.1);
-    border-color: $cta-color;
+    background: rgba(vr.$cta-color, 0.1);
+    border-color: vr.$cta-color;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-5px);
     }
   }
 }
 
 .stat-number {
-  @include font-size(h3);
+  @include mi.font-size(h3);
   font-weight: 700;
-  color: $cta-color;
+  color: vr.$cta-color;
   margin-bottom: 0.4rem;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 0.5rem;
   }
 }
 
 .stat-label {
-  color: rgba($text-light, 0.8);
+  color: rgba(vr.$text-light, 0.8);
   font-weight: 500;
-  @include font-size(small);
+  @include mi.font-size(small);
   
-  @include media-up(md) {
-    @include font-size(body);
+  @include mi.media-up(md) {
+    @include mi.font-size(body);
   }
 }
 
@@ -782,7 +783,7 @@ app-service-card {
   50% {
     transform: translateY(-10px);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-15px);
     }
   }
@@ -793,12 +794,12 @@ app-service-card {
   --bs-gutter-x: 1rem;
   --bs-gutter-y: 1rem;
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 1.5rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     --bs-gutter-x: 2rem;
     --bs-gutter-y: 2rem;
   }
@@ -811,7 +812,7 @@ app-service-card {
 }
 
 // Mobile specific optimizations
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .badrechner-highlight,
   .badrechner-teaser {
     .container {

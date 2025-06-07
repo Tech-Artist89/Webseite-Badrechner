@@ -1,74 +1,74 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles/variables' as vr;
+@use '../../../styles/mixins' as mi;
 
 .company-page {
   .page-header {
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 100px;
-    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+    background: linear-gradient(135deg, vr.$primary-color 0%, darken(vr.$primary-color, 15%) 100%);
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 120px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding-top: 140px;
     }
   }
 
   .page-title {
-    @include font-size(h2);
+    @include mi.font-size(h2);
     font-weight: 700;
-    color: $text-light;
+    color: vr.$text-light;
     margin-bottom: 1rem;
     text-align: center;
 
-    @include media-up(md) {
-      @include font-size(h1);
+    @include mi.media-up(md) {
+      @include mi.font-size(h1);
     }
   }
 
   .page-subtitle {
-    @include font-size(body);
-    color: rgba($text-light, 0.8);
+    @include mi.font-size(body);
+    color: rgba(vr.$text-light, 0.8);
     text-align: center;
     margin-bottom: 0;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.2rem;
     }
   }
 
   .company-story {
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 60px;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 80px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding-top: 100px;
     }
   }
 
   .section-title {
-    @include font-size(h3);
+    @include mi.font-size(h3);
     font-weight: 700;
     margin-bottom: 1.5rem;
     position: relative;
-    color: $text-light;
+    color: vr.$text-light;
     text-align: center;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 2rem;
-      @include font-size(h2);
+      @include mi.font-size(h2);
     }
 
     &.text-start {
       text-align: left;
 
-      @include media-down(md) {
+      @include mi.media-down(md) {
         text-align: center;
       }
 
@@ -76,7 +76,7 @@
         left: 0;
         transform: none;
 
-        @include media-down(md) {
+        @include mi.media-down(md) {
           left: 50%;
           transform: translateX(-50%);
         }
@@ -87,14 +87,14 @@
       content: '';
       width: 60px;
       height: 3px;
-      background: $cta-color;
+      background: vr.$cta-color;
       position: absolute;
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
       border-radius: 2px;
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         width: 80px;
         height: 4px;
         bottom: -15px;
@@ -103,12 +103,12 @@
   }
 
   .lead {
-    @include font-size(body);
-    color: rgba($text-light, 0.9);
+    @include mi.font-size(body);
+    color: rgba(vr.$text-light, 0.9);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
@@ -120,13 +120,13 @@
     margin-top: 2rem;
     flex-direction: column;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       flex-direction: row;
       gap: 1.5rem;
       margin-top: 2.5rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       gap: 2rem;
       margin-top: 3rem;
     }
@@ -141,49 +141,49 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 1.75rem 1.25rem;
       border-radius: 14px;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 2rem;
       border-radius: 15px;
     }
 
     &:hover {
-      background: rgba($cta-color, 0.1);
+      background: rgba(vr.$cta-color, 0.1);
       transform: translateY(-3px);
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: translateY(-5px);
       }
     }
   }
 
   .stat-number {
-    @include font-size(h4);
+    @include mi.font-size(h4);
     font-weight: 700;
-    color: $cta-color;
+    color: vr.$cta-color;
     margin-bottom: 0.4rem;
 
-    @include media-up(sm) {
-      @include font-size(h3);
+    @include mi.media-up(sm) {
+      @include mi.font-size(h3);
       margin-bottom: 0.5rem;
     }
     
-    @include media-up(md) {
-      @include font-size(h2);
+    @include mi.media-up(md) {
+      @include mi.font-size(h2);
     }
   }
 
   .stat-label {
-    color: rgba($text-light, 0.8);
+    color: rgba(vr.$text-light, 0.8);
     font-weight: 500;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
-      @include font-size(body);
+    @include mi.media-up(sm) {
+      @include mi.font-size(body);
     }
   }
 
@@ -191,38 +191,38 @@
     text-align: center;
     margin-top: 2rem;
 
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       margin-top: 0;
     }
     
     i {
       font-size: 8rem;
-      color: rgba($accent-color, 0.3);
+      color: rgba(vr.$accent-color, 0.3);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         font-size: 10rem;
       }
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         font-size: 12rem;
       }
     }
   }
 
   .timeline-section {
-    background: linear-gradient(135deg, darken($primary-color, 5%) 0%, $primary-color 100%);
-    @include section-padding();
+    background: linear-gradient(135deg, darken(vr.$primary-color, 5%) 0%, vr.$primary-color 100%);
+    @include mi.section-padding();
   }
 
   .timeline {
     position: relative;
     margin-top: 2rem;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-top: 3rem;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       margin-top: 4rem;
     }
 
@@ -233,9 +233,9 @@
       left: 20px;
       width: 2px;
       height: 100%;
-      background: linear-gradient(to bottom, $cta-color, $accent-color);
+      background: linear-gradient(to bottom, vr.$cta-color, vr.$accent-color);
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         left: 50%;
         transform: translateX(-50%);
       }
@@ -249,13 +249,13 @@
     margin-bottom: 2rem;
     padding-left: 60px;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 1.75rem;
       margin-bottom: 2.5rem;
       padding-left: 70px;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       width: 50%;
       padding: 2rem;
       margin-bottom: 3rem;
@@ -263,7 +263,7 @@
     }
 
     &.timeline-right {
-      @include media-up(md) {
+      @include mi.media-up(md) {
         left: 50%;
         padding-right: 2rem;
         padding-left: 2rem;
@@ -278,12 +278,12 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 1.75rem;
       border-radius: 14px;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 2rem;
       border-radius: 15px;
     }
@@ -298,13 +298,13 @@
       left: -24px;
       border-right-color: rgba(255, 255, 255, 0.05);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         border: 15px solid transparent;
         left: -30px;
         border-right-color: rgba(255, 255, 255, 0.05);
       }
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         .timeline-item:not(.timeline-right) & {
           right: -30px;
           left: auto;
@@ -321,52 +321,52 @@
   }
 
   .timeline-year {
-    background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+    background: linear-gradient(45deg, vr.$cta-color, lighten(vr.$cta-color, 10%));
     color: white;
     padding: 0.4rem 0.8rem;
     border-radius: 15px;
     font-weight: 700;
     display: inline-block;
     margin-bottom: 0.75rem;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 0.5rem 1rem;
       border-radius: 18px;
       margin-bottom: 1rem;
-      @include font-size(body);
+      @include mi.font-size(body);
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 0.5rem 1rem;
       border-radius: 20px;
     }
   }
 
   .timeline-content h4 {
-    color: $text-light;
+    color: vr.$text-light;
     margin-bottom: 0.75rem;
     font-weight: 600;
-    @include font-size(body);
+    @include mi.font-size(body);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 1rem;
-      @include font-size(h6);
+      @include mi.font-size(h6);
     }
     
-    @include media-up(md) {
-      @include font-size(h5);
+    @include mi.media-up(md) {
+      @include mi.font-size(h5);
     }
   }
 
   .timeline-content p {
-    color: rgba($text-light, 0.8);
+    color: rgba(vr.$text-light, 0.8);
     margin: 0;
     line-height: 1.6;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
-      @include font-size(body);
+    @include mi.media-up(sm) {
+      @include mi.font-size(body);
     }
   }
 
@@ -375,19 +375,19 @@
     top: 30px;
     width: 16px;
     height: 16px;
-    background: $cta-color;
+    background: vr.$cta-color;
     border-radius: 50%;
-    border: 3px solid $primary-color;
+    border: 3px solid vr.$primary-color;
     left: 12px;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       width: 18px;
       height: 18px;
-      border: 4px solid $primary-color;
+      border: 4px solid vr.$primary-color;
       left: 14px;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       width: 20px;
       height: 20px;
       left: -10px;
@@ -399,8 +399,8 @@
   }
 
   .values-section {
-    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
-    @include section-padding();
+    background: linear-gradient(135deg, vr.$primary-color 0%, darken(vr.$primary-color, 10%) 100%);
+    @include mi.section-padding();
   }
 
   .value-card {
@@ -412,22 +412,22 @@
     height: 100%;
     transition: all 0.3s ease;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 2.25rem 1.75rem;
       border-radius: 17px;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 2.5rem 2rem;
       border-radius: 20px;
     }
 
     &:hover {
-      background: rgba($accent-color, 0.1);
+      background: rgba(vr.$accent-color, 0.1);
       transform: translateY(-5px);
-      border-color: $accent-color;
+      border-color: vr.$accent-color;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: translateY(-10px);
       }
     }
@@ -435,50 +435,50 @@
 
   .value-icon {
     font-size: 2.5rem;
-    color: $accent-color;
+    color: vr.$accent-color;
     margin-bottom: 1rem;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 2.75rem;
       margin-bottom: 1.25rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 3rem;
       margin-bottom: 1.5rem;
     }
   }
 
   .value-card h4 {
-    color: $text-light;
+    color: vr.$text-light;
     margin-bottom: 0.75rem;
     font-weight: 600;
-    @include font-size(body);
+    @include mi.font-size(body);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 1rem;
-      @include font-size(h6);
+      @include mi.font-size(h6);
     }
     
-    @include media-up(md) {
-      @include font-size(h5);
+    @include mi.media-up(md) {
+      @include mi.font-size(h5);
     }
   }
 
   .value-card p {
-    color: rgba($text-light, 0.8);
+    color: rgba(vr.$text-light, 0.8);
     margin: 0;
     line-height: 1.6;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
-      @include font-size(body);
+    @include mi.media-up(sm) {
+      @include mi.font-size(body);
     }
   }
 }
 
 // Mobile specific adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .company-page {
     .company-stats {
       gap: 0.75rem;
@@ -518,7 +518,7 @@
       width: 14px;
       height: 14px;
       left: 8px;
-      border: 2px solid $primary-color;
+      border: 2px solid vr.$primary-color;
     }
     
     .value-card {
@@ -533,7 +533,7 @@
 }
 
 // Container adjustments
-@include media-down(md) {
+@include mi.media-down(md) {
   .company-page {
     .container {
       padding-left: 1rem;

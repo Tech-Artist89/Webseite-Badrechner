@@ -1,71 +1,72 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use 'sass:color';
+@use '../../styles/variables' as vr;
+@use '../../styles/mixins' as mi;
 
 .legal-page {
   .page-header {
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 100px;
-    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+    background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -15%) 100%);
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 120px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding-top: 140px;
     }
   }
 
   .page-title {
-    @include font-size(h2);
+    @include mi.font-size(h2);
     font-weight: 700;
-    color: $text-light;
+    color: vr.$text-light;
     margin-bottom: 1rem;
     text-align: center;
 
-    @include media-up(md) {
-      @include font-size(h1);
+    @include mi.media-up(md) {
+      @include mi.font-size(h1);
     }
   }
 
   .page-subtitle {
-    @include font-size(body);
-    color: rgba($text-light, 0.8);
+    @include mi.font-size(body);
+    color: rgba(vr.$text-light, 0.8);
     text-align: center;
     margin-bottom: 0;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.2rem;
     }
   }
 
   .legal-content {
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 60px;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 80px;
     }
   }
 
   .legal-card {
-    @include glass-effect();
+    @include mi.glass-effect();
     backdrop-filter: blur(20px);
     border-radius: 15px;
     padding: 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 2rem;
       border-radius: 17px;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 2.5rem;
       border-radius: 20px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding: 3rem;
     }
   }
@@ -73,11 +74,11 @@
   .legal-section {
     margin-bottom: 2rem;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 2.5rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-bottom: 3rem;
     }
 
@@ -86,43 +87,43 @@
     }
 
     h3 {
-      color: $cta-color;
+      color: vr.$cta-color;
       font-weight: 600;
       margin-bottom: 1rem;
       padding-bottom: 0.5rem;
-      border-bottom: 2px solid $cta-color;
-      @include font-size(h5);
+      border-bottom: 2px solid vr.$cta-color;
+      @include mi.font-size(h5);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         margin-bottom: 1.25rem;
         padding-bottom: 0.6rem;
-        @include font-size(h4);
+        @include mi.font-size(h4);
       }
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         margin-bottom: 1.5rem;
         padding-bottom: 0.75rem;
-        @include font-size(h3);
+        @include mi.font-size(h3);
       }
     }
 
     h4 {
-      color: $text-light;
+      color: vr.$text-light;
       font-weight: 600;
       margin-bottom: 0.75rem;
       margin-top: 1.5rem;
-      @include font-size(body);
+      @include mi.font-size(body);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         margin-bottom: 1rem;
         margin-top: 1.75rem;
-        @include font-size(h6);
+        @include mi.font-size(h6);
       }
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         margin-bottom: 1rem;
         margin-top: 2rem;
-        @include font-size(h5);
+        @include mi.font-size(h5);
       }
 
       &:first-child {
@@ -132,29 +133,29 @@
   }
 
   .info-block {
-    color: rgba($text-light, 0.9);
+    color: rgba(vr.$text-light, 0.9);
     line-height: 1.6;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       line-height: 1.7;
     }
 
     strong {
-      color: $text-light;
+      color: vr.$text-light;
       font-weight: 600;
     }
 
     p {
       margin-bottom: 0.75rem;
       text-align: justify;
-      @include font-size(small);
+      @include mi.font-size(small);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         margin-bottom: 1rem;
-        @include font-size(body);
+        @include mi.font-size(body);
       }
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         font-size: 1rem;
       }
 
@@ -164,12 +165,12 @@
     }
 
     a {
-      color: $cta-color;
+      color: vr.$cta-color;
       text-decoration: none;
       transition: color 0.3s ease;
 
       &:hover {
-        color: lighten($cta-color, 10%);
+        color: color.adjust(vr.$cta-color, $lightness: 10%);
         text-decoration: underline;
       }
     }
@@ -177,18 +178,18 @@
     ul, ol {
       margin-bottom: 1rem;
       padding-left: 1.5rem;
-      @include font-size(small);
+      @include mi.font-size(small);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         padding-left: 2rem;
-        @include font-size(body);
+        @include mi.font-size(body);
       }
 
       li {
         margin-bottom: 0.4rem;
         line-height: 1.6;
 
-        @include media-up(sm) {
+        @include mi.media-up(sm) {
           margin-bottom: 0.5rem;
         }
       }
@@ -196,54 +197,54 @@
   }
 
   .contact-section {
-    background: rgba($cta-color, 0.1);
+    background: rgba(vr.$cta-color, 0.1);
     border-radius: 12px;
     padding: 1.5rem;
     margin-top: 2rem;
-    border: 1px solid rgba($cta-color, 0.3);
+    border: 1px solid rgba(vr.$cta-color, 0.3);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 1.75rem;
       border-radius: 14px;
       margin-top: 2.5rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 2rem;
       border-radius: 15px;
       margin-top: 3rem;
     }
 
     h4 {
-      color: $cta-color;
+      color: vr.$cta-color;
       margin-bottom: 1rem;
-      @include font-size(h6);
+      @include mi.font-size(h6);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         margin-bottom: 1.25rem;
-        @include font-size(h5);
+        @include mi.font-size(h5);
       }
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         margin-bottom: 1.5rem;
-        @include font-size(h4);
+        @include mi.font-size(h4);
       }
     }
 
     p {
-      color: rgba($text-light, 0.9);
+      color: rgba(vr.$text-light, 0.9);
       margin: 0;
-      @include font-size(small);
+      @include mi.font-size(small);
 
-      @include media-up(sm) {
-        @include font-size(body);
+      @include mi.media-up(sm) {
+        @include mi.font-size(body);
       }
     }
   }
 }
 
 // Mobile specific adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .legal-page {
     .legal-card {
       padding: 1.25rem;
@@ -296,7 +297,7 @@
 }
 
 // Container adjustments
-@include media-down(md) {
+@include mi.media-down(md) {
   .legal-page {
     .container {
       padding-left: 1rem;

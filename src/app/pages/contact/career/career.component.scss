@@ -1,74 +1,75 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use 'sass:color';
+@use '../../../styles/variables' as vr;
+@use '../../../styles/mixins' as mi;
 
 .career-page {
   .page-header {
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 100px;
-    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+    background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -15%) 100%);
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 120px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding-top: 140px;
     }
   }
 
   .page-title {
-    @include font-size(h2);
+    @include mi.font-size(h2);
     font-weight: 700;
-    color: $text-light;
+    color: vr.$text-light;
     margin-bottom: 1rem;
     text-align: center;
 
-    @include media-up(md) {
-      @include font-size(h1);
+    @include mi.media-up(md) {
+      @include mi.font-size(h1);
     }
   }
 
   .page-subtitle {
-    @include font-size(body);
-    color: rgba($text-light, 0.8);
+    @include mi.font-size(body);
+    color: rgba(vr.$text-light, 0.8);
     text-align: center;
     margin-bottom: 0;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.2rem;
     }
   }
 
   .career-intro {
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 60px;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 80px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding-top: 100px;
     }
   }
 
   .section-title {
-    @include font-size(h3);
+    @include mi.font-size(h3);
     font-weight: 700;
     margin-bottom: 1.5rem;
     position: relative;
-    color: $text-light;
+    color: vr.$text-light;
     text-align: center;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 2rem;
-      @include font-size(h2);
+      @include mi.font-size(h2);
     }
 
     &.text-start {
       text-align: left;
 
-      @include media-down(md) {
+      @include mi.media-down(md) {
         text-align: center;
       }
 
@@ -76,7 +77,7 @@
         left: 0;
         transform: none;
 
-        @include media-down(md) {
+        @include mi.media-down(md) {
           left: 50%;
           transform: translateX(-50%);
         }
@@ -87,14 +88,14 @@
       content: '';
       width: 60px;
       height: 3px;
-      background: $cta-color;
+      background: vr.$cta-color;
       position: absolute;
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
       border-radius: 2px;
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         width: 80px;
         height: 4px;
         bottom: -15px;
@@ -103,12 +104,12 @@
   }
 
   .lead {
-    @include font-size(body);
-    color: rgba($text-light, 0.9);
+    @include mi.font-size(body);
+    color: rgba(vr.$text-light, 0.9);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
@@ -117,7 +118,7 @@
   .career-highlights {
     margin-top: 1.5rem;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-top: 2rem;
     }
   }
@@ -126,26 +127,26 @@
     display: flex;
     align-items: center;
     margin-bottom: 0.75rem;
-    color: $text-light;
-    @include font-size(small);
+    color: vr.$text-light;
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 1rem;
-      @include font-size(body);
+      @include mi.font-size(body);
     }
 
     i {
-      color: $accent-color;
+      color: vr.$accent-color;
       margin-right: 0.75rem;
       font-size: 1rem;
       flex-shrink: 0;
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         margin-right: 1rem;
         font-size: 1.1rem;
       }
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         font-size: 1.2rem;
       }
     }
@@ -155,58 +156,58 @@
     text-align: center;
     margin-top: 2rem;
 
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       margin-top: 0;
     }
     
     i {
       font-size: 8rem;
-      color: rgba($cta-color, 0.3);
+      color: rgba(vr.$cta-color, 0.3);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         font-size: 10rem;
       }
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         font-size: 12rem;
       }
     }
   }
 
   .benefits-section {
-    background: linear-gradient(135deg, darken($primary-color, 5%) 0%, $primary-color 100%);
-    @include section-padding();
+    @include mi.section-padding();
+    background: linear-gradient(135deg, color.adjust(vr.$primary-color, $lightness: -5%) 0%, vr.$primary-color 100%);
   }
 
   .benefit-card {
     text-align: center;
-    @include glass-effect();
+    @include mi.glass-effect();
     padding: 1.5rem 1.25rem;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     height: 100%;
     transition: all 0.3s ease;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 1.75rem 1.5rem;
       border-radius: 17px;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 2rem;
       border-radius: 20px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding: 2.5rem;
     }
 
     &:hover {
-      background: rgba($accent-color, 0.1);
+      background: rgba(vr.$accent-color, 0.1);
       transform: translateY(-5px);
-      border-color: $accent-color;
+      border-color: vr.$accent-color;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: translateY(-10px);
       }
     }
@@ -214,50 +215,50 @@
 
   .benefit-icon {
     font-size: 2.5rem;
-    color: $accent-color;
+    color: vr.$accent-color;
     margin-bottom: 1rem;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 2.75rem;
       margin-bottom: 1.25rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 3rem;
       margin-bottom: 1.5rem;
     }
   }
 
   .benefit-card h4 {
-    color: $text-light;
+    color: vr.$text-light;
     margin-bottom: 0.75rem;
     font-weight: 600;
-    @include font-size(body);
+    @include mi.font-size(body);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 1rem;
-      @include font-size(h6);
+      @include mi.font-size(h6);
     }
     
-    @include media-up(md) {
-      @include font-size(h5);
+    @include mi.media-up(md) {
+      @include mi.font-size(h5);
     }
   }
 
   .benefit-card p {
-    color: rgba($text-light, 0.8);
+    color: rgba(vr.$text-light, 0.8);
     margin: 0;
     line-height: 1.6;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
-      @include font-size(body);
+    @include mi.media-up(sm) {
+      @include mi.font-size(body);
     }
   }
 
   .jobs-section {
-    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
-    @include section-padding();
+    @include mi.section-padding();
+    background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -10%) 100%);
   }
 
   .jobs-grid {
@@ -266,43 +267,43 @@
     margin-top: 2rem;
     grid-template-columns: 1fr;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       gap: 2rem;
       margin-top: 2.5rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-top: 3rem;
       grid-template-columns: repeat(2, 1fr);
     }
     
-    @include media-up(xl) {
+    @include mi.media-up(xl) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
   .job-card {
-    @include glass-effect();
+    @include mi.glass-effect();
     backdrop-filter: blur(20px);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       border-radius: 17px;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       border-radius: 20px;
     }
 
     &:hover {
       transform: translateY(-3px);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      border-color: $cta-color;
+      border-color: vr.$cta-color;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: translateY(-5px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       }
@@ -310,31 +311,31 @@
   }
 
   .job-header {
-    background: rgba($cta-color, 0.1);
+    background: rgba(vr.$cta-color, 0.1);
     padding: 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 1.75rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 2rem;
     }
 
     h3 {
-      color: $text-light;
+      color: vr.$text-light;
       margin-bottom: 0.75rem;
       font-weight: 600;
-      @include font-size(h6);
+      @include mi.font-size(h6);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         margin-bottom: 1rem;
-        @include font-size(h5);
+        @include mi.font-size(h5);
       }
       
-      @include media-up(md) {
-        @include font-size(h4);
+      @include mi.media-up(md) {
+        @include mi.font-size(h4);
       }
     }
   }
@@ -344,7 +345,7 @@
     gap: 0.75rem;
     flex-direction: column;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       flex-direction: row;
       gap: 1rem;
     }
@@ -352,19 +353,19 @@
 
   .job-type,
   .job-start {
-    background: rgba($cta-color, 0.2);
-    color: $cta-color;
+    background: rgba(vr.$cta-color, 0.2);
+    color: vr.$cta-color;
     padding: 0.4rem 0.8rem;
     border-radius: 12px;
     font-weight: 500;
-    @include font-size(small);
+    @include mi.font-size(small);
     display: inline-block;
     text-align: center;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 0.5rem 1rem;
       border-radius: 15px;
-      @include font-size(body);
+      @include mi.font-size(body);
       text-align: left;
     }
   }
@@ -372,27 +373,27 @@
   .job-body {
     padding: 1.5rem;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 1.75rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 2rem;
     }
   }
 
   .job-description {
-    color: rgba($text-light, 0.9);
+    color: rgba(vr.$text-light, 0.9);
     margin-bottom: 1.5rem;
     line-height: 1.6;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 1.75rem;
-      @include font-size(body);
+      @include mi.font-size(body);
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-bottom: 2rem;
     }
   }
@@ -401,11 +402,11 @@
   .job-benefits {
     margin-bottom: 1.5rem;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-bottom: 1.75rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       margin-bottom: 2rem;
     }
 
@@ -414,14 +415,14 @@
     }
 
     h5 {
-      color: $text-light;
+      color: vr.$text-light;
       margin-bottom: 0.75rem;
       font-weight: 600;
-      @include font-size(body);
+      @include mi.font-size(body);
 
-      @include media-up(sm) {
+      @include mi.media-up(sm) {
         margin-bottom: 1rem;
-        @include font-size(h6);
+        @include mi.font-size(h6);
       }
     }
 
@@ -434,23 +435,23 @@
         display: flex;
         align-items: flex-start;
         margin-bottom: 0.5rem;
-        color: rgba($text-light, 0.8);
-        @include font-size(small);
+        color: rgba(vr.$text-light, 0.8);
+        @include mi.font-size(small);
 
-        @include media-up(sm) {
+        @include mi.media-up(sm) {
           margin-bottom: 0.6rem;
-          @include font-size(body);
+          @include mi.font-size(body);
         }
 
         &::before {
           content: "✓";
-          color: $accent-color;
+          color: vr.$accent-color;
           font-weight: bold;
           margin-right: 0.5rem;
           flex-shrink: 0;
           margin-top: 0.1rem;
 
-          @include media-up(sm) {
+          @include mi.media-up(sm) {
             margin-right: 0.75rem;
           }
         }
@@ -459,22 +460,22 @@
   }
 
   .apply-section {
-    background: rgba($accent-color, 0.1);
+    background: rgba(vr.$accent-color, 0.1);
     padding: 1.5rem;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 1.75rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 2rem;
     }
   }
 
   .btn-cta {
-    background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+    background: linear-gradient(45deg, vr.$cta-color, color.adjust(vr.$cta-color, $lightness: 10%));
     color: white;
     padding: 10px 20px;
     border-radius: 20px;
@@ -484,40 +485,40 @@
     align-items: center;
     gap: 0.4rem;
     transition: all 0.3s ease;
-    @include font-size(small);
+    @include mi.font-size(small);
     width: 100%;
     max-width: 250px;
     justify-content: center;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 12px 24px;
       border-radius: 22px;
       gap: 0.5rem;
-      @include font-size(body);
+      @include mi.font-size(body);
       width: auto;
       max-width: none;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding: 15px 30px;
       border-radius: 25px;
     }
 
     &:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 25px rgba($cta-color, 0.4);
+      box-shadow: 0 8px 25px rgba(vr.$cta-color, 0.4);
       color: white;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: translateY(-3px) scale(1.05);
-        box-shadow: 0 10px 30px rgba($cta-color, 0.4);
+        box-shadow: 0 10px 30px rgba(vr.$cta-color, 0.4);
       }
     }
 
     i {
       font-size: 0.9rem;
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         font-size: 1rem;
       }
     }
@@ -529,19 +530,19 @@
   --bs-gutter-x: 1rem;
   --bs-gutter-y: 1rem;
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 1.5rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     --bs-gutter-x: 2rem;
     --bs-gutter-y: 2rem;
   }
 }
 
 // Mobile specific adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .career-page {
     .career-highlights {
       margin-top: 1.25rem;
@@ -647,7 +648,7 @@
 }
 
 // Container adjustments
-@include media-down(md) {
+@include mi.media-down(md) {
   .career-page {
     .container {
       padding-left: 1rem;

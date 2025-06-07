@@ -1,5 +1,5 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles/variables' as vr;
+@use '../../../styles/mixins' as mi;
 
 .page-content {
   background: rgba(255, 255, 255, 0.05);
@@ -8,17 +8,17 @@
   padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 2rem;
     border-radius: 17px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 2.5rem;
     border-radius: 20px;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     padding: 3rem;
   }
 }
@@ -28,19 +28,19 @@
   margin-bottom: 2rem;
   font-weight: 700;
   text-align: center;
-  @include font-size(h3);
+  @include mi.font-size(h3);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 2.25rem;
-    @include font-size(h2);
+    @include mi.font-size(h2);
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 2.5rem;
-    @include font-size(h1);
+    @include mi.font-size(h1);
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin-bottom: 3rem;
   }
 }
@@ -48,15 +48,15 @@
 .tiles-section {
   margin-bottom: 2.5rem;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 3rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 3.5rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin-bottom: 4rem;
   }
 }
@@ -70,49 +70,49 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  @include font-size(h5);
+  @include mi.font-size(h5);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 1.75rem;
     padding-bottom: 10px;
     gap: 10px;
-    @include font-size(h4);
+    @include mi.font-size(h4);
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 2rem;
-    @include font-size(h3);
+    @include mi.font-size(h3);
   }
 
   i {
     font-size: 1rem;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 1.1rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.25rem;
     }
   }
 }
 
 .tiles-grid {
-  @include grid-responsive(1, 2, 2, 3, 4, 4);
+  @include mi.grid-responsive(1, 2, 2, 3, 4, 4);
   gap: 1rem;
   margin-bottom: 1.5rem;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     gap: 1.25rem;
     margin-bottom: 1.75rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     gap: 2rem;
   }
 }
@@ -120,15 +120,15 @@
 .info-section {
   margin-bottom: 2rem;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 2.25rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 2.5rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin-bottom: 3rem;
   }
 }
@@ -140,12 +140,12 @@
   padding: 1.5rem;
   color: var(--text-light, #ffffff);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 1.75rem;
     border-radius: 14px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 2rem;
     border-radius: 15px;
   }
@@ -157,16 +157,16 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  @include font-size(h6);
+  @include mi.font-size(h6);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 1.5rem;
     gap: 10px;
-    @include font-size(h5);
+    @include mi.font-size(h5);
   }
   
-  @include media-up(md) {
-    @include font-size(h4);
+  @include mi.media-up(md) {
+    @include mi.font-size(h4);
   }
 }
 
@@ -180,15 +180,15 @@
     color: rgba(255, 255, 255, 0.9);
     position: relative;
     padding-left: 16px;
-    @include font-size(small);
+    @include mi.font-size(small);
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 5px 0;
       padding-left: 18px;
-      @include font-size(body);
+      @include mi.font-size(body);
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-left: 20px;
     }
 
@@ -200,7 +200,7 @@
       font-weight: bold;
       font-size: 1rem;
 
-      @include media-up(md) {
+      @include mi.media-up(md) {
         font-size: 1.1rem;
       }
     }
@@ -208,22 +208,22 @@
 }
 
 .row p {
-  @include font-size(small);
+  @include mi.font-size(small);
   margin-bottom: 1rem;
   font-weight: 600;
 
-  @include media-up(sm) {
-    @include font-size(body);
+  @include mi.media-up(sm) {
+    @include mi.font-size(body);
     margin-bottom: 1.25rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 1.5rem;
   }
 }
 
 // Mobile specific adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .tiles-grid {
     grid-template-columns: 1fr;
     gap: 0.75rem;
@@ -251,7 +251,7 @@
 }
 
 // Container adjustments
-@include media-down(md) {
+@include mi.media-down(md) {
   .container {
     padding-left: 1rem;
     padding-right: 1rem;

@@ -1,53 +1,53 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use '../../styles/variables' as vr;
+@use '../../styles/mixins' as mi;
 
 .about-page {
   .page-header {
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 100px;
-    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+    background: linear-gradient(135deg, vr.$primary-color 0%, darken(vr.$primary-color, 15%) 100%);
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 120px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding-top: 140px;
     }
   }
 
   .page-title {
-    @include font-size(h2);
+    @include mi.font-size(h2);
     font-weight: 700;
-    color: $text-light;
+    color: vr.$text-light;
     margin-bottom: 1rem;
     text-align: center;
 
-    @include media-up(md) {
-      @include font-size(h1);
+    @include mi.media-up(md) {
+      @include mi.font-size(h1);
     }
   }
 
   .page-subtitle {
-    @include font-size(body);
-    color: rgba($text-light, 0.8);
+    @include mi.font-size(body);
+    color: rgba(vr.$text-light, 0.8);
     text-align: center;
     margin-bottom: 0;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.2rem;
     }
   }
 
   .about-navigation {
-    @include section-padding();
+    @include mi.section-padding();
     padding-top: 60px;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       padding-top: 80px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding-top: 100px;
     }
   }
@@ -65,13 +65,13 @@
     flex-direction: column;
     text-align: center;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       padding: 2rem;
       border-radius: 17px;
       gap: 1.25rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       flex-direction: row;
       text-align: left;
       padding: 2.5rem;
@@ -79,24 +79,24 @@
       gap: 1.5rem;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       padding: 3rem;
       gap: 2rem;
     }
 
     &:hover {
-      background: rgba($cta-color, 0.1);
+      background: rgba(vr.$cta-color, 0.1);
       transform: translateY(-3px);
-      border-color: $cta-color;
+      border-color: vr.$cta-color;
       
-      @include media-up(md) {
+      @include mi.media-up(md) {
         transform: translateY(-5px);
       }
       
       .nav-arrow {
         transform: translateX(5px);
         
-        @include media-up(md) {
+        @include mi.media-up(md) {
           transform: translateX(10px);
         }
       }
@@ -105,70 +105,70 @@
 
   .nav-icon {
     font-size: 2.5rem;
-    color: $cta-color;
+    color: vr.$cta-color;
     flex-shrink: 0;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 3rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 3.5rem;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       font-size: 4rem;
     }
   }
 
   .nav-content {
     flex: 1;
-    color: $text-light;
+    color: vr.$text-light;
 
     h3 {
-      @include font-size(h6);
+      @include mi.font-size(h6);
       margin-bottom: 0.75rem;
       font-weight: 600;
 
-      @include media-up(sm) {
-        @include font-size(h5);
+      @include mi.media-up(sm) {
+        @include mi.font-size(h5);
         margin-bottom: 1rem;
       }
       
-      @include media-up(md) {
-        @include font-size(h4);
+      @include mi.media-up(md) {
+        @include mi.font-size(h4);
       }
       
-      @include media-up(lg) {
-        @include font-size(h3);
+      @include mi.media-up(lg) {
+        @include mi.font-size(h3);
       }
     }
 
     p {
-      color: rgba($text-light, 0.8);
+      color: rgba(vr.$text-light, 0.8);
       margin: 0;
-      @include font-size(small);
+      @include mi.font-size(small);
 
-      @include media-up(sm) {
-        @include font-size(body);
+      @include mi.media-up(sm) {
+        @include mi.font-size(body);
       }
     }
   }
 
   .nav-arrow {
-    color: $cta-color;
+    color: vr.$cta-color;
     font-size: 1.2rem;
     transition: transform 0.3s ease;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       font-size: 1.3rem;
     }
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       font-size: 1.4rem;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       font-size: 1.5rem;
     }
   }
@@ -179,19 +179,19 @@
   --bs-gutter-x: 1rem;
   --bs-gutter-y: 1rem;
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 1.5rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     --bs-gutter-x: 2rem;
     --bs-gutter-y: 2rem;
   }
 }
 
 // Mobile specific adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .about-page {
     .about-nav-card {
       padding: 1.25rem;
@@ -219,7 +219,7 @@
 }
 
 // Container adjustments
-@include media-down(md) {
+@include mi.media-down(md) {
   .about-page {
     .container {
       padding-left: 1rem;

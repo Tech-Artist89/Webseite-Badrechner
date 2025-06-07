@@ -1,5 +1,5 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles/variables' as vr;
+@use '../../../styles/mixins' as mi;
 
 .image-checkbox-container {
   position: relative;
@@ -12,13 +12,13 @@
   background: white;
   box-shadow: 0 2px 6px rgba(27, 50, 68, 0.1);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 1.25rem;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(27, 50, 68, 0.1);
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 1.5rem;
     border-radius: 12px;
   }
@@ -28,7 +28,7 @@
     box-shadow: 0 4px 12px rgba(239, 128, 78, 0.2);
     transform: translateY(-1px);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       box-shadow: 0 4px 16px rgba(239, 128, 78, 0.2);
       transform: translateY(-2px);
     }
@@ -39,7 +39,7 @@
     background-color: #fff8f4;
     box-shadow: 0 4px 16px rgba(239, 128, 78, 0.3);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       box-shadow: 0 4px 20px rgba(239, 128, 78, 0.3);
     }
   }
@@ -49,11 +49,11 @@
   position: relative;
   margin-bottom: 1rem;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 1.25rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 1.5rem;
   }
 }
@@ -66,17 +66,17 @@
   background: #f8f9fa;
   border: 1px solid rgba(27, 50, 68, 0.1);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     height: 100px;
     border-radius: 7px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     height: 120px;
     border-radius: 8px;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     height: 140px;
   }
 }
@@ -96,14 +96,14 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     top: 7px;
     right: 7px;
     width: 28px;
     height: 28px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     top: 8px;
     right: 8px;
     width: 32px;
@@ -121,11 +121,11 @@
   font-size: 12px;
   font-weight: bold;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     font-size: 14px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     font-size: 16px;
   }
 }
@@ -134,20 +134,20 @@
   font-weight: 600;
   color: #1b3244;
   margin-bottom: 0.75rem;
-  @include font-size(small);
+  @include mi.font-size(small);
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 1rem;
-    @include font-size(body);
+    @include mi.font-size(body);
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     font-size: 1rem;
   }
 }
 
 .popup-btn {
-  @include font-size(small);
+  @include mi.font-size(small);
   padding: 5px 10px;
   background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
   border: none;
@@ -155,13 +155,13 @@
   color: white;
   transition: all 0.3s ease;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 6px 12px;
     border-radius: 18px;
     font-size: 0.8rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -172,7 +172,7 @@
     transform: translateY(-1px);
     box-shadow: 0 2px 6px rgba(23, 162, 184, 0.3);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       box-shadow: 0 2px 8px rgba(23, 162, 184, 0.3);
     }
   }
@@ -181,14 +181,14 @@
     margin-right: 3px;
     font-size: 0.8rem;
 
-    @include media-up(sm) {
+    @include mi.media-up(sm) {
       margin-right: 4px;
     }
   }
 }
 
 // Mobile specific adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .image-checkbox-container {
     padding: 0.75rem;
     border-radius: 6px;
@@ -227,7 +227,7 @@
 }
 
 // Touch targets for mobile
-@include media-down(lg) {
+@include mi.media-down(lg) {
   .image-checkbox-container {
     min-height: 120px;
   }

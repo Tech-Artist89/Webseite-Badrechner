@@ -1,11 +1,11 @@
-// Import Bootstrap first
-@import 'bootstrap/scss/bootstrap';
-
 // Import our custom styles in correct order
-@import 'app/styles/variables';
-@import 'app/styles/mixins';
-@import 'app/styles/animations';
-@import 'app/styles/components';
+@use 'app/styles/variables' as vr;
+@use 'app/styles/mixins' as mi;
+@use 'app/styles/animations' as an;
+@use 'app/styles/components' as co;
+
+// Import Bootstrap first
+@use 'bootstrap/scss/bootstrap';
 
 // Global reset with responsive considerations
 * {
@@ -18,19 +18,19 @@ html {
   scroll-behavior: smooth;
   
   // Prevent zoom on input focus in mobile Safari
-  @include media-down(sm) {
+  @include mi.media-down(sm) {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
   }
 }
 
 body {
-  font-family: $font-family-base;
-  background-color: $primary-color;
-  color: $text-light;
+  font-family: vr.$font-family-base;
+  background-color: vr.$primary-color;
+  color: vr.$text-light;
   overflow-x: hidden;
-  line-height: $line-height-base;
-  @include font-size(body);
+  line-height: vr.$line-height-base;
+  @include mi.font-size(body);
   
   // Improve text rendering
   -webkit-font-smoothing: antialiased;
@@ -38,33 +38,33 @@ body {
   text-rendering: optimizeLegibility;
   
   // Mobile optimizations
-  @include media-down(sm) {
+  @include mi.media-down(sm) {
     -webkit-overflow-scrolling: touch;
   }
 }
 
 // Global utilities with responsive variations
-.text-primary { color: $primary-color !important; }
-.text-cta { color: $cta-color !important; }
-.text-accent { color: $accent-color !important; }
-.bg-primary { background-color: $primary-color !important; }
-.bg-cta { background-color: $cta-color !important; }
-.bg-accent { background-color: $accent-color !important; }
+.text-primary { color: vr.$primary-color !important; }
+.text-cta { color: vr.$cta-color !important; }
+.text-accent { color: vr.$accent-color !important; }
+.bg-primary { background-color: vr.$primary-color !important; }
+.bg-cta { background-color: vr.$cta-color !important; }
+.bg-accent { background-color: vr.$accent-color !important; }
 
 // Responsive text utilities
 .text-responsive {
-  @include font-size(body);
+  @include mi.font-size(body);
 }
 
 .text-responsive-small {
-  @include font-size(small);
+  @include mi.font-size(small);
 }
 
 .text-responsive-large {
-  @include font-size(h6);
+  @include mi.font-size(h6);
   
-  @include media-up(md) {
-    @include font-size(h5);
+  @include mi.media-up(md) {
+    @include mi.font-size(h5);
   }
 }
 
@@ -83,19 +83,19 @@ img {
 // Container adjustments
 .container,
 .container-fluid {
-  @include container-responsive();
+  @include mi.container-responsive();
 }
 
 // Bootstrap overrides for better mobile experience
 .btn {
   // Minimum touch target size for mobile
-  @include media-down(lg) {
+  @include mi.media-down(lg) {
     min-height: 44px;
     min-width: 44px;
   }
   
   // Better button spacing on mobile
-  @include media-down(sm) {
+  @include mi.media-down(sm) {
     padding: 10px 16px;
     border-radius: 8px;
   }
@@ -104,24 +104,24 @@ img {
 // Form controls responsive
 .form-control,
 .form-select {
-  @include media-down(sm) {
+  @include mi.media-down(sm) {
     // Prevent zoom on iOS
     font-size: 16px;
     padding: 12px 16px;
   }
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 10px 15px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 12px 20px;
   }
 }
 
 // Modal responsive adjustments
 .modal {
-  @include media-down(sm) {
+  @include mi.media-down(sm) {
     padding: 0 !important;
     
     .modal-dialog {
@@ -136,7 +136,7 @@ img {
     }
   }
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     .modal-dialog {
       margin: 1.75rem auto;
     }
@@ -145,7 +145,7 @@ img {
 
 // Navigation responsive fixes
 .navbar-nav {
-  @include media-down(lg) {
+  @include mi.media-down(lg) {
     .nav-link {
       padding: 0.75rem 1rem;
       text-align: center;
@@ -160,7 +160,7 @@ img {
 
 // Dropdown responsive
 .dropdown-menu {
-  @include media-down(lg) {
+  @include mi.media-down(lg) {
     position: static !important;
     transform: none !important;
     border: none;
@@ -170,12 +170,12 @@ img {
     padding: 0;
     
     .dropdown-item {
-      color: rgba($text-light, 0.8);
+      color: rgba(vr.$text-light, 0.8);
       padding: 0.75rem 1.5rem;
       
       &:hover {
-        background: rgba($cta-color, 0.1);
-        color: $cta-color;
+        background: rgba(vr.$cta-color, 0.1);
+        color: vr.$cta-color;
       }
     }
   }
@@ -186,14 +186,14 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
   
-  @include media-down(sm) {
+  @include mi.media-down(sm) {
     margin-bottom: 1rem;
   }
 }
 
 // Grid responsive improvements
 .row {
-  @include media-down(sm) {
+  @include mi.media-down(sm) {
     margin-left: -10px;
     margin-right: -10px;
     
@@ -208,11 +208,11 @@ img {
 .mb-responsive-sm {
   margin-bottom: 0.5rem;
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 1rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 1.5rem;
   }
 }
@@ -220,15 +220,15 @@ img {
 .mb-responsive-md {
   margin-bottom: 1rem;
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 1.5rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 2rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin-bottom: 2.5rem;
   }
 }
@@ -236,15 +236,15 @@ img {
 .mb-responsive-lg {
   margin-bottom: 1.5rem;
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-bottom: 2rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-bottom: 3rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin-bottom: 4rem;
   }
 }
@@ -253,53 +253,53 @@ img {
 .p-responsive {
   padding: 1rem;
   
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 1.5rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 2rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     padding: 2.5rem;
   }
 }
 
 // Display utilities enhanced
 .d-mobile-none {
-  @include media-down(sm) {
+  @include mi.media-down(sm) {
     display: none !important;
   }
 }
 
 .d-mobile-block {
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     display: none !important;
   }
 }
 
 .d-tablet-none {
-  @include media-between($sm, $lg) {
+  @include mi.media-between(vr.$sm, vr.$lg) {
     display: none !important;
   }
 }
 
 .d-desktop-none {
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     display: none !important;
   }
 }
 
 // Text alignment responsive
 .text-center-mobile {
-  @include media-down(md) {
+  @include mi.media-down(md) {
     text-align: center !important;
   }
 }
 
 .text-left-desktop {
-  @include media-up(md) {
+  @include mi.media-up(md) {
     text-align: left !important;
   }
 }
@@ -311,7 +311,7 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba($primary-color, 0.9);
+  background: rgba(vr.$primary-color, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -322,12 +322,12 @@ img {
 .spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba($cta-color, 0.3);
-  border-top: 3px solid $cta-color;
+  border: 3px solid rgba(vr.$cta-color, 0.3);
+  border-top: 3px solid vr.$cta-color;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     width: 50px;
     height: 50px;
     border-width: 4px;
@@ -354,7 +354,7 @@ img {
 
 // Focus styles
 *:focus {
-  outline: 2px solid $cta-color;
+  outline: 2px solid vr.$cta-color;
   outline-offset: 2px;
 }
 
@@ -363,7 +363,7 @@ img {
   position: absolute;
   top: -40px;
   left: 6px;
-  background: $cta-color;
+  background: vr.$cta-color;
   color: white;
   padding: 8px;
   border-radius: 4px;

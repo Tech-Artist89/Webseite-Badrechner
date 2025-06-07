@@ -1,9 +1,9 @@
-@import '../../../styles/variables';
-@import '../../../styles/animations';
-@import '../../../styles/mixins';
+@use '../../../styles/variables' as vr;
+@use '../../../styles/animations' as an;
+@use '../../../styles/mixins' as mi;
 
 .hero-section {
-  background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+  background: linear-gradient(135deg, vr.$primary-color 0%, darken(vr.$primary-color, 10%) 100%);
   position: relative;
   overflow: hidden;
   margin-top: 60px;
@@ -11,15 +11,15 @@
   display: flex;
   align-items: center;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     margin-top: 70px;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-top: 80px;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     margin-top: 90px;
   }
 }
@@ -34,14 +34,14 @@
   z-index: 0;
   display: none;
 
-  @include media-up(md) {
+  @include mi.media-up(md) {
     display: block;
   }
 }
 
 .floating-element {
   position: absolute;
-  background: rgba($accent-color, 0.1);
+  background: rgba(vr.$accent-color, 0.1);
   border-radius: 50%;
   animation: float 6s ease-in-out infinite;
 
@@ -52,12 +52,12 @@
     left: 10%;
     animation-delay: 0s;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       width: 80px;
       height: 80px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       width: 100px;
       height: 100px;
     }
@@ -70,12 +70,12 @@
     right: 15%;
     animation-delay: 2s;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       width: 100px;
       height: 100px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       width: 120px;
       height: 120px;
     }
@@ -88,12 +88,12 @@
     left: 80%;
     animation-delay: 4s;
 
-    @include media-up(md) {
+    @include mi.media-up(md) {
       width: 60px;
       height: 60px;
     }
     
-    @include media-up(lg) {
+    @include mi.media-up(lg) {
       width: 80px;
       height: 80px;
     }
@@ -106,66 +106,66 @@
   z-index: 1;
   position: relative;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 2rem 0;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     text-align: left;
     padding: 2.5rem 0;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     padding: 3rem 0;
   }
 }
 
 .hero-title {
-  @include font-size(h3);
+  @include mi.font-size(h3);
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, $text-light, $accent-color);
+  background: linear-gradient(45deg, vr.$text-light, vr.$accent-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.2;
 
-  @include media-up(sm) {
-    @include font-size(h2);
+  @include mi.media-up(sm) {
+    @include mi.font-size(h2);
     margin-bottom: 1.25rem;
   }
   
-  @include media-up(md) {
-    @include font-size(h1);
+  @include mi.media-up(md) {
+    @include mi.font-size(h1);
     margin-bottom: 1.5rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     font-size: 3.5rem;
   }
   
-  @include media-up(xl) {
+  @include mi.media-up(xl) {
     font-size: 4rem;
   }
 }
 
 .hero-subtitle {
-  @include font-size(small);
+  @include mi.font-size(small);
   margin-bottom: 1.5rem;
-  color: rgba($text-light, 0.9);
+  color: rgba(vr.$text-light, 0.9);
   line-height: 1.6;
 
-  @include media-up(sm) {
-    @include font-size(body);
+  @include mi.media-up(sm) {
+    @include mi.font-size(body);
     margin-bottom: 1.75rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     font-size: 1.2rem;
     margin-bottom: 2rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     font-size: 1.3rem;
     margin-bottom: 2.5rem;
   }
@@ -177,20 +177,20 @@
   flex-direction: column;
   align-items: center;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     flex-direction: row;
     justify-content: center;
     gap: 1.25rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     justify-content: flex-start;
     gap: 1.5rem;
   }
 }
 
 .btn-cta {
-  background: linear-gradient(45deg, $cta-color, lighten($cta-color, 10%));
+  background: linear-gradient(45deg, vr.$cta-color, lighten(vr.$cta-color, 10%));
   color: white;
   padding: 12px 24px;
   border-radius: 25px;
@@ -201,21 +201,21 @@
   display: inline-block;
   transition: all 0.3s ease;
   border: none;
-  @include font-size(small);
+  @include mi.font-size(small);
   width: 100%;
   max-width: 280px;
   text-align: center;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 13px 28px;
     border-radius: 28px;
     letter-spacing: 0.7px;
-    @include font-size(body);
+    @include mi.font-size(body);
     width: auto;
     max-width: none;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 15px 35px;
     border-radius: 50px;
     letter-spacing: 1px;
@@ -223,51 +223,51 @@
 
   &:hover {
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 25px rgba($cta-color, 0.4);
+    box-shadow: 0 8px 25px rgba(vr.$cta-color, 0.4);
     color: white;
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 10px 30px rgba($cta-color, 0.4);
+      box-shadow: 0 10px 30px rgba(vr.$cta-color, 0.4);
     }
   }
 }
 
 .btn-outline {
   background: transparent;
-  color: $text-light;
-  border: 2px solid rgba($text-light, 0.3);
+  color: vr.$text-light;
+  border: 2px solid rgba(vr.$text-light, 0.3);
   padding: 10px 24px;
   border-radius: 25px;
   font-weight: 600;
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
-  @include font-size(small);
+  @include mi.font-size(small);
   width: 100%;
   max-width: 280px;
   text-align: center;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     padding: 11px 28px;
     border-radius: 28px;
-    @include font-size(body);
+    @include mi.font-size(body);
     width: auto;
     max-width: none;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     padding: 13px 33px;
     border-radius: 50px;
   }
 
   &:hover {
-    background: rgba($text-light, 0.1);
-    border-color: $accent-color;
-    color: $accent-color;
+    background: rgba(vr.$text-light, 0.1);
+    border-color: vr.$accent-color;
+    color: vr.$accent-color;
     transform: translateY(-2px);
     
-    @include media-up(md) {
+    @include mi.media-up(md) {
       transform: translateY(-3px);
     }
   }
@@ -278,31 +278,31 @@
   position: relative;
   margin-top: 2rem;
 
-  @include media-up(md) {
+  @include mi.media-up(md) {
     margin-top: 0;
   }
 }
 
 .tech-icon {
-  @include font-size(h1);
-  color: rgba($accent-color, 0.3);
+  @include mi.font-size(h1);
+  color: rgba(vr.$accent-color, 0.3);
   margin-bottom: 1rem;
 
-  @include media-up(sm) {
+  @include mi.media-up(sm) {
     font-size: 8rem;
     margin-bottom: 1.5rem;
   }
   
-  @include media-up(md) {
+  @include mi.media-up(md) {
     font-size: 10rem;
     margin-bottom: 2rem;
   }
   
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     font-size: 12rem;
   }
   
-  @include media-up(xl) {
+  @include mi.media-up(xl) {
     font-size: 15rem;
   }
 }
@@ -315,7 +315,7 @@
   bottom: 0;
   display: none;
 
-  @include media-up(md) {
+  @include mi.media-up(md) {
     display: block;
   }
 }
@@ -324,22 +324,22 @@
   position: absolute;
   width: 40px;
   height: 40px;
-  background: rgba($cta-color, 0.1);
+  background: rgba(vr.$cta-color, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $cta-color;
+  color: vr.$cta-color;
   font-size: 1.2rem;
   animation: floatIcons 4s ease-in-out infinite;
 
-  @include media-up(lg) {
+  @include mi.media-up(lg) {
     width: 50px;
     height: 50px;
     font-size: 1.4rem;
   }
   
-  @include media-up(xl) {
+  @include mi.media-up(xl) {
     width: 60px;
     height: 60px;
     font-size: 1.5rem;
@@ -366,11 +366,11 @@
 
 // Container adjustments
 .container {
-  @include container-responsive();
+  @include mi.container-responsive();
 }
 
 // Mobile specific adjustments
-@include media-down(sm) {
+@include mi.media-down(sm) {
   .hero-section {
     min-height: 90vh;
     padding-top: 2rem;
@@ -407,7 +407,7 @@
 }
 
 // Touch targets for mobile
-@include media-down(lg) {
+@include mi.media-down(lg) {
   .btn-cta,
   .btn-outline {
     min-height: 44px;
