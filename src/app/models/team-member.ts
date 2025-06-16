@@ -9,5 +9,5 @@ export interface TeamMember {
   phone?: string;
   image?: string;
   specialties: string[];
-  experience: number;
+//  experience: number;
 }

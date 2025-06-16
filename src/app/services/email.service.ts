@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BathroomData } from '../interfaces/badrechner';
 import { firstValueFrom, timeout, catchError, of } from 'rxjs';
+import { environment } from '../environments/environment';
 
 interface ApiResponse {
   success: boolean;
@@ -24,11 +25,12 @@ interface ApiResponse {
   providedIn: 'root'
 })
 export class EmailService {
-  private readonly apiUrl = 'http://localhost:3000/api';
+  private readonly apiUrl = environment.apiUrl;
   private backendAvailable: boolean = false;
 
   constructor(private http: HttpClient) {
     console.log('✅ EmailService geladen mit HttpClient');
+    console.log('🔗 API URL:', this.apiUrl);
     this.checkBackendAvailability();
   }
 
@@ -101,6 +103,7 @@ export class EmailService {
   }): Promise<{ success: boolean; message: string; referenceId?: string; debug?: any }> {
     
     console.log('📧 Badkonfiguration senden gestartet');
+    console.log('📤 Daten:', data);
     
     // Wenn Backend nicht verfügbar, Fallback verwenden
     if (!this.backendAvailable) {

@@ -20,7 +20,11 @@
   </section>
 
   <!-- Team by Departments -->
-  <section class="team-departments section" *ngFor="let department of departments; let i = index">
+  <section class="team-departments section" 
+           [class.single-member]="department.members.length === 1"
+           [class.two-members]="department.members.length === 2"
+           [class.multiple-members]="department.members.length >= 3"
+           *ngFor="let department of departments; let i = index">
     <div class="container" *ngIf="department.members.length > 0">
       <h3 class="department-title">{{ department.name }}</h3>
       <div class="row g-4">

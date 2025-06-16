@@ -20,7 +20,7 @@ export class LoadingComponent implements OnInit {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         this.showLoading();
-        setTimeout(() => this.hideLoading(), 500);
+        setTimeout(() => this.hideLoading(), 800);
       });
   }
 

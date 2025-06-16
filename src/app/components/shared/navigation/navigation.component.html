@@ -17,7 +17,7 @@
       <a routerLink="/" class="nav-link" (click)="closeMenu()">Startseite</a>
     </li>
     
-    <!-- Badrechner - Neue Hauptfunktion -->
+    <!-- Badrechner - Neue Hauptfunktion 
     <li class="nav-item special-nav">
       <a routerLink="/badrechner" class="nav-link nav-link-special" (click)="closeMenu()">
         <i class="fas fa-bath"></i>
@@ -25,6 +25,7 @@
         <span class="special-badge">NEU</span>
       </a>
     </li>
+    -->
     
     <!-- Services Dropdown -->
     <li class="nav-item dropdown" [class.active]="isDropdownOpen('services')">
@@ -43,10 +44,12 @@
         <li><a routerLink="/services/installation" class="dropdown-link" (click)="closeMenu()">Installation</a></li>
         <li class="dropdown-divider"></li>
         <li>
+<!--          
           <a routerLink="/badrechner" class="dropdown-link special-dropdown-link" (click)="closeMenu()">
             <i class="fas fa-calculator"></i>
             Badrechner verwenden
           </a>
+-->          
         </li>
       </ul>
     </li>

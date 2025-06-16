@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { TeamCardComponent } from '../../../components/ui/team-card/team-card.component';
 import { DataService } from '../../../services/data.service';
 import { TeamMember } from '../../../models/team-member';
+import { RouterModule } from '@angular/router'; 
 
 @Component({
   selector: 'app-team',
   standalone: true,
-  imports: [CommonModule, TeamCardComponent],
+  imports: [CommonModule, TeamCardComponent, RouterModule],
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.scss']
 })

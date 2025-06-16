@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactForm } from '../../../models/contact';
+import { ContactService } from '../../../services/contact.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -14,6 +15,8 @@ export class ContactFormComponent implements OnInit {
   contactForm!: FormGroup;
   isSubmitting = false;
   submitSuccess = false;
+  submitError = false;
+  errorMessage = '';
 
   serviceOptions = [
     { value: 'heating', label: 'Heizungsbau' },
@@ -23,7 +26,10 @@ export class ContactFormComponent implements OnInit {
     { value: 'consultation', label: 'Beratung' }
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private contactService: ContactService
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -34,7 +40,7 @@ export class ContactFormComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      phone: [''],
+      phone: ['', Validators.required],
       service: ['', Validators.required],
       subject: ['', [Validators.required, Validators.minLength(5)]],
       message: ['', [Validators.required, Validators.minLength(10)]],
@@ -45,20 +51,33 @@ export class ContactFormComponent implements OnInit {
   onSubmit(): void {
     if (this.contactForm.valid) {
       this.isSubmitting = true;
+      this.submitError = false;
       const formData: ContactForm = this.contactForm.value;
       
-      // Simulate API call
-      setTimeout(() => {
-        console.log('Form submitted:', formData);
-        this.isSubmitting = false;
-        this.submitSuccess = true;
-        this.contactForm.reset();
-        
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-          this.submitSuccess = false;
-        }, 5000);
-      }, 2000);
+      console.log('🚀 Sending to backend:', formData);
+      
+      this.contactService.submitContact(formData).subscribe({
+        next: (response) => {
+          console.log('✅ Backend Response:', response);
+          this.isSubmitting = false;
+          this.submitSuccess = true;
+          this.contactForm.reset();
+          
+          setTimeout(() => {
+            this.submitSuccess = false;
+          }, 5000);
+        },
+        error: (error) => {
+          console.error('❌ Backend Error:', error);
+          this.isSubmitting = false;
+          this.submitError = true;
+          this.errorMessage = error.error?.message || 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
+          
+          setTimeout(() => {
+            this.submitError = false;
+          }, 8000);
+        }
+      });
     } else {
       this.markFormGroupTouched();
     }

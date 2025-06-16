@@ -25,6 +25,39 @@
     @include mi.media-up(sm) {
       padding: 0.75rem 0;
     }
+    
+    // Logo wird beim Scrollen etwas kleiner, aber proportional korrekt
+    .company-logo {
+      width: 40px;
+      height: 41px;
+      
+      @include mi.media-up(sm) {
+        width: 44px;
+        height: 45px;
+      }
+      
+      @include mi.media-up(md) {
+        width: 48px;
+        height: 49px;
+      }
+      
+      @include mi.media-up(lg) {
+        width: 52px;
+        height: 53px;
+      }
+    }
+    
+    .logo-link {
+      font-size: 1.1rem;
+      
+      @include mi.media-up(sm) {
+        font-size: 1.2rem;
+      }
+      
+      @include mi.media-up(md) {
+        font-size: 1.3rem;
+      }
+    }
   }
 }
 
@@ -41,6 +74,11 @@
   }
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
 .logo-link {
   display: flex;
   align-items: center;
@@ -48,38 +86,88 @@
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 700;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
 
   @include mi.media-up(sm) {
     font-size: 1.3rem;
+    gap: 0.6rem;
+    padding: 0.3rem 0.6rem;
   }
   
   @include mi.media-up(md) {
     font-size: 1.5rem;
+    gap: 0.75rem;
+    padding: 0.4rem 0.75rem;
   }
 
   &:hover {
     color: vr.$cta-color;
+    background: rgba(vr.$cta-color, 0.1);
+    transform: translateY(-1px);
+    
+    .company-logo {
+      transform: rotate(-5deg) scale(1.05);
+      filter: drop-shadow(0 4px 8px rgba(239, 128, 78, 0.4));
+    }
   }
 
-  i {
-    margin-right: 0.4rem;
-    color: vr.$cta-color;
-    font-size: 1rem;
-    
-    @include mi.media-up(sm) {
-      margin-right: 0.5rem;
-      font-size: 1.1rem;
-    }
-    
-    @include mi.media-up(md) {
-      font-size: 1.2rem;
-    }
+  &:focus {
+    outline: 2px solid vr.$cta-color;
+    outline-offset: 2px;
   }
   
   span {
+    letter-spacing: 0.5px;
+    
     @include mi.media-down(sm) {
       font-size: 1rem;
+    }
+  }
+}
+
+// SVG Logo Styling - optimiert für kompakte viewBox (48.25 x 48.86)
+.company-logo {
+  width: 48px;
+  height: 49px; // Verhältnis beibehalten (48.86/48.25 ≈ 1.01)
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  flex-shrink: 0; // Logo soll nicht schrumpfen
+  
+  @include mi.media-up(sm) {
+    width: 52px;
+    height: 53px;
+  }
+  
+  @include mi.media-up(md) {
+    width: 56px;
+    height: 57px;
+  }
+  
+  @include mi.media-up(lg) {
+    width: 60px;
+    height: 61px;
+  }
+  
+  // Smooth transitions für alle SVG Elemente
+  .cls-1, .cls-2, .cls-3 {
+    transition: all 0.3s ease;
+  }
+  
+  // Hover-Effekte für einzelne Logo-Elemente
+  .logo-link:hover & {
+    .cls-2 {
+      fill: lighten(#ef804e, 8%);
+    }
+    
+    .cls-3 {
+      fill: lighten(#1c3244, 15%);
+    }
+    
+    .cls-1 {
+      fill: lighten(#b3b4b3, 10%);
     }
   }
 }
@@ -104,5 +192,81 @@
     min-height: 44px;
     display: flex;
     align-items: center;
+  }
+}
+
+// Sehr kleine Bildschirme - Logo trotzdem etwas größer als Text, korrekte Proportionen
+@include mi.media-down(sm) {
+  .logo-link {
+    gap: 0.4rem;
+    padding: 0.2rem 0.4rem;
+    
+    span {
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+  }
+  
+  .company-logo {
+    width: 40px;
+    height: 41px;
+  }
+}
+
+// Extra kleine Bildschirme - Logo bleibt prominent mit korrekten Proportionen
+@include mi.media-down(375px) {
+  .logo-link {
+    gap: 0.3rem;
+    
+    span {
+      font-size: 0.8rem;
+    }
+  }
+  
+  .company-logo {
+    width: 36px;
+    height: 37px;
+  }
+}
+
+// Sehr schmale Bildschirme - Logo bleibt sichtbar und prominent mit korrekten Proportionen
+@include mi.media-down(320px) {
+  .logo-link span {
+    display: none;
+  }
+  
+  .logo-link {
+    gap: 0;
+    padding: 0.2rem;
+  }
+  
+  .company-logo {
+    width: 32px;
+    height: 33px;
+  }
+}
+
+// Animation für das Logo beim Laden der Seite
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.company-logo {
+  animation: logoFadeIn 0.6s ease-out;
+}
+
+// Scroll-Animationen
+.header {
+  &.scrolled {
+    .company-logo {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
 }

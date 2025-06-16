@@ -40,7 +40,7 @@ import { Service } from '../../models/service';
                 <div class="overview-icon">
                   <i class="fas fa-award"></i>
                 </div>
-                <h3>1+ Jahre Erfahrung</h3>
+                <h3>Erfahrung</h3>
                 <p>Langjährige Expertise in der Sanitär- und Heizungstechnik</p>
                 <a routerLink="/about/company" class="btn-service">
                   Mehr erfahren <i class="fas fa-arrow-right"></i>
@@ -53,7 +53,7 @@ import { Service } from '../../models/service';
                   <i class="fas fa-clock"></i>
                 </div>
                 <h3>24/7 Notdienst</h3>
-                <p>Wir sind rund um die Uhr für Sie da</p>
+                <p>Wir sind rund um die Uhr für Sie da, 7 Tage die Woche</p>
                 <a routerLink="/contact" class="btn-service">
                   Jetzt kontaktieren <i class="fas fa-arrow-right"></i>
                 </a>
@@ -64,7 +64,7 @@ import { Service } from '../../models/service';
                 <div class="overview-icon">
                   <i class="fas fa-leaf"></i>
                 </div>
-                <h3>Nachhaltige Lösungen</h3>
+                <h3>Nachhaltig</h3>
                 <p>Umweltfreundliche und energieeffiziente Technologien</p>
                 <a routerLink="/services" class="btn-service">
                   Services entdecken <i class="fas fa-arrow-right"></i>

@@ -106,24 +106,67 @@
     &:nth-child(odd) {
       background: linear-gradient(135deg, vr.$primary-color 0%, darken(vr.$primary-color, 10%) 100%);
     }
+
+    // Zentriere die Karten-Reihe
+    .row {
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    // Für einzelne Karte (z.B. nur 1 Mitglied in der Abteilung)
+    &.single-member .row {
+      .col-lg-4 {
+        max-width: 400px;
+        margin: 0 auto;
+        
+        @include mi.media-up(md) {
+          max-width: 350px;
+        }
+        
+        @include mi.media-up(lg) {
+          max-width: 400px;
+        }
+      }
+    }
+
+    // Für zwei Karten (z.B. 2 Mitglieder in der Abteilung)
+    &.two-members .row {
+      .col-lg-4 {
+        @include mi.media-up(lg) {
+          flex: 0 0 auto;
+          width: 350px;
+          max-width: 350px;
+        }
+      }
+    }
+
+    // Für drei oder mehr Karten - normale Grid-Aufteilung
+    &.multiple-members .row {
+      .col-lg-4 {
+        @include mi.media-up(lg) {
+          flex: 0 0 auto;
+          width: calc(33.333333% - 1.33rem);
+        }
+      }
+    }
   }
 
   .department-title {
     @include mi.font-size(h4);
     font-weight: 600;
     color: vr.$cta-color;
-    margin-bottom: 2rem;
+    margin-bottom: 3.5rem;
     text-align: center;
     position: relative;
 
     @include mi.media-up(sm) {
       @include mi.font-size(h3);
-      margin-bottom: 2.5rem;
+      margin-bottom: 4.0rem;
     }
     
     @include mi.media-up(md) {
       @include mi.font-size(h2);
-      margin-bottom: 3rem;
+      margin-bottom: 4.5rem;
     }
 
     &::after {

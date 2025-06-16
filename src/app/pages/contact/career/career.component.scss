@@ -262,23 +262,29 @@
   }
 
   .jobs-grid {
-    display: grid;
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     margin-top: 2rem;
-    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 
     @include mi.media-up(sm) {
-      gap: 2rem;
+      gap: 2.5rem;
       margin-top: 2.5rem;
+      max-width: 1000px;
     }
     
     @include mi.media-up(md) {
       margin-top: 3rem;
-      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      max-width: 1100px;
     }
     
-    @include mi.media-up(xl) {
-      grid-template-columns: repeat(3, 1fr);
+    @include mi.media-up(lg) {
+      gap: 3.5rem;
+      max-width: 1200px;
     }
   }
 
@@ -289,6 +295,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
+    width: 100%;
 
     @include mi.media-up(sm) {
       border-radius: 17px;
@@ -327,6 +334,9 @@
       color: vr.$text-light;
       margin-bottom: 0.75rem;
       font-weight: 600;
+      line-height: 1.3;
+      word-break: break-word;
+      hyphens: auto;
       @include mi.font-size(h6);
 
       @include mi.media-up(sm) {
@@ -370,59 +380,69 @@
     }
   }
 
-  .job-body {
-    padding: 1.5rem;
+  .job-content {
+    padding: 2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
 
     @include mi.media-up(sm) {
-      padding: 1.75rem;
+      padding: 2.5rem 2rem;
+      gap: 2.5rem;
     }
     
     @include mi.media-up(md) {
-      padding: 2rem;
+      padding: 3rem 2.5rem;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+    }
+    
+    @include mi.media-up(lg) {
+      padding: 3rem 3rem;
+      gap: 4rem;
     }
   }
 
   .job-description {
     color: rgba(vr.$text-light, 0.9);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    line-height: 1.7;
     @include mi.font-size(small);
 
     @include mi.media-up(sm) {
-      margin-bottom: 1.75rem;
       @include mi.font-size(body);
     }
     
     @include mi.media-up(md) {
-      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+  }
+
+  .job-details {
+    display: contents;
+    
+    @include mi.media-down(md) {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
   }
 
   .job-requirements,
   .job-benefits {
-    margin-bottom: 1.5rem;
-
-    @include mi.media-up(sm) {
-      margin-bottom: 1.75rem;
-    }
-    
-    @include mi.media-up(md) {
-      margin-bottom: 2rem;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
     h5 {
       color: vr.$text-light;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
       font-weight: 600;
       @include mi.font-size(body);
 
       @include mi.media-up(sm) {
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         @include mi.font-size(h6);
+      }
+      
+      @include mi.media-up(md) {
+        @include mi.font-size(h5);
       }
     }
 
@@ -434,43 +454,54 @@
       li {
         display: flex;
         align-items: flex-start;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
         color: rgba(vr.$text-light, 0.8);
+        line-height: 1.6;
         @include mi.font-size(small);
 
         @include mi.media-up(sm) {
-          margin-bottom: 0.6rem;
+          margin-bottom: 1.25rem;
           @include mi.font-size(body);
+        }
+        
+        @include mi.media-up(md) {
+          margin-bottom: 1.5rem;
         }
 
         &::before {
           content: "✓";
           color: vr.$accent-color;
           font-weight: bold;
-          margin-right: 0.5rem;
+          margin-right: 1rem;
           flex-shrink: 0;
-          margin-top: 0.1rem;
+          margin-top: 0.2rem;
+          font-size: 1.1rem;
 
           @include mi.media-up(sm) {
-            margin-right: 0.75rem;
+            margin-right: 1.25rem;
+            font-size: 1.2rem;
           }
         }
       }
     }
   }
 
-  .apply-section {
+  .job-footer {
     background: rgba(vr.$accent-color, 0.1);
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 
     @include mi.media-up(sm) {
-      padding: 1.75rem;
+      padding: 2.5rem 2rem;
     }
     
     @include mi.media-up(md) {
-      padding: 2rem;
+      padding: 3rem 2.5rem;
+    }
+    
+    @include mi.media-up(lg) {
+      padding: 3rem 3rem;
     }
   }
 
@@ -512,6 +543,54 @@
       @include mi.media-up(md) {
         transform: translateY(-3px) scale(1.05);
         box-shadow: 0 10px 30px rgba(vr.$cta-color, 0.4);
+      }
+    }
+
+    i {
+      font-size: 0.9rem;
+
+      @include mi.media-up(md) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  // Spezielle E-Mail Button Klasse
+  .btn-email-contact {
+    background: none;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.3s ease;
+    @include mi.font-size(small);
+
+    @include mi.media-up(sm) {
+      padding: 12px 24px;
+      border-radius: 22px;
+      gap: 0.5rem;
+      @include mi.font-size(body);
+    }
+    
+    @include mi.media-up(md) {
+      padding: 15px 30px;
+      border-radius: 25px;
+    }
+
+    &:hover {
+      background: none;
+      color: #ef804e;
+      border-color: #ef804e;
+      transform: translateY(-2px) scale(1.02);
+      text-decoration: none;
+      
+      @include mi.media-up(md) {
+        transform: translateY(-3px) scale(1.05);
       }
     }
 
@@ -583,8 +662,19 @@
     }
     
     .jobs-grid {
-      gap: 1rem;
+      gap: 1.5rem;
       margin-top: 1.5rem;
+      max-width: 100%;
+    }
+    
+    .job-card {
+      width: 100%;
+    }
+    
+    .job-content {
+      padding: 1.5rem;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
     
     .job-header {
@@ -607,7 +697,7 @@
       border-radius: 10px;
     }
     
-    .job-body {
+    .job-content {
       padding: 1.25rem;
     }
     
@@ -616,10 +706,12 @@
       margin-bottom: 1.25rem;
     }
     
+    .job-details {
+      gap: 1.25rem;
+    }
+    
     .job-requirements,
     .job-benefits {
-      margin-bottom: 1.25rem;
-      
       h5 {
         font-size: 0.9rem;
         margin-bottom: 0.6rem;
@@ -635,7 +727,7 @@
       }
     }
     
-    .apply-section {
+    .job-footer {
       padding: 1.25rem;
     }
     

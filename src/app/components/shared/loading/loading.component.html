@@ -1,6 +1,45 @@
 <div class="loading-overlay" [class.active]="isLoading">
   <div class="loading-spinner">
-    <div class="spinner"></div>
-    <p>Laden...</p>
+    <!-- Logo als Pulsing Spinner -->
+    <div class="logo-spinner">
+      <svg class="loading-logo" viewBox="0 0 1001.53 1001.53" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>
+            .cls-1 {
+              fill: #b3b4b3;
+            }
+            .cls-1, .cls-2, .cls-3 {
+              stroke: #fff;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+              stroke-width: 8px;
+            }
+            .cls-2 {
+              fill: #ef804e;
+            }
+            .cls-3 {
+              fill: #1c3244;
+            }
+          </style>
+        </defs>
+        
+        <!-- Tropfen 1 (Orange) -->
+        <g id="Tropfen_1" class="logo-element element-1">
+          <path class="cls-2" d="M545.34,426.27c69.56,26.69,268.9,156.64,268.9,156.64,0,0-201.34,133.67-270.22,158.88-188.61,69.06-302.61-62.8-302.22-157.3.37-89.12,116.49-230,303.53-158.23Z"/>
+        </g>
+        
+        <!-- Tropfen 2 (Dunkelblau) -->
+        <g id="Tropfen_2" class="logo-element element-2">
+          <path class="cls-3" d="M391.66,371.2c68.13-34.79,304.56-98.76,304.56-98.76,0,0-30.23,243.61-62.39,310.59-87.45,216.9-255.32,186.97-327.85,123.52-68.4-59.83-97.52-241.81,85.68-335.36Z"/>
+        </g>
+        
+        <!-- Tropfen 3 (Grau) -->
+        <g id="Tropfen_3" class="logo-element element-3">
+          <path class="cls-1" d="M254.82,478.75c24.36-71.44,168.42-301.1,168.42-301.1,0,0,149.32,229.1,169.78,300.36,58.15,202.46-73.1,279.36-168.75,279.06-90.21-.29-235.63-84.22-169.45-278.32Z"/>
+        </g>
+      </svg>
+    </div>
+    
+    <p class="loading-text">Laden...</p>
   </div>
 </div>

@@ -40,9 +40,10 @@ export class DataService {
       lastName: 'van Dahlen',
       position: 'Geschäftsführer',
       department: 'Management',
-      description: 'Meister im Sanitär- und Heizungsbau mit über 30 Jahren Erfahrung.',
+      description: 'Planung, Organisation, Koordinisation.',
+      image: 'assets/images/team/Pico.png',
       specialties: ['Heizungstechnik', 'Projektmanagement', 'Kundenberatung'],
-      experience: 30
+//      experience: 30
     },
     {
       id: '2',
@@ -51,18 +52,20 @@ export class DataService {
       position: 'Finanzen- und Management',
       department: 'Planung',
       description: 'Buchhaltung und Finanzen.',
+      image: 'assets/images/team/Robin.png',
       specialties: ['Buchhaltung', 'Projektkoordination'],
-      experience: 8
+//      experience: 8
     },
     {
       id: '3',
-      firstName: 'Nikolay',
-      lastName: '...',
+      firstName: 'Niko',
+      lastName: 'Jovanovic',
       position: 'Digitalisierung und Design',
       department: 'Technik',
       description: 'Spezialist für Design und Webauftritt.',
-      specialties: ['Smart Home', 'Digitaltechnik', 'Innovation'],
-      experience: 12
+      image: 'assets/images/team/Niko.png',
+      specialties: ['Digitaltechnik', 'Innovation'],
+//      experience: 12
     }
   ];
 

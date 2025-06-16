@@ -19,25 +19,25 @@ export class InstallationComponent implements OnInit {
       title: '24/7 Notdienst',
       description: 'Schnelle Hilfe bei Notfällen',
       icon: 'fas fa-clock',
-      response: 'Innerhalb 2 Stunden'
+//      response: 'Innerhalb 2 Stunden'
     },
     {
       title: 'Wartungsverträge',
       description: 'Regelmäßige Inspektion Ihrer Anlagen',
       icon: 'fas fa-calendar-check',
-      response: 'Jährlich'
+//      response: 'Jährlich'
     },
     {
       title: 'Rohrreinigung',
       description: 'Professionelle Rohrreinigung',
       icon: 'fas fa-broom',
-      response: 'Sofort verfügbar'
+//      response: 'Sofort verfügbar'
     },
     {
       title: 'Leckortung',
       description: 'Präzise Ortung von Wasserschäden',
       icon: 'fas fa-search',
-      response: 'Same Day Service'
+//      response: 'Same Day Service'
     }
   ];
 

@@ -47,24 +47,24 @@ export class CareerComponent {
         'Familiäres Arbeitsklima'
       ]
     },
-    {
-      title: 'Projektleiter (m/w/d)',
-      type: 'Vollzeit',
-      startDate: 'Ab sofort',
-      description: 'Zur Verstärkung unseres Teams suchen wir einen erfahrenen Projektleiter für die Koordination unserer Bauprojekte.',
-      requirements: [
-        'Abgeschlossenes Studium oder Meisterausbildung',
-        'Mehrjährige Berufserfahrung in der Projektleitung',
-        'Führungserfahrung',
-        'Organisationstalent'
-      ],
-      benefits: [
-        'Führungsposition',
-        'Eigenverantwortliches Arbeiten',
-        'Flexible Arbeitszeiten',
-        'Leistungsgerechte Vergütung'
-      ]
-    }
+//    {
+//      title: 'Projektleiter (m/w/d)',
+//      type: 'Vollzeit',
+//      startDate: 'Ab sofort',
+//      description: 'Zur Verstärkung unseres Teams suchen wir einen erfahrenen Projektleiter für die Koordination unserer Bauprojekte.',
+//      requirements: [
+//        'Abgeschlossenes Studium oder Meisterausbildung',
+//        'Mehrjährige Berufserfahrung in der Projektleitung',
+//        'Führungserfahrung',
+//        'Organisationstalent'
+//      ],
+//      benefits: [
+//        'Führungsposition',
+//        'Eigenverantwortliches Arbeiten',
+//        'Flexible Arbeitszeiten',
+//        'Leistungsgerechte Vergütung'
+//      ]
+//    }
   ];
 
   benefits = [

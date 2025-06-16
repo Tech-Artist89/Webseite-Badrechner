@@ -6,19 +6,20 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   @include mi.section-padding();
   padding-top: 2rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem; // Reduziert von 1rem
   margin-top: auto;
   
   @include mi.media-up(md) {
     padding-top: 3rem;
+    padding-bottom: 0.75rem; // Reduziert von 1rem
   }
 }
 
 .footer-content {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   
   @include mi.media-up(md) {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -171,13 +172,15 @@
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 1.5rem;
+  padding-top: 1rem; // Reduziert von 1.5rem
+  padding-bottom: 0.5rem; // Neu hinzugefügt für weniger Abstand unten
   text-align: center;
   color: rgba(vr.$text-light, 0.6);
   @include mi.font-size(small);
   
   @include mi.media-up(md) {
-    padding-top: 2rem;
+    padding-top: 1.25rem; // Reduziert von 2rem
+    padding-bottom: 0.75rem; // Neu hinzugefügt
   }
 }
 

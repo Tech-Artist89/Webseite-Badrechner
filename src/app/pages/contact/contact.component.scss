@@ -173,6 +173,8 @@
       color: vr.$text-light;
       margin-bottom: 1.5rem;
       font-weight: 600;
+      word-break: break-word;
+      hyphens: auto;
       @include mi.font-size(h5);
 
       @include mi.media-up(sm) {
