@@ -15,21 +15,21 @@ export class DataService {
       title: 'Heizungsbau',
       description: 'Moderne Heizungsanlagen für optimale Energieeffizienz',
       icon: 'fas fa-fire',
-      features: ['Wärmepumpen', 'Gasheizungen', 'Solartechnik', 'Smart Home Integration']
+      features: ['Wärmepumpen', 'Gasheizungen', 'Fußbodenheizungen']
     },
     {
       id: 'bathroom',
       title: 'Bäderbau',
       description: 'Komplette Badezimmerplanung und -umsetzung',
       icon: 'fas fa-bath',
-      features: ['Badsanierung', 'Barrierefrei', 'Digitale Armaturen', '3D-Planung']
+      features: ['Badsanierung', 'Barrierefrei', 'Bodengleiche Duschen', '3D-Planung']
     },
     {
       id: 'installation',
       title: 'Installation',
       description: 'Professionelle Installation und Wartung',
       icon: 'fas fa-wrench',
-      features: ['24/7 Notdienst', 'Wartungsverträge', 'Rohrreinigung', 'Leckortung']
+      features: ['24/7 Notdienst', 'Wartungsverträge', 'Leckortung']
     }
   ];
 
