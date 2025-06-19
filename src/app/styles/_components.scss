@@ -30,7 +30,7 @@
 // Custom components
 .page-header {
   @include mi.section-padding();
-  padding-top: 100px;
+  padding-top: 100px; // ← HIER VERSCHOBEN (war vorher nach den media queries)
   text-align: center;
   background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -10%) 100%);
   

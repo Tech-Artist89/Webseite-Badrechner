@@ -3,9 +3,10 @@
 @use '../../styles/mixins' as mi;
 
 .contact-page {
+  padding-top: 100px;
   .page-header {
     @include mi.section-padding();
-    padding-top: 100px;
+    
     background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -15%) 100%);
 
     @include mi.media-up(md) {
