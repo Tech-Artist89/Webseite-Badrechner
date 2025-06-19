@@ -220,7 +220,7 @@ export class BathroomDataService {
         id: 'classic',
         name: 'Classic',
         description: 'Gelungene Verbindung von Qualität und fairem Preis',
-        imageUrl: 'assets/images/bathroom/quality-classic.jpg',
+        imageUrl: 'assets/images/bathroom/quality-classic.svg',
         selected: false,
         features: [
           'Aufputz Armatur',
@@ -233,7 +233,7 @@ export class BathroomDataService {
         id: 'hochwertig',
         name: 'Hochwertig',
         description: 'Zeitlos-elegante Produkte in einem höheren Preissegment',
-        imageUrl: 'assets/images/bathroom/quality-hochwertig.jpg',
+        imageUrl: 'assets/images/bathroom/quality-hochwertig.svg',
         selected: false,
         features: [
           'Aufputz Armatur',
@@ -246,7 +246,7 @@ export class BathroomDataService {
         id: 'premium',
         name: 'Premium',
         description: 'Zukunftsweisendes Design und modernste Technik',
-        imageUrl: 'assets/images/bathroom/quality-premium.jpg',
+        imageUrl: 'assets/images/bathroom/quality-premium.svg',
         selected: false,
         features: [
           'Unterputz Armatur',
