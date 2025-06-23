@@ -2,6 +2,7 @@
 @use 'sass:color';
 @use 'variables' as vr;
 
+
 // Responsive breakpoint mixins
 @mixin media-up($breakpoint) {
   @if $breakpoint == sm {

@@ -29,11 +29,6 @@ export class CompanyComponent {
       year: 'Feb. 2025',
       title: 'Nachhaltigkeit',
       description: 'Spezialisierung auf umweltfreundliche und energieeffiziente Lösungen'
-    },
-    {
-      year: '2025',
-      title: 'Innovation',
-      description: 'Führend in Smart Home Integration und zukunftsweisender Technik'
     }
   ];
 

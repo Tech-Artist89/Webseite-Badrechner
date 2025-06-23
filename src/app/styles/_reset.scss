@@ -1,0 +1,35 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// Verhindert iOS Zoom bei Input-Focus
+input[type="text"],
+input[type="email"], 
+input[type="tel"],
+textarea,
+select {
+  font-size: 16px !important;
+}
+
+@media (min-width: 768px) {
+  input[type="text"],
+  input[type="email"], 
+  input[type="tel"],
+  textarea,
+  select {
+    font-size: inherit !important;
+  }
+}

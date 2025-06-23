@@ -1,0 +1,140 @@
+@use 'variables' as vr;
+
+// Automatische Backdrop-Filter Fallbacks
+.glass-effect,
+[class*="glass"],
+.modal-content,
+.card,
+.contact-form,
+.page-content {
+  // Fallback für Browser ohne backdrop-filter
+  @supports not (backdrop-filter: blur(10px)) {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+  
+  // Webkit Prefix hinzufügen
+  @supports (-webkit-backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+// Automatische Transform-Prefixes für Hover-Effekte
+.service-card,
+.team-card,
+.benefit-card,
+.heating-card,
+.value-card,
+.job-card,
+.hover-lift,
+[class*="card"]:hover {
+  -webkit-transform: translateY(var(--transform-y, -5px));
+  -moz-transform: translateY(var(--transform-y, -5px));
+  transform: translateY(var(--transform-y, -5px));
+}
+
+// Automatische Transition-Prefixes
+.btn,
+.nav-link,
+.service-card,
+.team-card,
+[class*="card"],
+.hover-lift {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+// Grid Fallbacks für deine bestehenden Grid-Klassen
+.services-grid,
+.team-grid,
+.benefits-grid,
+.equipment-grid,
+.heating-grid,
+.tiles-grid,
+.checkbox-group,
+.stats-grid {
+  // Flexbox Fallback
+  display: flex;
+  flex-wrap: wrap;
+  
+  // Wenn Grid unterstützt wird
+  @supports (display: grid) {
+    display: grid;
+  }
+  
+  > * {
+    flex: 1;
+    min-width: 280px;
+    
+    @supports (display: grid) {
+      flex: none;
+      min-width: auto;
+    }
+  }
+}
+
+// Safari spezifische Fixes
+@supports (-webkit-appearance: none) {
+  // Safari Flexbox Fix
+  .flex-between,
+  .flex-center,
+  .navigation-buttons,
+  .hero-buttons {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+  }
+}
+
+// Firefox spezifische Fixes  
+@-moz-document url-prefix() {
+  // Firefox Button Fix
+  .btn,
+  button {
+    -moz-appearance: none;
+  }
+  
+  // Firefox Input Fix
+  input,
+  textarea,
+  select {
+    -moz-appearance: none;
+  }
+}
+
+// Mobile Browser Fixes
+@media (max-width: 767px) {
+  // Touch Targets
+  .btn,
+  .nav-link,
+  .menu-toggle,
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  // Prevent horizontal scroll
+  body {
+    overflow-x: hidden;
+  }
+}
+
+// Scrollbar für alle Browser
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: vr.$cta-color;
+  border-radius: 4px;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: vr.$cta-color rgba(255, 255, 255, 0.1);
+}

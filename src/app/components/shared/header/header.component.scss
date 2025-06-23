@@ -46,7 +46,7 @@
         height: 53px;
       }
     }
-    
+
     .logo-link {
       font-size: 1.1rem;
       
@@ -110,7 +110,7 @@
     
     .company-logo {
       transform: rotate(-5deg) scale(1.05);
-      filter: drop-shadow(0 4px 8px rgba(239, 128, 78, 0.4));
+      filter: drop-shadow(0 2px 4px rgba(239, 128, 78, 1));
     }
   }
 
@@ -135,6 +135,24 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   flex-shrink: 0; // Logo soll nicht schrumpfen
+  
+  // SVG Color Fix für Mobile Browser
+  color-scheme: light only !important;
+  -webkit-color-scheme: light only !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+
+  svg {
+    color-scheme: light only !important;
+    filter: none !important;
+    
+    .cls-1 { fill: #b3b4b3 !important; }
+    .cls-2 { fill: #ef804e !important; }  
+    .cls-3 { fill: #1c3244 !important; }
+  }
+    
+  shape-rendering: geometricPrecision;
+  image-rendering: crisp-edges;
   
   @include mi.media-up(sm) {
     width: 52px;

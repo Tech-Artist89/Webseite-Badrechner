@@ -70,6 +70,10 @@
   transition: all 0.3s ease;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 
+  .element-1 { fill: #ef804e !important; }
+  .element-2 { fill: #1c3244 !important; }
+  .element-3 { fill: #b3b4b3 !important; }
+
   @include mi.media-up(sm) {
     width: 100px;
     height: 100px;
