@@ -3,11 +3,12 @@
 @use '../../styles/mixins' as mi;
 
 .services-page {
+  padding-top: 100px;
+  
   .page-header {
     @include mi.section-padding();
-    padding-top: 100px;
-    background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -15%) 100%);
-
+    background: linear-gradient(135deg, vr.$primary-color 0%, color.adjust(vr.$primary-color, $lightness: -15%) 100%); // ← HIER VERSCHOBEN
+    
     @include mi.media-up(md) {
       padding-top: 120px;
     }
